@@ -360,6 +360,7 @@
 "Assets/C#Scripts/FireflyController.cs"
 "Assets/C#Scripts/IntroManager.cs"
 "Assets/C#Scripts/MainMenuStartManager.cs"
+"Assets/C#Scripts/Player.cs"
 "Assets/C#Scripts/Prior_AudioManager.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
