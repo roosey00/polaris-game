@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 500
   m_WholeNumbers: 0
-  m_Value: 335
+  m_Value: 441
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2148,7 +2148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBC29\uC758 \uB9C8\uB098: 55"
+  m_text: "\uB9C8\uC18C \uB18D\uB3C4: 55"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302f43c7e69f0243a6f6bdf329b0148, type: 2}
   m_sharedMaterial: {fileID: 2232219970471704242, guid: 5302f43c7e69f0243a6f6bdf329b0148, type: 2}
@@ -2288,7 +2288,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.67
+  m_FillAmount: 0.882
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
