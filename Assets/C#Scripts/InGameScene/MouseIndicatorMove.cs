@@ -7,9 +7,9 @@ public class MouseIndicatorMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.ground.MousePos != Vector3.positiveInfinity)
+        if (GameManager.Instance.groundMouseHit.MousePos != Vector3.positiveInfinity)
         {
-            transform.position = new Vector3(GameManager.instance.ground.MousePos.x, transform.position.y, GameManager.instance.ground.MousePos.z);
+            transform.position = new Vector3(GameManager.Instance.groundMouseHit.MousePos.x, transform.position.y, GameManager.Instance.groundMouseHit.MousePos.z);
         }
     }
 }

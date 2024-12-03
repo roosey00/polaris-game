@@ -8,13 +8,13 @@ using UnityEngine;
 
 public class Player : Creature
 {
-    new private void Awake()
+    new private void Start()
     {
-        base.Awake();
+        base.Start();
 
         weapon = new HolySword(this);
-        st = new State(100f, 1f, 2f, 1.0f, 2f);
-        _targetTag = "Enemy";
+        //st = new State(100f, 1f, 2f, 1.0f, 2f);
+        //TargetTag = "Enemy";
     }
 
     new void Update()
@@ -22,22 +22,22 @@ public class Player : Creature
         base.Update();
         if (Input.GetMouseButton(1))
         {
-            move.targetPos = GameManager.instance.ground.MousePos;
+            RaycastHit hit;
+            nav.SetDestination(GameManager.Instance.groundMouseHit.MousePos);
             
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
             {
-                if (hit.collider.CompareTag(_targetTag))
+                if (hit.collider.CompareTag(targetTag))
                 {                    
                     SetAttackMode();
                     attackScanner.target = hit.transform;
-                    move.attackScanner.target = hit.transform;
-                    move.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
+                    nav.SetDestination(hit.transform.position);
+                    //nav.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
                 }
                 else
                 {
                     SetMoveMode();
-                    move.snapedFunc = null;
-                    move.targetPos = GameManager.instance.ground.MousePos;
+                    nav.SetDestination(GameManager.Instance.groundMouseHit.MousePos);
                 }
             }
         }
@@ -68,11 +68,11 @@ public class Player : Creature
 
         if (UnityEngine.Input.GetKeyDown(KeyCode.LeftShift))
         {
-            move.speed *= 3;
+            nav.speed *= 3;
         }
         if (UnityEngine.Input.GetKeyUp(KeyCode.LeftShift))
         {
-            move.speed /= 3;
+            nav.speed /= 3;
         }
     }
 

@@ -26,7 +26,7 @@ public class ParticleManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            MakeParticle(ParticleName.Click, GameManager.instance.ground.MousePos);
+            MakeParticle(ParticleName.Click, GameManager.Instance.groundMouseHit.MousePos);
         }
     }
 

@@ -1,9 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// public struct RateValue<T> where T : struct
+// {
+//     // 값과 비율
+//     public T val;
+//     public T rate;
+
+//     // 값과 비율을 초기화하는 생성자
+//     public RateValue(T val = default, T rate = default)
+//     {
+//         this.val = val;
+//         this.rate = rate;
+//     }
+
+//     // 암시적 변환 연산자: RateValue -> T
+//     public static implicit operator T(RateValue<T> rateValue)
+//     {
+//         dynamic v = rateValue.val;
+//         dynamic r = rateValue.rate;
+//         return v * r;
+//     }
+
+//     // 암시적 변환 연산자: T -> RateValue
+//     public static implicit operator RateValue<T>(T val)
+//     {
+//         return new RateValue<T>(val);
+//     }
+
+//     // 문자열로 변환
+//     public override string ToString()
+//     {
+//         return $"Value: {val}, Rate: {rate}";
+//     }
+// }
 
 public class LockObject<T>
  {
@@ -19,62 +54,58 @@ public class LockObject<T>
 
 public class Vector3Modifier
 {
-    public static Vector3 ChangeX(Vector3 vector, float newX)
+    public static UnityEngine.Vector3 ChangeX(UnityEngine.Vector3 vector, float newX)
     {
         vector.x = newX;
         return vector;
     }
 
-    public static Vector3 ChangeY(Vector3 vector, float newY)
+    public static UnityEngine.Vector3 ChangeY(UnityEngine.Vector3 vector, float newY)
     {
         vector.y = newY;
         return vector;
     }
 
-    public static Vector3 ChangeZ(Vector3 vector, float newZ)
+    public static UnityEngine.Vector3 ChangeZ(UnityEngine.Vector3 vector, float newZ)
     {
         vector.z = newZ;
         return vector;
     }
 }
 
- public class GameManager : MonoBehaviour
+ public class GameManager : Singleton<GameManager>
 {
     // ������ �ᱸ��
     private GameManager() { }
 
-    // singleton
-    public static GameManager instance
-    {
-        get { return _instance; }
-    }
-    private static GameManager _instance = null;
-
     // ��������
-    public GameObject playerObj;
-    public Ground ground;
-    public ParticleManager particleManager;
-    public GameObject RangeTrigger;
+    public GameObject playerObj = null;
+    public MouseHit groundMouseHit = null;
+    public ParticleManager particleManager = null;
+    public GameObject RangeTrigger = null;
 
     public delegate void voidvoidFunc();
     public delegate void voidGameobjectFunc(GameObject g_obj);
     public delegate void voidCreatureFunc(Creature crt);
     public delegate float floatfloatFunc(float flt);
 
-    void Start()
+    new void Awake()
     {
+        base.Awake();
+
         //Physics.gravity = new Vector3(0, 0, 9.81f);
-        if (_instance == null)
-        {
-            _instance = GetComponent<GameManager>();
-        }
+        // Initialize(_instance);
+        // Initialize(playerObj, (o) => GameObject.Find("Plyaer"));
+        // Initialize(groundMouseHit, (o) => GameObject.Find("Ground").GetComponent<MouseHit>());
+        // Initialize(particleManager, (o) => GameObject.Find("Particle Group").GetComponent<ParticleManager>());
+        // Initialize(RangeTrigger, (o) => Resources.Load<GameObject>("Prefab/Attack Trigger"));
         if (playerObj == null)
         {
             playerObj = GameObject.Find("Player");
         }
-        if (ground == null)
+        if (groundMouseHit == null)
         {
-            ground = GameObject.Find("Ground").GetComponent<Ground>();
+            groundMouseHit = GameObject.Find("Ground").GetComponent<MouseHit>();
         }
         if (particleManager == null)
         {

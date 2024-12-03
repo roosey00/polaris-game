@@ -6,22 +6,24 @@ public class Enemy : Creature
 {   
     public Animator animator;
 
-    new protected void Awake()
+    new protected void Start()
     {
-        base.Awake();
+        base.Start();
         if (animator == null)
         {
             animator = gameObject.GetComponentInChildren<Animator>();
         }
-        move.slowRotate = true;
         
-        attackScanner.target = GameManager.instance.playerObj.transform;
-        st = new State(5f, 1f, 2f, 1.0f, 2f);
-        _targetTag = "Player";
+        //nav. .slowRotate = true;
+        
+        target = GameManager.Instance.playerObj;
+        attackScanner.target = GameManager.Instance.playerObj.transform;
+        
+        //st = new State(5f, 1f, 2f, 1.0f, 2f);\
     }
 
     protected void LateUpdate()
     {
-        animator.SetFloat("speedv", (!move.snaped) ? 1f : 0f);
+        nav.SetDestination(target.transform.position);
     }
 }

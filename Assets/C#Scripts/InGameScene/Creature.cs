@@ -3,113 +3,83 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
-public struct State
-{
-    public float maxHp;
-    public float hp;
-    public float shiled;
-    public float defense;
-    public float attackDamage;
-    public float attackSpeed;
-    public float attackRange;
-    public float abillityPower;
-    public float speed;
-    public float critRate;
-    public float critDamage;
-
-    public State(float maxHp = 5f
-    , float defense = 0f
-    , float shiled = 0f
-    , float attackDamage = 2f
-    , float attackSpeed = 1.0f
-    , float attackRange = 2f
-    , float abillityPower = 0f
-    , float speed = 0f
-    , float critRate = 0f
-    , float critDamage = 0f)
-    {
-        this.maxHp = this.hp = maxHp;
-        this.shiled = shiled;
-        this.defense = defense;
-        this.attackDamage = attackDamage;
-        this.attackSpeed = attackSpeed;
-        this.attackRange = attackRange;
-        this.abillityPower = abillityPower;
-        this.speed = speed;
-        this.critRate = critRate;
-        this.critDamage = critDamage;
-    }
-    public static State operator +(State st1, State st2)
-    {
-        return new State(
-        st1.maxHp + st2.maxHp,
-        st1.shiled + st2.shiled,
-        st1.defense + st2.defense,
-        st1.attackDamage + st2.attackDamage,
-        st1.attackSpeed + st2.attackSpeed,
-        st1.attackRange + st2.attackRange,
-        st1.abillityPower + st2.abillityPower,
-        st1.speed + st2.speed,
-        st1.critRate + st2.critRate,
-        st1.critDamage + st2.critDamage);
-    }
-}
-
-public enum AttackType
-{
-    None, Target, Range, Spawn
-}
 
 public class Creature : MonoBehaviour
 {
-    public Moveable move;
-    public Scanner attackScanner = null;
+    // 아이템
 
-    public Item weapon;
-    public Item helmet;
-    public Item armor;
-    public Item pants;
-    public Item shoes;
-    public Item ring;
-    public Item necklace;
-    public Item earring;
+    public Item weapon = null;
+    public Item helmet = null;
+    public Item armor = null;
+    public Item pants = null;
+    public Item shoes = null;
+    public Item ring = null;
+    public Item necklace = null;
+    public Item earring = null;
+
+    // 스탯
+
+    public float maxHp = 5f;
+    public float hp = 5f;
+    // 방어력
+    public float shiled = 0f;
+    public float defense = 5f;
+    public float attackDamage = 1f;
+    public float attackSpeed = 1f;
+    public float attackRange = 1f;
+    public float abillityPower = 0f;
+    public float critRate = 0f;
+    public float critDamage = 1.5f;
+
+    // 상황별 함수
 
     public List<GameManager.voidvoidFunc> dealFunc = null;
     public List<GameManager.voidvoidFunc> dmgedFunc = null;
     public List<GameManager.voidvoidFunc> tickFunc = null;
 
-    /// <summary>
-    /// State
-    /// </summary>
+    // component
 
-    protected GameObject target;
-    public string targetTag
-    {
-        get
-        {
-            return _targetTag;
-        }
-    }
-    protected string _targetTag;
-    
-    public State st;
+    protected NavMeshAgent nav = null;
 
-    protected RaycastHit hit;
+    // child
+
+    public Scanner attackScanner = null;
+
+    // Gameobject
+
+    protected GameObject target = null;
+
+    // Tag
+
+    public string targetTag;
+
+    // Flag
+
     protected bool isAttack = false;
 
+    // Class Global
 
-    protected void Awake()
+    private RaycastHit hit;
+
+    protected void Start()
     {
-        if (move == null)
+        if (nav == null)
         {
-            move = gameObject.GetComponentInChildren<Moveable>();
+            nav = gameObject.GetComponentInChildren<NavMeshAgent>();
+        }
+        if (attackScanner == null)
+        {
+            attackScanner = transform.Find("AttackRangeScanner").GetComponent<Scanner>();
         }
     } 
+
     // Update is called once per frame
     protected void Update()
     {
-        if (st.hp <= 0f)
+        if (hp <= 0f)
         {
             gameObject.SetActive(false);
         }
@@ -122,18 +92,18 @@ public class Creature : MonoBehaviour
         }
     }
 
-    public float GetDamage(float dmg, float defRate = 1.0f)
+    public float GetDamage(float dmg)
     {
-        float finalDamage = dmg * (100 / (100 + st.defense * defRate));
-        float shiledReduce = finalDamage - st.shiled;
-        if (st.shiled > 0f)
+        float finalDamage = dmg * (100 / (100 + defense));
+        float shiledReduce = finalDamage - shiled;
+        if (shiled > 0f)
         {
-            st.shiled -= finalDamage;
+            shiled -= finalDamage;
         }
-        if (st.shiled <= 0f)
+        if (shiled <= 0f)
         {
-            st.shiled = 0f;
-            st.hp -= shiledReduce;
+            shiled = 0f;
+            hp -= shiledReduce;
             if (dmgedFunc != null)
             {
                 foreach (var func in dmgedFunc)
@@ -147,7 +117,7 @@ public class Creature : MonoBehaviour
 
     public float Dealing(GameObject obj)
     {
-        float finalDamage = st.attackDamage;
+        float finalDamage = attackDamage;
         target.GetComponent<Creature>().GetDamage(finalDamage);
         if (dmgedFunc != null)
         {
@@ -162,32 +132,32 @@ public class Creature : MonoBehaviour
     protected void SetAttackMode()
     {
         target = hit.transform.gameObject;
-        move.targetPos = hit.collider.transform.position;    
+        nav.SetDestination(hit.collider.transform.position);    
     }
 
     protected void SetMoveMode()
     {
-        move.isPause = false;
+        nav.enabled = true;
     }
 
     protected IEnumerator TargetAttack(GameObject target)
     {   
-        move.isPause = true;
+        nav.enabled = false;
         isAttack = true;
         while (isAttack)
         {
-            yield return new WaitForSeconds(st.attackSpeed * weapon.attackRate);
+            yield return new WaitForSeconds(attackSpeed * weapon.attackRate);
             if (isAttack)
             {
                 Debug.Log(target.name);
                 Dealing(target);
                 if (target.activeSelf == false) 
                 {
-                    move.isPause = false;
+                    nav.enabled = true;
                     break;
                 }
             }
-            yield return new WaitForSeconds(st.attackSpeed * (1 - weapon.attackRate));
+            yield return new WaitForSeconds(attackSpeed * (1 - weapon.attackRate));
         }
         SetMoveMode();
     }
@@ -196,13 +166,13 @@ public class Creature : MonoBehaviour
     {
         if (!isAttack)
         {
-            move.isPause = true;
+            nav.enabled = false;
             isAttack = true;
-            GameObject rngTrigger = Instantiate(GameManager.instance.RangeTrigger, 
+            GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger, 
             Vector3Modifier.ChangeY(transform.position + transform.forward * 3f, 0f), 
             Quaternion.identity);
-            rngTrigger.GetComponent<RangeAttack>().timer = st.attackSpeed * weapon.attackRate;
-            rngTrigger.GetComponent<RangeAttack>().damage = st.attackDamage;
+            rngTrigger.GetComponent<RangeAttack>().timer = attackSpeed * weapon.attackRate;
+            rngTrigger.GetComponent<RangeAttack>().damage = attackDamage;
             yield return new WaitWhile(() => {return rngTrigger != null;});
             if (target.activeSelf == false) 
             {
@@ -217,11 +187,11 @@ public class Creature : MonoBehaviour
         if (!isAttack)
         {
             isAttack = true;
-            GameObject rngTrigger = Instantiate(GameManager.instance.RangeTrigger, 
+            GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger, 
             Vector3Modifier.ChangeY(transform.position + transform.forward * 3f, 0f), 
             Quaternion.identity);
-            rngTrigger.GetComponent<RangeAttack>().timer = st.attackSpeed * weapon.attackRate;
-            rngTrigger.GetComponent<RangeAttack>().damage = st.attackDamage;
+            rngTrigger.GetComponent<RangeAttack>().timer = attackSpeed * weapon.attackRate;
+            rngTrigger.GetComponent<RangeAttack>().damage = attackDamage;
             yield return new WaitWhile(() => {return rngTrigger != null;});
             isAttack = false;
         }

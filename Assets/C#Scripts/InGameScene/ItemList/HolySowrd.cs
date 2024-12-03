@@ -9,7 +9,7 @@ public class HolySword : Item
         : base(crt)
     {
         skill[0] = new LockObject<GameManager.voidCreatureFunc>(crt => {
-            crt.StartCoroutine(crt.move.ForceMove(crt.transform.forward, 10f, 1f));
+            //crt.StartCoroutine(crt.nav.ForceMove(crt.transform.forward, 10f, 1f));
         }, false);
         skill[1] = new LockObject<GameManager.voidCreatureFunc>(crt => {
             
@@ -30,7 +30,7 @@ public class HolySword : Item
     public override void AddPassive(Creature crt) 
     {
         crt.dealFunc.Add(() => {
-            if (crt.st.hp >= crt.st.maxHp)
+            if (crt.hp >= crt.maxHp)
             {
                 if (crt.weapon.stateDict["ShiledAdd"] < crt.weapon.stateDict["ShiledMax"])
                 {
@@ -39,12 +39,12 @@ public class HolySword : Item
             }
             else
             {
-                crt.st.hp++;
+                crt.hp++;
             }
         });
     }
     public override void RemovePassive(Creature crt)
     {
-        crt.st.hp -= crt.weapon.stateDict["HpAdd"];
+        crt.hp -= crt.weapon.stateDict["HpAdd"];
     }
 }

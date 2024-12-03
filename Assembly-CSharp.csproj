@@ -64,8 +64,6 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.46f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/C#Scripts/InGameScene/Ground.cs" />
-    <Compile Include="Assets/C#Scripts/InGameScene/Moveable.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" />
@@ -76,7 +74,6 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" />
     <Compile Include="Assets/C#Scripts/InGameScene/MouseIndicatorMove.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" />
-    <Compile Include="Assets/C#Scripts/InGameScene/ClickMove.cs" />
     <Compile Include="Assets/C#Scripts/InGameScene/InventoryManager.cs" />
     <Compile Include="Assets/C#Scripts/InGameScene/RangeAttack.cs" />
     <Compile Include="Assets/C#Scripts/AudioManager.cs" />
@@ -96,6 +93,7 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" />
     <Compile Include="Assets/C#Scripts/InGameScene/Item.cs" />
+    <Compile Include="Assets/C#Scripts/InGameScene/SingleTon.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" />
@@ -113,7 +111,9 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
     <Compile Include="Assets/C#Scripts/Prior_AudioManager.cs" />
+    <Compile Include="Assets/C#Scripts/InGameScene/InitializeBehaviour.cs" />
     <Compile Include="Assets/C#Scripts/DialogueManager.cs" />
+    <Compile Include="Assets/C#Scripts/InGameScene/MouseHit.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
     <Compile Include="Assets/C#Scripts/InGameScene/ItemList/HolySowrd.cs" />
     <Compile Include="Assets/C#Scripts/FireflyController.cs" />
