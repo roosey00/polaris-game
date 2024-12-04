@@ -84,11 +84,6 @@ public class Vector3Modifier
     public ParticleManager particleManager = null;
     public GameObject RangeTrigger = null;
 
-    public delegate void voidvoidFunc();
-    public delegate void voidGameobjectFunc(GameObject g_obj);
-    public delegate void voidCreatureFunc(Creature crt);
-    public delegate float floatfloatFunc(float flt);
-
     new void Awake()
     {
         base.Awake();

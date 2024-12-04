@@ -5,13 +5,14 @@ using UnityEngine;
 
 abstract public class Item : ScriptableObject
 {
+    Creature Owner = null;
     string itemName = "None";
     public Sprite ItemImage = null;
     public string rank = "C";
     public Dictionary<string, float> stateDict = new Dictionary<string, float>();
 
     // 내부의 값을 무조건 초기화 해 줘야됨
-    public LockObject<GameManager.voidCreatureFunc>[] skill = new LockObject<GameManager.voidCreatureFunc>[5];
+    public LockObject<Action<Creature>>[] skill = new LockObject<Action<Creature>>[5];
 
     public float maxHp = 5f;
     public float hp = 5f;
@@ -28,6 +29,7 @@ abstract public class Item : ScriptableObject
 
     public Item(Creature crt)
     {
+        Owner = crt;
     }
 
     abstract public void AddPassive(Creature crt);

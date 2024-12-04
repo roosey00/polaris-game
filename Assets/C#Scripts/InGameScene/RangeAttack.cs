@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,15 +13,15 @@ public class RangeAttack : MonoBehaviour
     public float timer = 5f;
     public float damage = 90f;
 
-    GameManager.voidGameobjectFunc startFunc = null;
-    GameManager.voidGameobjectFunc endFunc = (obj) => {
+    Action<GameObject> startFunc = null;
+    Action<GameObject> endFunc = (obj) => {
         RangeAttack ra = obj.GetComponent<RangeAttack>();
         foreach (Enemy e in ra.enemyArray)
         {
             e.GetDamage(ra.damage);
         }
     };
-    GameManager.voidGameobjectFunc tirggerFunc = null;
+    Action<GameObject> tirggerFunc = null;
 
     // Start is called before the first frame update
     void Start()

@@ -20,24 +20,27 @@ public class Player : Creature
     new void Update()
     {
         base.Update();
+        
         if (Input.GetMouseButton(1))
         {
-            RaycastHit hit;
-            nav.SetDestination(GameManager.Instance.groundMouseHit.MousePos);
-            
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+            if (isMove)
             {
-                if (hit.collider.CompareTag(targetTag))
-                {                    
-                    SetAttackMode();
-                    attackScanner.target = hit.transform;
-                    nav.SetDestination(hit.transform.position);
-                    //nav.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
-                }
-                else
+                RaycastHit hit;
+                nav.SetDestination(GameManager.Instance.groundMouseHit.MousePos);
+                
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
                 {
-                    SetMoveMode();
-                    nav.SetDestination(GameManager.Instance.groundMouseHit.MousePos);
+                    if (hit.collider.CompareTag(targetTag))
+                    { 
+                        attackScanner.target = hit.transform;
+                        nav.SetDestination(hit.transform.position);
+                        //nav.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
+                    }
+                    else
+                    {
+                        isMove = true;
+                        nav.SetDestination(GameManager.Instance.groundMouseHit.MousePos);
+                    }
                 }
             }
         }

@@ -20,10 +20,21 @@ public class Enemy : Creature
         attackScanner.target = GameManager.Instance.playerObj.transform;
         
         //st = new State(5f, 1f, 2f, 1.0f, 2f);\
+
+        StartCoroutine("OneSecCoroutine");
     }
 
     protected void LateUpdate()
     {
-        nav.SetDestination(target.transform.position);
+        
+    }
+
+    IEnumerator OneSecCoroutine()
+    {
+        while (true)
+        {
+            nav.SetDestination(target.transform.position);
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

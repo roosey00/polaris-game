@@ -375,6 +375,7 @@
 "Assets/C#Scripts/InGameScene/Player.cs"
 "Assets/C#Scripts/InGameScene/RangeAttack.cs"
 "Assets/C#Scripts/InGameScene/Scanner.cs"
+"Assets/C#Scripts/InGameScene/SingleTon.cs"
 "Assets/C#Scripts/IntroManager.cs"
 "Assets/C#Scripts/MainMenuStartManager.cs"
 "Assets/C#Scripts/Prior_AudioManager.cs"

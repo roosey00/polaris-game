@@ -4,13 +4,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class Creature : MonoBehaviour
 {
     // 아이템
 
+    public Item Weapon
+    {
+        set{
+            
+        }
+        get{
+            //...
+        }
+    }
     public Item weapon = null;
     public Item helmet = null;
     public Item armor = null;
@@ -36,9 +44,9 @@ public class Creature : MonoBehaviour
 
     // 상황별 함수
 
-    public List<GameManager.voidvoidFunc> dealFunc = null;
-    public List<GameManager.voidvoidFunc> dmgedFunc = null;
-    public List<GameManager.voidvoidFunc> tickFunc = null;
+    public List<Action> dealFunc = null;
+    public List<Action> dmgedFunc = null;
+    public List<Action> tickFunc = null;
 
     // component
 
@@ -59,6 +67,20 @@ public class Creature : MonoBehaviour
     // Flag
 
     protected bool isAttack = false;
+
+    const float FAST_ROTATION_SPEED = 10000f;
+    protected bool isMove {
+        set {
+            nav.enabled = value;
+            //nav.angularSpeed = nav.acceleration = value ? FAST_ROTATION_SPEED : 0f;
+        }
+        get{ return nav.enabled;}//return nav.acceleration == FAST_ROTATION_SPEED; }
+    }
+
+    public Vector3 MousePointDirNorm
+    {
+        get { return (GameManager.Instance.groundMouseHit.MousePos - transform.position).normalized;}
+    }
 
     // Class Global
 
@@ -129,15 +151,34 @@ public class Creature : MonoBehaviour
         return finalDamage;
     }
 
-    protected void SetAttackMode()
+    public void ForceMove(Vector3 dir, float speed, float timer)
     {
-        target = hit.transform.gameObject;
-        nav.SetDestination(hit.collider.transform.position);    
+        if (isMove)
+        {
+            StartCoroutine(ForceMoveCoroutine(dir, speed, timer));
+        }
     }
 
-    protected void SetMoveMode()
+    protected IEnumerator ForceMoveCoroutine(Vector3 dir, float speed, float timer)
     {
-        nav.enabled = true;
+        isMove = false;
+        dir = Vector3Modifier.ChangeY(dir, 0);
+        transform.LookAt(transform.position + dir);
+        // 루프 시작
+        while (timer > 0)
+        {
+            // 이동
+            transform.position += dir.normalized * speed * Time.fixedDeltaTime;
+            //transform.Translate(Vector3Modifier.ChangeY(dir, 0).normalized * speed * Time.fixedDeltaTime);
+            
+            // 타이머 감소
+            timer -= Time.fixedDeltaTime;
+
+            // 프레임 대기
+            yield return new WaitForFixedUpdate(); // Time.deltaTime 주기로 갱신
+        }
+        //nav.ResetPath();
+        isMove = true;
     }
 
     protected IEnumerator TargetAttack(GameObject target)
@@ -159,10 +200,10 @@ public class Creature : MonoBehaviour
             }
             yield return new WaitForSeconds(attackSpeed * (1 - weapon.attackRate));
         }
-        SetMoveMode();
+        isMove = true;
     }
 
-    protected IEnumerator RangeAttack(GameObject target)
+    protected IEnumerator RangeAttack(GameObject target, Transform obj = null)
     {
         if (!isAttack)
         {
@@ -171,12 +212,13 @@ public class Creature : MonoBehaviour
             GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger, 
             Vector3Modifier.ChangeY(transform.position + transform.forward * 3f, 0f), 
             Quaternion.identity);
+            rngTrigger.transform.SetParent(obj);
             rngTrigger.GetComponent<RangeAttack>().timer = attackSpeed * weapon.attackRate;
             rngTrigger.GetComponent<RangeAttack>().damage = attackDamage;
             yield return new WaitWhile(() => {return rngTrigger != null;});
             if (target.activeSelf == false) 
             {
-                SetMoveMode();
+                isMove = true;
             }
             isAttack = false;
         }

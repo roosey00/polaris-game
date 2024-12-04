@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +9,20 @@ public class HolySword : Item
     public HolySword(Creature crt)
         : base(crt)
     {
-        skill[0] = new LockObject<GameManager.voidCreatureFunc>(crt => {
-            //crt.StartCoroutine(crt.nav.ForceMove(crt.transform.forward, 10f, 1f));
+        skill[0] = new LockObject<Action<Creature>>(crt => {
+            crt.ForceMove(crt.MousePointDirNorm, 9f, 0.5f);
+
         }, false);
-        skill[1] = new LockObject<GameManager.voidCreatureFunc>(crt => {
+        skill[1] = new LockObject<Action<Creature>>(crt => {
             
         });
-        skill[2] = new LockObject<GameManager.voidCreatureFunc>(crt => {
+        skill[2] = new LockObject<Action<Creature>>(crt => {
             
         });
-        skill[3] = new LockObject<GameManager.voidCreatureFunc>(crt => {
+        skill[3] = new LockObject<Action<Creature>>(crt => {
             
         });
-        skill[4] = new LockObject<GameManager.voidCreatureFunc>(crt => {
+        skill[4] = new LockObject<Action<Creature>>(crt => {
             
         });
         stateDict.Add("ShiledMax", 20f);
