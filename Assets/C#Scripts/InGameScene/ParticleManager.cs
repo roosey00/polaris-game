@@ -9,7 +9,7 @@ public enum ParticleName
     None, Click
 }
 
-public class ParticleManager : MonoBehaviour
+public class ParticleManager : Singleton<ParticleManager>
 {
     public GameObject ClickParticle;
 

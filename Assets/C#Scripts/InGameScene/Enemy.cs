@@ -17,7 +17,7 @@ public class Enemy : Creature
         //nav. .slowRotate = true;
         
         target = GameManager.Instance.playerObj;
-        attackScanner.target = GameManager.Instance.playerObj.transform;
+        attackScanner.Target = GameManager.Instance.playerObj.transform;
         
         //st = new State(5f, 1f, 2f, 1.0f, 2f);\
 

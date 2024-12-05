@@ -75,19 +75,14 @@ public class Vector3Modifier
 
  public class GameManager : Singleton<GameManager>
 {
-    // ������ �ᱸ��
-    private GameManager() { }
-
     // ��������
     public GameObject playerObj = null;
     public MouseHit groundMouseHit = null;
     public ParticleManager particleManager = null;
     public GameObject RangeTrigger = null;
 
-    new void Awake()
+    protected override void Init()
     {
-        base.Awake();
-
         //Physics.gravity = new Vector3(0, 0, 9.81f);
         // Initialize(_instance);
         // Initialize(playerObj, (o) => GameObject.Find("Plyaer"));
@@ -109,18 +104,6 @@ public class Vector3Modifier
         if (RangeTrigger == null)
         {
             RangeTrigger = Resources.Load<GameObject>("Prefab/Attack Trigger");
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            transform.GetChild(0).gameObject.SetActive(true);
-        }
-        if (Input.GetMouseButtonUp(1))
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

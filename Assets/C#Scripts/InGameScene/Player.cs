@@ -32,7 +32,7 @@ public class Player : Creature
                 {
                     if (hit.collider.CompareTag(targetTag))
                     { 
-                        attackScanner.target = hit.transform;
+                        attackScanner.Target = hit.transform;
                         nav.SetDestination(hit.transform.position);
                         //nav.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
                     }

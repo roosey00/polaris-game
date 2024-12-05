@@ -9,17 +9,8 @@ using static UnityEngine.GraphicsBuffer;
 public class Creature : MonoBehaviour
 {
     // 아이템
-
-    public Item Weapon
-    {
-        set{
-            
-        }
-        get{
-            //...
-        }
-    }
     public Item weapon = null;
+    public Item Weapon;
     public Item helmet = null;
     public Item armor = null;
     public Item pants = null;
@@ -29,7 +20,6 @@ public class Creature : MonoBehaviour
     public Item earring = null;
 
     // 스탯
-
     public float maxHp = 5f;
     public float hp = 5f;
     // 방어력
@@ -43,29 +33,23 @@ public class Creature : MonoBehaviour
     public float critDamage = 1.5f;
 
     // 상황별 함수
-
     public List<Action> dealFunc = null;
     public List<Action> dmgedFunc = null;
     public List<Action> tickFunc = null;
 
     // component
-
     protected NavMeshAgent nav = null;
 
     // child
-
     public Scanner attackScanner = null;
 
     // Gameobject
-
     protected GameObject target = null;
 
     // Tag
-
     public string targetTag;
 
     // Flag
-
     protected bool isAttack = false;
 
     const float FAST_ROTATION_SPEED = 10000f;
@@ -187,7 +171,7 @@ public class Creature : MonoBehaviour
         isAttack = true;
         while (isAttack)
         {
-            yield return new WaitForSeconds(attackSpeed * weapon.attackRate);
+            yield return new WaitForSeconds(attackSpeed * weapon.AttackRate);
             if (isAttack)
             {
                 Debug.Log(target.name);
@@ -198,7 +182,7 @@ public class Creature : MonoBehaviour
                     break;
                 }
             }
-            yield return new WaitForSeconds(attackSpeed * (1 - weapon.attackRate));
+            yield return new WaitForSeconds(attackSpeed * (1 - weapon.AttackRate));
         }
         isMove = true;
     }
@@ -213,7 +197,7 @@ public class Creature : MonoBehaviour
             Vector3Modifier.ChangeY(transform.position + transform.forward * 3f, 0f), 
             Quaternion.identity);
             rngTrigger.transform.SetParent(obj);
-            rngTrigger.GetComponent<RangeAttack>().timer = attackSpeed * weapon.attackRate;
+            rngTrigger.GetComponent<RangeAttack>().timer = attackSpeed;
             rngTrigger.GetComponent<RangeAttack>().damage = attackDamage;
             yield return new WaitWhile(() => {return rngTrigger != null;});
             if (target.activeSelf == false) 
@@ -232,7 +216,7 @@ public class Creature : MonoBehaviour
             GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger, 
             Vector3Modifier.ChangeY(transform.position + transform.forward * 3f, 0f), 
             Quaternion.identity);
-            rngTrigger.GetComponent<RangeAttack>().timer = attackSpeed * weapon.attackRate;
+            rngTrigger.GetComponent<RangeAttack>().timer = attackSpeed;
             rngTrigger.GetComponent<RangeAttack>().damage = attackDamage;
             yield return new WaitWhile(() => {return rngTrigger != null;});
             isAttack = false;

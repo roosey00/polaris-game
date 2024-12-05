@@ -11,7 +11,6 @@ public class HolySword : Item
     {
         skill[0] = new LockObject<Action<Creature>>(crt => {
             crt.ForceMove(crt.MousePointDirNorm, 9f, 0.5f);
-
         }, false);
         skill[1] = new LockObject<Action<Creature>>(crt => {
             
