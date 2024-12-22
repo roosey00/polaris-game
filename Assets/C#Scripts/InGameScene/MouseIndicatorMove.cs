@@ -14,7 +14,7 @@ public class MouseIndicatorMove : MonoBehaviour
     {
         if (GameManager.Instance.groundMouseHit.MousePos.x != Vector3.positiveInfinity.x)
         {
-            transform.position = Vector3Modifier.ChangeY(GameManager.Instance.groundMouseHit.MousePos, transform.position.y);
+            transform.position = GameManager.ChangeY(GameManager.Instance.groundMouseHit.MousePos, transform.position.y);
         }
         if (Input.GetMouseButtonDown(1))
         {

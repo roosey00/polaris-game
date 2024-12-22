@@ -8,11 +8,11 @@ using UnityEngine;
 
 public class Player : Creature
 {
-    new private void Start()
+    new private void Awake()
     {
-        base.Start();
+        base.Awake();
 
-        weapon = new HolySword(this);
+        equipment.Weapon = new HolySword(this);
         //st = new State(100f, 1f, 2f, 1.0f, 2f);
         //TargetTag = "Enemy";
     }

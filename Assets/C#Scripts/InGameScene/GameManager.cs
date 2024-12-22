@@ -1,44 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-
-// public struct RateValue<T> where T : struct
-// {
-//     // 값과 비율
-//     public T val;
-//     public T rate;
-
-//     // 값과 비율을 초기화하는 생성자
-//     public RateValue(T val = default, T rate = default)
-//     {
-//         this.val = val;
-//         this.rate = rate;
-//     }
-
-//     // 암시적 변환 연산자: RateValue -> T
-//     public static implicit operator T(RateValue<T> rateValue)
-//     {
-//         dynamic v = rateValue.val;
-//         dynamic r = rateValue.rate;
-//         return v * r;
-//     }
-
-//     // 암시적 변환 연산자: T -> RateValue
-//     public static implicit operator RateValue<T>(T val)
-//     {
-//         return new RateValue<T>(val);
-//     }
-
-//     // 문자열로 변환
-//     public override string ToString()
-//     {
-//         return $"Value: {val}, Rate: {rate}";
-//     }
-// }
 
 public class LockObject<T>
  {
@@ -52,27 +12,6 @@ public class LockObject<T>
     public T obj;
  }
 
-public class Vector3Modifier
-{
-    public static UnityEngine.Vector3 ChangeX(UnityEngine.Vector3 vector, float newX)
-    {
-        vector.x = newX;
-        return vector;
-    }
-
-    public static UnityEngine.Vector3 ChangeY(UnityEngine.Vector3 vector, float newY)
-    {
-        vector.y = newY;
-        return vector;
-    }
-
-    public static UnityEngine.Vector3 ChangeZ(UnityEngine.Vector3 vector, float newZ)
-    {
-        vector.z = newZ;
-        return vector;
-    }
-}
-
  public class GameManager : Singleton<GameManager>
 {
     // ��������
@@ -80,6 +19,13 @@ public class Vector3Modifier
     public MouseHit groundMouseHit = null;
     public ParticleManager particleManager = null;
     public GameObject RangeTrigger = null;
+
+    public static UnityEngine.Vector3 ChangeX(UnityEngine.Vector3 vector, float newX)
+    => new Vector3(newX, vector.y, vector.z);
+    public static UnityEngine.Vector3 ChangeY(UnityEngine.Vector3 vector, float newY)
+        => new Vector3(vector.x, newY, vector.z);
+    public static UnityEngine.Vector3 ChangeZ(UnityEngine.Vector3 vector, float newZ)
+        => new Vector3(vector.x, vector.y, newZ);
 
     protected override void Init()
     {
