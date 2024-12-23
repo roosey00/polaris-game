@@ -18,7 +18,7 @@ public class RangeAttack : MonoBehaviour
         RangeAttack ra = obj.GetComponent<RangeAttack>();
         foreach (Enemy e in ra.enemyArray)
         {
-            e.GetDamage(ra.damage);
+            e.TakeDamage(ra.damage);
         }
     };
     Action<GameObject> tirggerFunc = null;

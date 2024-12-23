@@ -6,9 +6,9 @@ public class Enemy : Creature
 {   
     public Animator animator;
 
-    new protected void Start()
+    new protected void Awake()
     {
-        base.Start();
+        base.Awake();
         if (animator == null)
         {
             animator = gameObject.GetComponentInChildren<Animator>();
@@ -33,7 +33,7 @@ public class Enemy : Creature
     {
         while (true)
         {
-            nav.SetDestination(target.transform.position);
+            movementController.MoveTo(target.transform.position);
             yield return new WaitForSeconds(1f);
         }
     }

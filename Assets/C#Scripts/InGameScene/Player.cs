@@ -1,68 +1,67 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Jobs.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class Player : Creature
 {
-    new private void Awake()
+    override protected void Awake()
     {
-        base.Awake();
-
-        equipment.Weapon = new HolySword(this);
-        //st = new State(100f, 1f, 2f, 1.0f, 2f);
-        //TargetTag = "Enemy";
+        targetTag = "Enemy";
+        equipment.Weapon = new HolySword(gameObject);
+        status = new CreatureStatus
+        {
+            MaxHp = 100f,
+            AttackDamage = 1f,
+            AttackSpeed = 1.0f,
+            AttackRange = 2f
+        };
     }
 
-    new void Update()
+    override protected void Update()
     {
         base.Update();
         
         if (Input.GetMouseButton(1))
         {
-            if (isMove)
+            if (movementController.isMove)
             {
-                RaycastHit hit;
-                nav.SetDestination(GameManager.Instance.groundMouseHit.MousePos);
+                movementController.MoveTo(GameManager.Instance.groundMouseHit.MousePos);
                 
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                 {
                     if (hit.collider.CompareTag(targetTag))
                     { 
                         attackScanner.Target = hit.transform;
-                        nav.SetDestination(hit.transform.position);
+                        movementController.MoveTo(hit.transform.position);
                         //nav.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
                     }
                     else
                     {
-                        isMove = true;
-                        nav.SetDestination(GameManager.Instance.groundMouseHit.MousePos);
+                        movementController.isMove = true;
+                        movementController.MoveTo(GameManager.Instance.groundMouseHit.MousePos);
                     }
                 }
             }
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (!weapon.skill[0].isLock) weapon.skill[0].obj(this);
+            if (!equipment.Weapon.skill[0].isLock) equipment.Weapon.skill[0].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (!weapon.skill[1].isLock) weapon.skill[1].obj(this);
+            if (!equipment.Weapon.skill[1].isLock) equipment.Weapon.skill[1].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!weapon.skill[2].isLock) weapon.skill[2].obj(this);
+            if (!equipment.Weapon.skill[2].isLock) equipment.Weapon.skill[2].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (!weapon.skill[3].isLock) weapon.skill[3].obj(this);
+            if (!equipment.Weapon.skill[3].isLock) equipment.Weapon.skill[3].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (!weapon.skill[4].isLock) weapon.skill[4].obj(this);
+            if (!equipment.Weapon.skill[4].isLock) equipment.Weapon.skill[4].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.F5))
         {
@@ -71,11 +70,11 @@ public class Player : Creature
 
         if (UnityEngine.Input.GetKeyDown(KeyCode.LeftShift))
         {
-            nav.speed *= 3;
+            status.Speed *= 3;
         }
         if (UnityEngine.Input.GetKeyUp(KeyCode.LeftShift))
         {
-            nav.speed /= 3;
+            status.Speed /= 3;
         }
     }
 

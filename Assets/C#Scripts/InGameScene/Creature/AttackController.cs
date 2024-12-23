@@ -3,57 +3,66 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    public Stats stats;
-
-    public float attackCooldown = 1f;
+    protected float AttackDamage
+    {
+        set { creature.status.AttackDamage = value; }
+        get { return creature.status.AttackDamage; }
+    }
+    protected float AttackRate => creature.status.CalcuratedAttackSpeed;
     public bool isAttack = false;
 
     // component
     protected MovementController movementController = null;
+    protected Creature creature = null;                     // child
 
-    // 기본 공격
-    public void PerformAttack(GameObject target)
+    public void Start()
     {
-        if (!isAttack && target != null)
-        {
-            StartCoroutine(AttackRoutine(target));
-        }
+        creature = GetComponent<Creature>();
     }
 
-    // 공격 루틴
-    private IEnumerator AttackRoutine(GameObject target)
-    {
-        isAttack = true;
+    //// 기본 공격
+    //public void PerformAttack(GameObject target)
+    //{
+    //    if (!isAttack && target != null)
+    //    {
+    //        StartCoroutine(AttackRoutine(target));
+    //    }
+    //}
 
-        // 데미지 처리
-        var targetCreature = target.GetComponent<Creature>();
-        if (targetCreature != null)
-        {
-            targetCreature.TakeDamage(stats.AttackDamage);
-        }
+    //// 공격 루틴
+    //private IEnumerator AttackRoutine(GameObject target)
+    //{
+    //    isAttack = true;
 
-        yield return new WaitForSeconds(attackCooldown);
-        isAttack = false;
-    }
+    //    // 데미지 처리
+    //    var targetCreature = target.GetComponent<Creature>();
+    //    if (targetCreature != null)
+    //    {
+    //        targetCreature.TakeDamage(AttackDamage);
+    //    }
 
-    protected IEnumerator TargetAttack(GameObject target)
-    {
-        while (isAttack)
-        {
-            yield return new WaitForSeconds(stats.AttackSpeed);
-            if (isAttack)
-            {
-                //Debug.Log(target.name);
-                Dealing(target);
-                if (target.activeSelf == false)
-                {
-                    movementController.isMove = true;
-                    break;
-                }
-            }
-            yield return new WaitForSeconds(stats.AttackSpeed);
-        }
-    }
+    //    yield return new WaitForSeconds(attackCooldown);
+    //    isAttack = false;
+    //}
+
+    //protected IEnumerator TargetAttack(GameObject target)
+    //{
+    //    while (isAttack)
+    //    {
+    //        yield return new WaitForSeconds(stats.AttackSpeed);
+    //        if (isAttack)
+    //        {
+    //            //Debug.Log(target.name);
+    //            Dealing(target);
+    //            if (target.activeSelf == false)
+    //            {
+    //                movementController.isMove = true;
+    //                break;
+    //            }
+    //        }
+    //        yield return new WaitForSeconds(stats.AttackSpeed);
+    //    }
+    //}
 
     //protected IEnumerator RangeAttack(GameObject target, Transform obj = null)
     //{

@@ -5,23 +5,33 @@ using UnityEngine;
 
 abstract public class Item : ScriptableObject
 {
-    Creature Owner = null;
-    string itemName = "None";
+    // 아이템 정보
     public Sprite ItemImage = null;
     public string rank = "C";
-    public Dictionary<string, float> stateDict = new Dictionary<string, float>();
-
-    // 내부의 값을 무조건 초기화 해 줘야됨
-    public LockObject<Action<Creature>>[] skill = new LockObject<Action<Creature>>[5];
 
     // 전달하고 싶은 Stats
-    public Stats stats;
+    protected Status itemStats;
+    public Status ItemStats => itemStats;
 
-    public Item(Creature crt)
+    // 내부의 값을 무조건 초기화 해 줘야됨
+    public LockObject<Action<GameObject>>[] skill = new LockObject<Action<GameObject>>[5];
+    // 가진 주인
+    protected GameObject Owner = null;
+
+    // component
+    protected MovementController movementController = null;
+    protected AttackController attackController = null;
+    protected Creature creature = null;
+
+    public Item(GameObject owner)
     {
-        Owner = crt;
+        movementController = owner.GetComponent<MovementController>();
+        attackController = owner.GetComponent<AttackController>();
+        creature = owner.GetComponent<Creature>();
+        
+        Owner = owner;
     }
 
-    abstract public void AddPassive(Creature crt);
-    abstract public void RemovePassive(Creature crt);
+    abstract public void AddPassive();
+    abstract public void RemovePassive();
 }

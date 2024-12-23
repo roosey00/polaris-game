@@ -751,27 +751,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d44027d234fd24581b3057894b6879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  Weapon: {fileID: 0}
-  helmet: {fileID: 0}
-  armor: {fileID: 0}
-  pants: {fileID: 0}
-  shoes: {fileID: 0}
-  ring: {fileID: 0}
-  necklace: {fileID: 0}
-  earring: {fileID: 0}
-  maxHp: 5
-  hp: 5
-  shiled: 0
-  defense: 5
-  attackDamage: 1
-  attackSpeed: 1
-  attackRange: 1
-  abillityPower: 0
-  critRate: 0
-  critDamage: 1.5
-  attackScanner: {fileID: 0}
   targetTag: Player
+  equipment: {fileID: 0}
+  status: {fileID: 0}
   animator: {fileID: 0}
 --- !u!1 &493572127
 GameObject:
@@ -1301,27 +1283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6414bfbd321e7584dbca21dcc7b379f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  Weapon: {fileID: 0}
-  helmet: {fileID: 0}
-  armor: {fileID: 0}
-  pants: {fileID: 0}
-  shoes: {fileID: 0}
-  ring: {fileID: 0}
-  necklace: {fileID: 0}
-  earring: {fileID: 0}
-  maxHp: 5
-  hp: 5
-  shiled: 0
-  defense: 5
-  attackDamage: 1
-  attackSpeed: 1
-  attackRange: 1
-  abillityPower: 0
-  critRate: 0
-  critDamage: 1.5
-  attackScanner: {fileID: 0}
   targetTag: Enemy
+  equipment: {fileID: 0}
+  status: {fileID: 0}
 --- !u!136 &705966769
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -6,25 +6,65 @@ using UnityEngine;
 public class Equipment : ScriptableObject
 {
     private Item weapon = null;
+    public Item Weapon 
+    { 
+        get { return weapon; }
+        set { weapon = value; } 
+    }
+
     private Item helmet = null;
-    private Item armor = null;
-    private Item pants = null;
-    private Item shoes = null;
-    private Item ring = null;
-    private Item necklace = null;
-    private Item earring = null;
-
-    public Item Weapon { get; set; }
-    public Item Helmet { get; set; }
-    public Item Armor { get; set; }
-    public Item Pants { get; set; }
-    public Item Shoes { get; set; }
-    public Item Ring { get; set; }
-    public Item Necklace { get; set; }
-    public Item Earring { get; set; }
-
-    public float TotalDefense()
+    public Item Helmet
     {
-        return Helmet?.Defense + Armor?.Defense + Pants?.Defense + Shoes?.Defense ?? 0;
+        get { return helmet; }
+        set { helmet = value; }
+    }
+
+    private Item armor = null;
+    public Item Armor
+    {
+        get { return armor; }
+        set { armor = value; }
+    }
+
+    private Item pants = null;
+    public Item Pants
+    {
+        get { return pants; }
+        set { pants = value; }
+    }
+
+    private Item shoes = null;
+    public Item Shoes
+    {
+        get { return shoes; }
+        set { shoes = value; }
+    }
+
+    private Item ring1 = null;
+    public Item Ring1
+    {
+        get { return ring1; }
+        set { ring1 = value; }
+    }
+
+    private Item ring2 = null;
+    public Item Ring2
+    {
+        get { return ring2; }
+        set { ring2 = value; }
+    }
+
+    private Item necklace = null;
+    public Item Necklace
+    {
+        get { return necklace; }
+        set { necklace = value; }
+    }
+
+    private Item earring = null;
+    public Item Earring
+    {
+        get { return earring; }
+        set { earring = value; }
     }
 }

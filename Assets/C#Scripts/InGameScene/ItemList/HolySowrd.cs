@@ -3,49 +3,62 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public class HolySword : Item
 {
-    public HolySword(Creature crt)
-        : base(crt)
-    {
-        skill[0] = new LockObject<Action<Creature>>(crt => {
-            crt.ForceMove(crt.MousePointDirNorm, 9f, 0.5f);
-        }, false);
-        skill[1] = new LockObject<Action<Creature>>(crt => {
-            
-        });
-        skill[2] = new LockObject<Action<Creature>>(crt => {
-            
-        });
-        skill[3] = new LockObject<Action<Creature>>(crt => {
-            
-        });
-        skill[4] = new LockObject<Action<Creature>>(crt => {
-            
-        });
-        stateDict.Add("ShiledMax", 20f);
-        stateDict.Add("ShiledAdd", 0f);
-    }
+    float ShiledMax;
+    float ShiledAmount;
+    readonly public float HealAmount;
 
-    public override void AddPassive(Creature crt) 
+    Action shieldAction;
+
+    public HolySword(GameObject owner)
+        : base(owner)
     {
-        crt.dealFunc.Add(() => {
-            if (crt.hp >= crt.maxHp)
+        shieldAction = () =>
+        {
+            if (creature.status.CurrentHp + HealAmount >= creature.status.MaxHp)
             {
-                if (crt.weapon.stateDict["ShiledAdd"] < crt.weapon.stateDict["ShiledMax"])
+                if (ShiledAmount < ShiledMax)
                 {
-                    crt.weapon.stateDict["ShiledAdd"]++;
+                    ShiledAmount += HealAmount;
                 }
             }
             else
             {
-                crt.hp++;
+                creature.status.CurrentHp += HealAmount;
             }
+        };
+
+        skill[0] = new LockObject<Action<GameObject>>(owner => {
+            movementController.ForceMove(movementController.MousePointDirNorm, 9f, 0.5f);
+        }, false);
+        skill[1] = new LockObject<Action<GameObject>>(owner => {
+            
         });
+        skill[2] = new LockObject<Action<GameObject>>(owner => {
+            
+        });
+        skill[3] = new LockObject<Action<GameObject>>(owner => {
+            
+        });
+        skill[4] = new LockObject<Action<GameObject>>(owner => {
+            
+        });
+
+        ShiledMax = 20f;
+        ShiledAmount = 0f;
+        HealAmount = 1f;
     }
-    public override void RemovePassive(Creature crt)
+
+    public override void AddPassive() 
     {
-        crt.hp -= crt.weapon.stateDict["HpAdd"];
+        creature.attackFunc.Add(shieldAction);
+    }
+    public override void RemovePassive()
+    {
+        creature.status.Shiled -= ShiledAmount;
+        creature.attackFunc.Remove(shieldAction);
     }
 }
