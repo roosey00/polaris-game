@@ -619,6 +619,8 @@ GameObject:
   - component: {fileID: 447183525}
   - component: {fileID: 447183524}
   - component: {fileID: 447183528}
+  - component: {fileID: 447183531}
+  - component: {fileID: 447183530}
   - component: {fileID: 447183529}
   m_Layer: 0
   m_Name: Enemy
@@ -753,8 +755,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Player
   equipment: {fileID: 0}
-  status: {fileID: 0}
   animator: {fileID: 0}
+--- !u!114 &447183530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447183523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f7949e8844c17409f954f4c0a51a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttack: 0
+--- !u!114 &447183531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447183523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83b0d8a5eb91a94892a58fe4ad67cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &493572127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Enemy
   equipment: {fileID: 0}
-  status: {fileID: 0}
 --- !u!136 &705966769
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1781,10 +1806,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabPath: 
-  playerObj: {fileID: 0}
-  groundMouseHit: {fileID: 0}
-  particleManager: {fileID: 0}
-  RangeTrigger: {fileID: 0}
 --- !u!4 &1158054507
 Transform:
   m_ObjectHideFlags: 0
@@ -8489,7 +8510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &5925461600329951484
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class ParticleManager : Singleton<ParticleManager>
     {
         if (Input.GetMouseButtonDown(1))
         {
-            MakeParticle(ParticleName.Click, GameManager.Instance.groundMouseHit.MousePos);
+            MakeParticle(ParticleName.Click, GameManager.Instance.GroundMouseHit.MousePos);
         }
     }
 

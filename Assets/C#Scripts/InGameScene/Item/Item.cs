@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class Item : ScriptableObject
+abstract public class Item
 {
     // 아이템 정보
     public Sprite ItemImage = null;

@@ -25,7 +25,7 @@ public class MovementController : MonoBehaviour
 
     public Vector3 MousePointDirNorm
     {
-        get { return (GameManager.Instance.groundMouseHit.MousePos - transform.position).normalized; }
+        get { return (GameManager.Instance.GroundMouseHit.MousePos - transform.position).normalized; }
     }
 
     private void Awake()

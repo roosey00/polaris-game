@@ -1,13 +1,20 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
+    protected float currentHp;
+    public float CurrentHp => currentHp;
+
+    protected float shield;
+    public float Shield => shield;
+
     public string targetTag;
 
     public Equipment equipment;
-    public CreatureStatus status;
+    public Status status;
 
     // 상황별 함수
     public List<Action> attackFunc = null;
@@ -27,12 +34,14 @@ public class Creature : MonoBehaviour
         movementController = GetComponent<MovementController>();
         //attackController = GetComponent<AttackController>();
         attackScanner = transform.Find("AttackRangeScanner").GetComponent<Scanner>();
+
+        status = new Status();
     }
 
     // Update is called once per frame
     virtual protected void Update()
     {
-        if (status.CurrentHp <= 0f)
+        if (CurrentHp <= 0f)
         {
             Die();
         }
@@ -64,7 +73,12 @@ public class Creature : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        status.TakeDamage(damage);
+        float reducedDamage = damage * (100 / (100 + status.Defense));
+        shield -= reducedDamage;
+
+        float finalDamge = reducedDamage - shield;
+        currentHp -= finalDamge;
+
         if (dmgedFunc != null)
         {
             foreach (var func in dmgedFunc)

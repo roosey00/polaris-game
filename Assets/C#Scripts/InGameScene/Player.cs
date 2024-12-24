@@ -1,20 +1,21 @@
+using OpenCover.Framework.Model;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class Player : Creature
 {
+
     override protected void Awake()
     {
         targetTag = "Enemy";
-        equipment.Weapon = new HolySword(gameObject);
-        status = new CreatureStatus
-        {
-            MaxHp = 100f,
-            AttackDamage = 1f,
-            AttackSpeed = 1.0f,
-            AttackRange = 2f
-        };
+        //equipment.Weapon = new HolySword(gameObject);
+    }
+
+    private void Start()
+    {
+        status = Status.LoadFromJson("Player", "Data/CreatureData");
     }
 
     override protected void Update()
@@ -25,7 +26,7 @@ public class Player : Creature
         {
             if (movementController.isMove)
             {
-                movementController.MoveTo(GameManager.Instance.groundMouseHit.MousePos);
+                movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
                 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                 {
@@ -38,7 +39,7 @@ public class Player : Creature
                     else
                     {
                         movementController.isMove = true;
-                        movementController.MoveTo(GameManager.Instance.groundMouseHit.MousePos);
+                        movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
                     }
                 }
             }
@@ -68,14 +69,14 @@ public class Player : Creature
             transform.position = new Vector3(0, 1, 0);
         }
 
-        if (UnityEngine.Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            status.Speed *= 3;
-        }
-        if (UnityEngine.Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            status.Speed /= 3;
-        }
+        //if (UnityEngine.Input.GetKeyDown(KeyCode.LeftShift))
+        //{
+        //    status.Speed *= 3;
+        //}
+        //if (UnityEngine.Input.GetKeyUp(KeyCode.LeftShift))
+        //{
+        //    status.Speed /= 3;
+        //}
     }
 
 

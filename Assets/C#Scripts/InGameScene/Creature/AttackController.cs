@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    protected float AttackDamage
-    {
-        set { creature.status.AttackDamage = value; }
-        get { return creature.status.AttackDamage; }
-    }
-    protected float AttackRate => creature.status.CalcuratedAttackSpeed;
+    //protected float AttackDamage
+    //{
+    //    set { creature.status.AttackDamage = value; }
+    //    get { return creature.status.AttackDamage; }
+    //}
+    //protected float AttackRate => creature.status.CalcuratedAttackSpeed;
     public bool isAttack = false;
 
     // component

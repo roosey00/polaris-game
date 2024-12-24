@@ -12,9 +12,9 @@ public class MouseIndicatorMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.groundMouseHit.MousePos.x != Vector3.positiveInfinity.x)
+        if (GameManager.Instance.GroundMouseHit.MousePos.x != Vector3.positiveInfinity.x)
         {
-            transform.position = GameManager.ChangeY(GameManager.Instance.groundMouseHit.MousePos, transform.position.y);
+            transform.position = GameManager.ChangeY(GameManager.Instance.GroundMouseHit.MousePos, transform.position.y);
         }
         if (Input.GetMouseButtonDown(1))
         {

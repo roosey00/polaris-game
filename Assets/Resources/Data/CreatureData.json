@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Player",
+    "hp" : 100.0,
+    "hpRate": 1.0,
+    "defense": 0.0,               
+    "attackDamage" : 2.0,
+    "attackSpeed": 1.0,
+    "attackSpeedRate" : 1.0,
+    "attackRange" : 2.0,
+    "attackRangeRate" : 1.0,     
+    "abillityPower" : 0.0,        
+    "abillityPowerRate" : 1.0, 
+    "critRate" : 0.0,            
+    "critDamageRate" : 0.0,      
+    "shiled" : 0.0,              
+    "speed": 5.0,
+    "speedRate": 1.0
+  },
+  {
+    "name": "Enemy1",
+    "hp": 5.0,
+    "hpRate": 1.0,
+    "defense": 0.0,
+    "attackDamage": 1.0,
+    "attackSpeed": 1.0,
+    "attackSpeedRate": 1.0,
+    "attackRange": 2.0,
+    "attackRangeRate": 1.0,
+    "abillityPower": 0.0,
+    "abillityPowerRate": 1.0,
+    "critRate": 0.0,
+    "critDamageRate": 0.0,
+    "shiled": 0.0,
+    "speed": 2.0,
+    "speedRate": 1.0
+  }
+]

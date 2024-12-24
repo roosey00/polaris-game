@@ -98,7 +98,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\C#Scripts\InGameScene\Creature\CreatureStatus.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\C#Scripts\IntroManager.cs" />
     <Compile Include="Assets\C#Scripts\MainMenuStartManager.cs" />
@@ -117,9 +116,9 @@
     <Compile Include="Assets\C#Scripts\InGameScene\MouseHit.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\abstract\SingleTon.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\C#Scripts\InGameScene\ItemList\HolySowrd.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Item\Item.cs" />
     <Compile Include="Assets\C#Scripts\FireflyController.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\Item\ItemList\HolySowrd.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Enemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>

@@ -16,12 +16,15 @@ public class Enemy : Creature
         
         //nav. .slowRotate = true;
         
-        target = GameManager.Instance.playerObj;
-        attackScanner.Target = GameManager.Instance.playerObj.transform;
-        
-        //st = new State(5f, 1f, 2f, 1.0f, 2f);\
+        target = GameManager.Instance.PlayerObj;
+        attackScanner.Target = GameManager.Instance.PlayerObj.transform;
 
-        StartCoroutine("OneSecCoroutine");
+        StartCoroutine(OneSecCoroutine());
+    }
+
+    private void Start()
+    {
+        status = Status.LoadFromJson("Player", "Data/CreatureData");
     }
 
     protected void LateUpdate()
