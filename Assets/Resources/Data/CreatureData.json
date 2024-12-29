@@ -12,8 +12,7 @@
     "abillityPower" : 0.0,        
     "abillityPowerRate" : 1.0, 
     "critRate" : 0.0,            
-    "critDamageRate" : 0.0,      
-    "shiled" : 0.0,              
+    "critDamageRate" : 0.0,        
     "speed": 5.0,
     "speedRate": 1.0
   },
@@ -30,8 +29,7 @@
     "abillityPower": 0.0,
     "abillityPowerRate": 1.0,
     "critRate": 0.0,
-    "critDamageRate": 0.0,
-    "shiled": 0.0,
+    "critDamageRate": 0.0, 
     "speed": 2.0,
     "speedRate": 1.0
   }

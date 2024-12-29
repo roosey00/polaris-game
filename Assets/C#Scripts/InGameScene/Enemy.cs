@@ -18,26 +18,20 @@ public class Enemy : Creature
         
         target = GameManager.Instance.PlayerObj;
         attackScanner.Target = GameManager.Instance.PlayerObj.transform;
-
-        StartCoroutine(OneSecCoroutine());
     }
 
     private void Start()
     {
+        StartCoroutine(TargetFollowCoroutine(1f));
         status = Status.LoadFromJson("Player", "Data/CreatureData");
     }
 
-    protected void LateUpdate()
-    {
-        
-    }
-
-    IEnumerator OneSecCoroutine()
+    IEnumerator TargetFollowCoroutine(float delay)
     {
         while (true)
         {
             movementController.MoveTo(target.transform.position);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(delay);
         }
     }
 }

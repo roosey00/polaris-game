@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -193,6 +194,7 @@ cs1.critDamageRate + cs2.CritDamageRate,
 cs1.speed + cs2.Speed,
 cs1.speedRate + cs2.SpeedRate);
 
+    [System.Serializable]
     private class StatusJson
     {
         public string name;
@@ -214,7 +216,7 @@ cs1.speedRate + cs2.SpeedRate);
 
     private class StatusJsonListWrapper
     {
-        public List<StatusJson> items;
+        public List<StatusJson> items = new List<StatusJson>();
     }
 
     static private Dictionary<string, StatusJsonListWrapper> StatusJsonWrapperDictionary = new Dictionary<string, StatusJsonListWrapper>();
@@ -226,10 +228,13 @@ cs1.speedRate + cs2.SpeedRate);
         if (!StatusJsonWrapperDictionary.TryGetValue(path, out statusJsonListWrapper))
         {
             TextAsset jsonFile = Resources.Load<TextAsset>(path);
-            Debug.Log(jsonFile.text);
-            //string wrappedJson = $"{{\"status\": {jsonFile.text}}}";
-            StatusJsonWrapperDictionary["path"] = JsonUtility.FromJson<StatusJsonListWrapper>(jsonFile.text);
+
+            string wrappedJson = $"{{\"items\" : {jsonFile.text}}}";
+            statusJsonListWrapper = StatusJsonWrapperDictionary["path"]
+                = JsonUtility.FromJson<StatusJsonListWrapper>(wrappedJson);
         }
+
+        //Debug.Log($"{statusJsonListWrapper.items}");
 
         foreach (var statusJson in statusJsonListWrapper.items)
         {
@@ -247,7 +252,8 @@ cs1.speedRate + cs2.SpeedRate);
                     abillityPowerRate : statusJson.abillityPowerRate,
                     critRate : statusJson.critRate,
                     critDamageRate : statusJson.critDamageRate,
-                    speed : statusJson.speed
+                    speed : statusJson.speed,
+                    speedRate : statusJson.speedRate
                 );
         }
         Debug.LogError($"{name} is not in Json!");
