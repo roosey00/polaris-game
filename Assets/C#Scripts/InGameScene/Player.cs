@@ -6,16 +6,16 @@ using UnityEngine;
 
 public class Player : Creature
 {
-
     override protected void Awake()
     {
+        base.Awake();
         targetTag = "Enemy";
-        //equipment.Weapon = new HolySword(gameObject);
+        equipment.Weapon = new HolySword(gameObject);
     }
 
     private void Start()
     {
-        status = Status.LoadFromJson("Player", "Data/CreatureData");
+        Status = Status.LoadFromJson("Player", "Data/CreatureData");
     }
 
     override protected void Update()
@@ -24,21 +24,21 @@ public class Player : Creature
         
         if (Input.GetMouseButton(1))
         {
-            if (movementController.isMove)
+            if (movementController.IsNavMoveMode)
             {
                 movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
                 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                 {
                     if (hit.collider.CompareTag(targetTag))
-                    { 
+                    {
+                        Debug.Log($"dest : {hit.transform.name}");
                         attackScanner.Target = hit.transform;
                         movementController.MoveTo(hit.transform.position);
                         //nav.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
                     }
                     else
                     {
-                        movementController.isMove = true;
                         movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
                     }
                 }
@@ -64,6 +64,14 @@ public class Player : Creature
         {
             if (!equipment.Weapon.skill[4].isLock) equipment.Weapon.skill[4].obj(gameObject);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Rolling
+            movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f, ()=> {
+                movementController.StopMoveInSec(0.01f);
+            }
+            );
+        }
         if (Input.GetKeyDown(KeyCode.F5))
         {
             transform.position = new Vector3(0, 1, 0);
@@ -78,7 +86,4 @@ public class Player : Creature
         //    status.Speed /= 3;
         //}
     }
-
-
-    
 }

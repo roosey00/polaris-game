@@ -23,7 +23,7 @@ public class Enemy : Creature
     private void Start()
     {
         StartCoroutine(TargetFollowCoroutine(1f));
-        status = Status.LoadFromJson("Player", "Data/CreatureData");
+        Status = Status.LoadFromJson("Player", "Data/CreatureData");
     }
 
     IEnumerator TargetFollowCoroutine(float delay)

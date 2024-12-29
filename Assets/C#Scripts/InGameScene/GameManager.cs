@@ -1,16 +1,5 @@
 using UnityEngine;
 
-public class LockObject<T>
- {
-    public LockObject(T obj, bool isLock = true)
-    {
-        this.isLock = isLock;
-        this.obj = obj;
-    }
-    
-    public bool isLock;
-    public T obj;
- }
 
  public class GameManager : Singleton<GameManager>
 {
@@ -28,7 +17,7 @@ public class LockObject<T>
     public GameObject RangeTrigger => rangeTrigger ??= Resources.Load<GameObject>("Prefab/Attack Trigger");
 
     public static UnityEngine.Vector3 ChangeX(UnityEngine.Vector3 vector, float newX)
-    => new Vector3(newX, vector.y, vector.z);
+        => new Vector3(newX, vector.y, vector.z);
     public static UnityEngine.Vector3 ChangeY(UnityEngine.Vector3 vector, float newY)
         => new Vector3(vector.x, newY, vector.z);
     public static UnityEngine.Vector3 ChangeZ(UnityEngine.Vector3 vector, float newZ)

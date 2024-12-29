@@ -14,7 +14,17 @@ public class Creature : MonoBehaviour
     public string targetTag;
 
     public Equipment equipment;
-    public Status status;
+
+    private Status status;
+    public Status Status
+    {
+        set 
+        {            
+            status = value;
+            currentHp = status.Hp;
+        }
+        get { return status; }        
+    }
 
     // 상황별 함수
     public List<Action> attackFunc = null;
@@ -34,8 +44,7 @@ public class Creature : MonoBehaviour
         movementController = GetComponent<MovementController>();
         //attackController = GetComponent<AttackController>();
         attackScanner = transform.Find("AttackRangeScanner").GetComponent<Scanner>();
-
-        status = new Status();
+        equipment = new Equipment();
     }
 
     // Update is called once per frame
@@ -87,5 +96,4 @@ public class Creature : MonoBehaviour
             }
         }
     }
-
 }

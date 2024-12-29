@@ -7,8 +7,6 @@ using static UnityEngine.UI.GridLayoutGroup;
 
 public class HolySword : Item
 {
-    float ShiledMax;
-    float ShiledAmount;
     readonly public float HealAmount;
 
     Action shieldAction;
@@ -18,12 +16,12 @@ public class HolySword : Item
     {
         shieldAction = () =>
         {
-            if (creature.CurrentHp + HealAmount >= creature.status.Hp)
+            if (creature.CurrentHp + HealAmount >= creature.Status.Hp)
             {
-                if (ShiledAmount < ShiledMax)
-                {
-                    ShiledAmount += HealAmount;
-                }
+                //if (ShiledAmount < ShiledMax)
+                //{
+                //    ShiledAmount += HealAmount;
+                //}
             }
             else
             {
@@ -47,8 +45,6 @@ public class HolySword : Item
             
         });
 
-        ShiledMax = 20f;
-        ShiledAmount = 0f;
         HealAmount = 1f;
     }
 

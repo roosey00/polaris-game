@@ -1,65 +1,69 @@
+using System;
 using System.Collections;
+using System.Security.Permissions;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class MovementController : MonoBehaviour
 {
     private NavMeshAgent nav;
-    Vector3 destination = Vector3.zero;
+    public Vector3 destination = Vector3.zero;
 
     const float FAST_ROTATION_SPEED = 10000f;
-    public bool isMove
+    public bool IsNavMoveMode
     {
+        get
+        {
+            return !nav.isStopped;
+        }
         set
         {
-            MoveTo();
-            //nav.enabled = value;
-            //nav.angularSpeed = nav.acceleration = value ? FAST_ROTATION_SPEED : 0f;
+            nav.isStopped = !value;
         }
-        get 
-        {
-            return IsMoving();
-            //return nav.enabled; 
-        }//return nav.acceleration == FAST_ROTATION_SPEED; }
     }
 
-    public Vector3 MousePointDirNorm
-    {
-        get { return (GameManager.Instance.GroundMouseHit.MousePos - transform.position).normalized; }
-    }
+    public Vector3 MousePointDirNorm => (GameManager.Instance.GroundMouseHit.MousePos - transform.position).normalized;
 
     private void Awake()
     {
-        nav = GetComponent<NavMeshAgent>();
+        nav ??= GetComponent<NavMeshAgent>();
     }
 
-    // 특정 위치로 이동
+    /// <summary>
+    /// 특정 위치로 이동
+    /// null일 경우, 기존 목적지가 있을 경우 이동
+    /// </summary>
+    /// <param name="destination">목적지</param>
     public void MoveTo(Vector3? destination = null)
     {
-        if (destination != null)
+        if (IsNavMoveMode)
         {
-            this.destination = destination.Value;
-            nav.SetDestination(destination.Value);
+            this.destination = destination ?? this.destination;
+
+            if (this.destination != null)
+            {
+                nav.SetDestination(this.destination);
+            }
         }
     }
 
-    // 이동 중인지 확인
-    public bool IsMoving()
+    /// <summary>
+    /// 강제 이동
+    /// </summary>
+    /// <param name="dir">방향</param>
+    /// <param name="speed">속도</param>
+    /// <param name="timer">이동할 시간</param>
+    public void ForceMove(Vector3 dir, float speed, float timer, Action afterFunc = null)
     {
-        return nav.velocity.sqrMagnitude > 0;
-    }
-
-    public void ForceMove(Vector3 dir, float speed, float timer)
-    {
-        if (isMove)
+        if (IsNavMoveMode)
         {
-            StartCoroutine(ForceMoveCoroutine(dir, speed, timer));
+            StartCoroutine(ForceMoveCoroutine(dir, speed, timer, afterFunc));
         }
     }
 
-    protected IEnumerator ForceMoveCoroutine(Vector3 dir, float speed, float timer)
+    protected IEnumerator ForceMoveCoroutine(Vector3 dir, float speed, float timer, Action afterFunc = null)
     {
-        isMove = false;
+        IsNavMoveMode = false;
         dir = GameManager.ChangeY(dir, 0);
         transform.LookAt(transform.position + dir);
         // 루프 시작
@@ -76,13 +80,24 @@ public class MovementController : MonoBehaviour
             yield return new WaitForFixedUpdate(); // Time.deltaTime 주기로 갱신
         }
         //nav.ResetPath();
-        isMove = true;
+        IsNavMoveMode = true;
+        afterFunc?.Invoke();
     }
 
-
-    // 이동 중단
-    public void StopMovement()
+    public void StopMoveInSec(float timer, Action afterFunc = null)
     {
-        nav.ResetPath();
+        if (IsNavMoveMode)
+        {
+            StartCoroutine(StopMoveCoroutine(timer, afterFunc));
+        }
+    }
+
+    protected IEnumerator StopMoveCoroutine(float timer, Action afterFunc = null)
+    {
+        IsNavMoveMode = false;
+        // 프레임 대기
+        yield return new WaitForSeconds(timer); // Time.deltaTime 주기로 갱신
+        IsNavMoveMode = true;
+        afterFunc?.Invoke();
     }
 }
