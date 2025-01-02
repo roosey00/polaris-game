@@ -13,25 +13,28 @@ abstract public class Item
     protected Status itemStats;
     public Status ItemStats => itemStats;
 
-    // 내부의 값을 무조건 초기화 해 줘야됨
-    public LockObject<Action<GameObject>>[] skill = new LockObject<Action<GameObject>>[5];
     // 가진 주인
     protected GameObject Owner = null;
+    protected Status OwnerStatus = null;
 
     // component
     protected MovementController movementController = null;
     protected AttackController attackController = null;
     protected Creature creature = null;
 
+    // 스킬 함수들
+    protected LockObject<Action<GameObject>>[] skill = new LockObject<Action<GameObject>>[5];
+    public LockObject<Action<GameObject>>[] Skill => skill;
+
     public Item(GameObject owner)
     {
-        movementController = owner.GetComponent<MovementController>();
-        attackController = owner.GetComponent<AttackController>();
-        creature = owner.GetComponent<Creature>();
-        
-        Owner = owner;
+        movementController ??= owner.GetComponent<MovementController>();
+        attackController ??= owner.GetComponent<AttackController>();
+        creature ??= owner.GetComponent<Creature>();
+        Owner ??= owner;
     }
 
+    abstract public void NormalAttack();
     abstract public void AddPassive();
     abstract public void RemovePassive();
 }

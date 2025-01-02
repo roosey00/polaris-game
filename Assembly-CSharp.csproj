@@ -92,6 +92,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Item\Item.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Enemy.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\NoneMonoBehavior\OverlapCollider.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\TaskQueue.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Assets\C#Scripts\InGameScene\CameraFollowOutline.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\UIManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\Creature.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\C#Scripts\InGameScene\MouseHit.cs" />
     <Compile Include="Assets\C#Scripts\FireflyController.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\BuffManager.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\NoneMonoBehavior\TickObject.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Item\ItemList\HolySowrd.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>

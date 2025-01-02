@@ -83,11 +83,11 @@ public class BuffManager : MonoBehaviour
     public Dictionary<string, Buff> StatusEffectDict => statusEffectDict;
 
     // components
-    Creature creature = null;
+    Enemy creature = null;
 
     protected void Awake()
     {
-        creature = GetComponent<Creature>();
+        creature = GetComponent<Enemy>();
     }
 
     /// <summary>

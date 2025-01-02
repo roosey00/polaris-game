@@ -7,6 +7,12 @@ using UnityEngine;
     protected GameObject playerObj = null;
     public GameObject PlayerObj => playerObj ??= GameObject.Find("Player");
 
+    protected Player playerClass = null;
+    public Player PlayerClass => playerClass ??= GameObject.Find("Player").GetComponent<Player>();
+
+    protected TaskQueue playerTask = null;
+    public TaskQueue PlayerTask => playerTask ??= GameObject.Find("Player").GetComponent<TaskQueue>();
+    
     protected MouseHit groundMouseHit = null;
     public MouseHit GroundMouseHit => groundMouseHit ??= GameObject.Find("Ground").GetComponent<MouseHit>();
 

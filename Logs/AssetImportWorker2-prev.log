@@ -1,10 +1,10 @@
 Using pre-set license
-Built from '2022.3/staging' branch; Version is '2022.3.46f1 (8e9b8558c41a) revision 9345925'; Using compiler version '192829333'; Build Type 'Release'
+Built from '6000.0/staging' branch; Version is '6000.0.24f1 (11fa355cd605) revision 1178165'; Using compiler version '193933523'; Build Type 'Release'
 OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 16232 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2022.3.46f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
@@ -15,7 +15,13 @@ C:/Users/User/Documents/GitHub/polaris-game
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-51205
+52419
+-job-worker-count
+9
+-background-job-worker-count
+8
+-asset-garbage-collectors
+1
 Successfully changed project path to: C:/Users/User/Documents/GitHub/polaris-game
 C:/Users/User/Documents/GitHub/polaris-game
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -48,20 +54,33 @@ C:/Users/User/Documents/GitHub/polaris-game
     "memorysetup-temp-allocator-size-audio-worker=65536"
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [21644]  Target information:
+Player connection [24956]  Target information:
 
-Player connection [21644]  * "[IP] 192.168.200.197 [Port] 0 [Flags] 2 [Guid] 983159766 [EditorId] 983159766 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-O7LU3S5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [24956]  * "[IP] 192.168.200.197 [Port] 0 [Flags] 2 [Guid] 3528707480 [EditorId] 3528707480 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-O7LU3S5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [21644] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [21644] Host joined alternative multi-casting on [225.0.0.222:34997]...
-[PhysX] Initialized MultithreadedTaskDispatcher with 20 workers.
-Refreshing native plugins compatible for Editor in 3.47 ms, found 3 plugins.
+Player connection [24956] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [24956] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 9
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.78 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2022.3.46f1 (8e9b8558c41a)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/Resources/UnitySubsystems
+Initialize engine version: 6000.0.24f1 (11fa355cd605)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/Users/User/Documents/GitHub/polaris-game/Assets
-GfxDevice: creating device client; threaded=0; jobified=0
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
     Renderer: NVIDIA GeForce RTX 4070 (ID=0x2786)
@@ -69,139 +88,333 @@ Direct3D:
     VRAM:     12012 MB
     Driver:   32.0.15.6094
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56852
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56148
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003259 seconds.
-- Loaded All Assemblies, in  0.208 seconds
-Native extension for WindowsStandalone target not found
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.001652 seconds.
+- Loaded All Assemblies, in  0.260 seconds
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 147 ms
+Android Extension - Scanning For ADB Devices 166 ms
+Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.322 seconds
-Domain Reload Profiling: 530ms
-	BeginReloadAssembly (68ms)
+- Finished resetting the current domain, in  0.426 seconds
+Domain Reload Profiling: 685ms
+	BeginReloadAssembly (90ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (18ms)
-	RebuildNativeTypeToScriptingClass (6ms)
-	initialDomainReloadingComplete (32ms)
-	LoadAllAssembliesAndSetupDomain (83ms)
-		LoadAssemblies (66ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (108ms)
+		LoadAssemblies (89ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (82ms)
-			TypeCache.Refresh (81ms)
-				TypeCache.ScanAssembly (73ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
+		AnalyzeDomain (106ms)
+			TypeCache.Refresh (105ms)
+				TypeCache.ScanAssembly (95ms)
+			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (322ms)
+	FinalizeReload (426ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (295ms)
+		SetupLoadedEditorAssemblies (399ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (197ms)
-			SetLoadedEditorAssemblies (4ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (1ms)
-			ProcessInitializeOnLoadAttributes (67ms)
-			ProcessInitializeOnLoadMethodAttributes (26ms)
-			AfterProcessingInitializeOnLoad (0ms)
+			InitializePlatformSupportModulesInManaged (220ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (99ms)
+			ProcessInitializeOnLoadMethodAttributes (52ms)
+			AfterProcessingInitializeOnLoad (20ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
 ========================================================================
 Worker process is ready to serve import requests
-Caller must complete domain reload
+Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.391 seconds
-Native extension for WindowsStandalone target not found
+- Loaded All Assemblies, in  0.975 seconds
+Refreshing native plugins compatible for Editor in 0.36 ms, found 3 plugins.
 Native extension for Android target not found
-Package Manager log level set to [2]
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
+Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.580 seconds
-Domain Reload Profiling: 970ms
-	BeginReloadAssembly (95ms)
+- Finished resetting the current domain, in  0.621 seconds
+Domain Reload Profiling: 1595ms
+	BeginReloadAssembly (626ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (17ms)
+	LoadAllAssembliesAndSetupDomain (297ms)
+		LoadAssemblies (239ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (132ms)
+			TypeCache.Refresh (100ms)
+				TypeCache.ScanAssembly (88ms)
+			BuildScriptInfoCaches (27ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (621ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (495ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (64ms)
+			ProcessInitializeOnLoadAttributes (400ms)
+			ProcessInitializeOnLoadMethodAttributes (15ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.67 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 23 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3384 unused Assets / (1.0 MB). Loaded Objects now: 4000.
+Memory consumption went from 113.8 MB to 112.8 MB.
+Total: 6.594400 ms (FindLiveObjects: 0.435900 ms CreateObjectMapping: 0.265700 ms MarkObjects: 5.166900 ms  DeleteObjects: 0.723800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 43920.676854 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ded5b111739c2f896e054650871f650e') in 0.1132875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/NANUMGOTHIC SDF.asset
+  artifactKey: Guid(e72aa10f40c2188408ed7b762cd8a159) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/NANUMGOTHIC SDF.asset using Guid(e72aa10f40c2188408ed7b762cd8a159) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd98ac2fe60d332b1f6e12661112c5247') in 0.070495 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.072337 seconds.
+  path: Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+  artifactKey: Guid(f952c082cb03451daed3ee968ac6c63e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset using Guid(f952c082cb03451daed3ee968ac6c63e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '75c5e78fcdb9b0efa89101b21f27775e') in 0.0016417 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 63.226370 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword2_3_3.prefab
+  artifactKey: Guid(547123ea5367cd34cb9bbbca9ebe1864) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword2_3_3.prefab using Guid(547123ea5367cd34cb9bbbca9ebe1864) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a6e4bfb17c1ff9c4e782097194ca5c5d') in 0.0059014 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.822729 seconds.
+  path: Assets/item/weapon2/Art/Models/Axes/AxeB.fbx
+  artifactKey: Guid(3bc50e2d97728154cba60e2be2dbdfb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Models/Axes/AxeB.fbx using Guid(3bc50e2d97728154cba60e2be2dbdfb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2df74649a974e4926313636e27f105d4') in 0.0383286 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/item/weapon2/Art/Models/Axes/AxeC.fbx
+  artifactKey: Guid(90cd07b3c3340d349a040d52b1e4579d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Models/Axes/AxeC.fbx using Guid(90cd07b3c3340d349a040d52b1e4579d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7873013eae8d7a45144a179266512b9e') in 0.0224749 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/item/weapon2/Art/Models/Bows/BowB.fbx
+  artifactKey: Guid(d25735552addf984aaa8fde32c8c033b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Models/Bows/BowB.fbx using Guid(d25735552addf984aaa8fde32c8c033b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '58bed74b40979ea95791802422c7dd60') in 0.0199092 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Axes/BasicAxes/Meshes_BasicAxes/AxeBasic2.fbx
+  artifactKey: Guid(bb2e228a51bedf443b4e89e75fe96f95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Axes/BasicAxes/Meshes_BasicAxes/AxeBasic2.fbx using Guid(bb2e228a51bedf443b4e89e75fe96f95) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '42fdac1ef128c8a9df2279c6f69bf06c') in 0.0193253 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.172713 seconds.
+  path: Assets/item/weapon2/Art/Models/Bows/BowD.fbx
+  artifactKey: Guid(ae81b1df029e10343b17aed7858119c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Models/Bows/BowD.fbx using Guid(ae81b1df029e10343b17aed7858119c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7f2b1c3c1762b74dd81d9a0d169df1b7') in 0.0189326 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.057402 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Daggers/Meshes_Dagger/Dagger1_3.fbx
+  artifactKey: Guid(77fe820b919baf846bff1988e3923e0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Daggers/Meshes_Dagger/Dagger1_3.fbx using Guid(77fe820b919baf846bff1988e3923e0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '789d0c9b8cca56eba09e002ac7112287') in 0.017657 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/item/weapon2/Art/Models/Daggers/DaggerB.fbx
+  artifactKey: Guid(3b172836d5a2a3b4396f2d043b61e642) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Models/Daggers/DaggerB.fbx using Guid(3b172836d5a2a3b4396f2d043b61e642) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '220b2ce44d7dae6f1507392fc76e239e') in 0.0185187 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.305578 seconds.
+  path: Assets/item/weapon2/Art/Models/Daggers/DaggerD.fbx
+  artifactKey: Guid(966729e2a05df674ca060c944a4c6def) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Models/Daggers/DaggerD.fbx using Guid(966729e2a05df674ca060c944a4c6def) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4d4da63f5982e31a845fc59c770fad56') in 0.0166897 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Meshes_Swords/Sword2_3.fbx
+  artifactKey: Guid(2c4c08653e0419c4bb3bddef9eff0ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Meshes_Swords/Sword2_3.fbx using Guid(2c4c08653e0419c4bb3bddef9eff0ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c6f981a5403b22e0bf12771109f814fc') in 0.0170675 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.034810 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Axes/EvolvingAxes/Meshes_EvolvingAxes/AxeEvolving3_3.fbx
+  artifactKey: Guid(1f074a092a0f7c9479cd7453604afc02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Axes/EvolvingAxes/Meshes_EvolvingAxes/AxeEvolving3_3.fbx using Guid(1f074a092a0f7c9479cd7453604afc02) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5e81b8143b473511782ab3754c3469a8') in 0.0163377 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.265764 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Hammers/Meshes_Hammers/Hammer1_1.fbx
+  artifactKey: Guid(d632a5d1258bad8409aa3179c7acc28a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Hammers/Meshes_Hammers/Hammer1_1.fbx using Guid(d632a5d1258bad8409aa3179c7acc28a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3aa8a3a000860337d5d37dfc943ed587') in 0.0200816 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.047690 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Polearms/Meshes_Polearms/Polearm2_2.fbx
+  artifactKey: Guid(93b985cde1dbb314292f8fcf9c552fd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Polearms/Meshes_Polearms/Polearm2_2.fbx using Guid(93b985cde1dbb314292f8fcf9c552fd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f1a3bc343ac8976d2aef6d6ebf77ba4d') in 0.0210361 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.277601 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Shields/Meshes_Shields/SHIELD_EVO_03_V1.fbx
+  artifactKey: Guid(84a55294c0370c24a88b4d220d3fb0aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Shields/Meshes_Shields/SHIELD_EVO_03_V1.fbx using Guid(84a55294c0370c24a88b4d220d3fb0aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '77a3e8aaf236c73d3394433ec993720c') in 0.0173095 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.040771 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Shields/Meshes_Shields/SHIELD_HANDLE_HAND_02.fbx
+  artifactKey: Guid(fcf1a0304dfb6aa428836c6527cc9e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Shields/Meshes_Shields/SHIELD_HANDLE_HAND_02.fbx using Guid(fcf1a0304dfb6aa428836c6527cc9e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4d996467a6de67facbc9febcae72504a') in 0.0173973 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.684691 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Materials_Swords/Sword2_3_3.mat
+  artifactKey: Guid(1786d358237a11540b5c999907995d6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Materials_Swords/Sword2_3_3.mat using Guid(1786d358237a11540b5c999907995d6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2d563a5b41df05e20e079d1130fdcd33') in 0.0360428 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.032139 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword1_1_3_BaseColor.png
+  artifactKey: Guid(8750eafd1a3e78f41b8ab777d129ee77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword1_1_3_BaseColor.png using Guid(8750eafd1a3e78f41b8ab777d129ee77) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6c47e19623afa9adad3cbed4412f529a') in 0.0180121 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002469 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword1_1_3_Normal.png
+  artifactKey: Guid(9e237039f5cc16e48811fbf1c732f107) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword1_1_3_Normal.png using Guid(9e237039f5cc16e48811fbf1c732f107) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e73ff77b4813c744a7f142651d6b9903') in 0.0375717 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001855 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword2_3_3_Metallic.png
+  artifactKey: Guid(63e37ba9bbbc2794d9f144c0839fd509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword2_3_3_Metallic.png using Guid(63e37ba9bbbc2794d9f144c0839fd509) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '13ef5d091b6137564452ab3e1fd24d2a') in 0.021495 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017834 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword3_1_3_BaseColor.png
+  artifactKey: Guid(03a10b09a5097ee44aafd7eff7a7bb17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword3_1_3_BaseColor.png using Guid(03a10b09a5097ee44aafd7eff7a7bb17) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '81ab3ffb6c15424bd831095b6ddef89c') in 0.0184918 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.419 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 3 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.564 seconds
+Domain Reload Profiling: 984ms
+	BeginReloadAssembly (137ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (16ms)
-	RebuildCommonClasses (18ms)
-	RebuildNativeTypeToScriptingClass (6ms)
-	initialDomainReloadingComplete (15ms)
-	LoadAllAssembliesAndSetupDomain (257ms)
-		LoadAssemblies (204ms)
+		CreateAndSetChildDomain (41ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (16ms)
+	LoadAllAssembliesAndSetupDomain (237ms)
+		LoadAssemblies (200ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (108ms)
-			TypeCache.Refresh (94ms)
-				TypeCache.ScanAssembly (83ms)
-			ScanForSourceGeneratedMonoScriptInfo (9ms)
-			ResolveRequiredComponents (4ms)
-	FinalizeReload (580ms)
+		AnalyzeDomain (101ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (89ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (564ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (479ms)
+		SetupLoadedEditorAssemblies (426ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (11ms)
-			SetLoadedEditorAssemblies (4ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (57ms)
-			ProcessInitializeOnLoadAttributes (392ms)
-			ProcessInitializeOnLoadMethodAttributes (12ms)
-			AfterProcessingInitializeOnLoad (3ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (46ms)
+			ProcessInitializeOnLoadAttributes (350ms)
+			ProcessInitializeOnLoadMethodAttributes (16ms)
+			AfterProcessingInitializeOnLoad (4ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (3ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 1.32 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (4ms)
+Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3206 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 19 unused Assets / (55.1 KB). Loaded Objects now: 3683.
-Memory consumption went from 125.9 MB to 125.8 MB.
-Total: 2.347500 ms (FindLiveObjects: 0.201700 ms CreateObjectMapping: 0.042900 ms MarkObjects: 2.036400 ms  DeleteObjects: 0.065400 ms)
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3382 unused Assets / (0.9 MB). Loaded Objects now: 4051.
+Memory consumption went from 111.2 MB to 110.3 MB.
+Total: 4.022900 ms (FindLiveObjects: 0.226500 ms CreateObjectMapping: 0.188300 ms MarkObjects: 3.082400 ms  DeleteObjects: 0.525200 ms)
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:scripting/monoscript/fileName/StatusEffectManager.cs: 0dcb07cc55158bab633dafb2a88de1f7 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:scripting/monoscript/fileName/Status.cs: 23066e2fc3116eedc865007a09a5bc69 -> 2480a9e66dcbf1244fb075e03181b567
-  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 26962.018621 seconds.
-  path: Assets/C#Scripts/InGameScene/Creature
-  artifactKey: Guid(68a12e761e10b364b81d5861b6276ea0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/C#Scripts/InGameScene/Creature using Guid(68a12e761e10b364b81d5861b6276ea0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 20 workers.
- -> (artifact id: 'bf7e33a673002bfea9ec970f944aeb46') in 0.001857 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.702396 seconds.
-  path: Assets/C#Scripts/InGameScene/Creature/Creature.cs
-  artifactKey: Guid(62e507ec502e6fb4f99865ccd70abfc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/C#Scripts/InGameScene/Creature/Creature.cs using Guid(62e507ec502e6fb4f99865ccd70abfc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 20 workers.
- -> (artifact id: '2b6c62c3198423192d53be56f45b5717') in 0.000367 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Prepare: number of updated asset objects reloaded= 0

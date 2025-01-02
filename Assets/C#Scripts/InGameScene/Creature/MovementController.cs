@@ -53,15 +53,15 @@ public class MovementController : MonoBehaviour
     /// <param name="dir">방향</param>
     /// <param name="speed">속도</param>
     /// <param name="timer">이동할 시간</param>
-    public void ForceMove(Vector3 dir, float speed, float timer, Action afterFunc = null)
+    public void ForceMove(Vector3 dir, float speed, float timer)
     {
         if (IsNavMoveMode)
         {
-            StartCoroutine(ForceMoveCoroutine(dir, speed, timer, afterFunc));
+            StartCoroutine(ForceMoveCoroutine(dir, speed, timer));
         }
     }
 
-    protected IEnumerator ForceMoveCoroutine(Vector3 dir, float speed, float timer, Action afterFunc = null)
+    protected IEnumerator ForceMoveCoroutine(Vector3 dir, float speed, float timer)
     {
         IsNavMoveMode = false;
         dir = GameManager.ChangeY(dir, 0);
@@ -81,23 +81,21 @@ public class MovementController : MonoBehaviour
         }
         //nav.ResetPath();
         IsNavMoveMode = true;
-        afterFunc?.Invoke();
     }
 
-    public void StopMoveInSec(float timer, Action afterFunc = null)
+    public void StopMoveInSec(float timer)
     {
         if (IsNavMoveMode)
         {
-            StartCoroutine(StopMoveCoroutine(timer, afterFunc));
+            StartCoroutine(StopMoveCoroutine(timer));
         }
     }
 
-    protected IEnumerator StopMoveCoroutine(float timer, Action afterFunc = null)
+    protected IEnumerator StopMoveCoroutine(float timer)
     {
         IsNavMoveMode = false;
         // 프레임 대기
         yield return new WaitForSeconds(timer); // Time.deltaTime 주기로 갱신
         IsNavMoveMode = true;
-        afterFunc?.Invoke();
     }
 }

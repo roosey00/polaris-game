@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
@@ -45,7 +46,6 @@ public class Status
         get { return Mathf.Max(0f, defense); }
         set { defense = value; }
     }
-
     // 기본 공격
     protected float attackDamage;
     public float AttackDamage

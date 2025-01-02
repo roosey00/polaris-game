@@ -46,31 +46,33 @@ public class Player : Creature
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (!equipment.Weapon.skill[0].isLock) equipment.Weapon.skill[0].obj(gameObject);
+            if (!equipment.Weapon.Skill[0].isLock) equipment.Weapon.Skill[0].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (!equipment.Weapon.skill[1].isLock) equipment.Weapon.skill[1].obj(gameObject);
+            if (!equipment.Weapon.Skill[1].isLock) equipment.Weapon.Skill[1].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!equipment.Weapon.skill[2].isLock) equipment.Weapon.skill[2].obj(gameObject);
+            if (!equipment.Weapon.Skill[2].isLock) equipment.Weapon.Skill[2].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (!equipment.Weapon.skill[3].isLock) equipment.Weapon.skill[3].obj(gameObject);
+            if (!equipment.Weapon.Skill[3].isLock) equipment.Weapon.Skill[3].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (!equipment.Weapon.skill[4].isLock) equipment.Weapon.skill[4].obj(gameObject);
+            if (!equipment.Weapon.Skill[4].isLock) equipment.Weapon.Skill[4].obj(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Rolling
-            movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f, ()=> {
-                movementController.StopMoveInSec(0.01f);
-            }
-            );
+            taskQueue.EnqueueTask(() => movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
+            taskQueue.EnqueueTask(() => movementController.StopMoveInSec(0.01f), 0.01f);
+            //movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f, ()=> {
+            //    movementController.StopMoveInSec(0.01f);
+            //}
+            //);
         }
         if (Input.GetKeyDown(KeyCode.F5))
         {

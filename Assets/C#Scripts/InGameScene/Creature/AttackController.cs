@@ -12,12 +12,13 @@ public class AttackController : MonoBehaviour
     public bool isAttack = false;
 
     // component
+    protected Enemy creature = null;                     // child
     protected MovementController movementController = null;
-    protected Creature creature = null;                     // child
 
     public void Start()
     {
-        creature = GetComponent<Creature>();
+        creature ??= GetComponent<Enemy>();
+        movementController ??= GetComponent<MovementController>();
     }
 
     //// 기본 공격
@@ -64,26 +65,36 @@ public class AttackController : MonoBehaviour
     //    }
     //}
 
-    //protected IEnumerator RangeAttack(GameObject target, Transform obj = null)
-    //{
-    //    if (!isAttack)
-    //    {
-    //        movementController.isMove = false;
-    //        isAttack = true;
-    //        GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger, 
-    //        GameManager.ChangeY(transform.position + transform.forward * 3f, 0f), 
-    //        Quaternion.identity);
-    //        rngTrigger.transform.SetParent(obj);
-    //        rngTrigger.GetComponent<RangeAttack>().timer = stats.AttackSpeed;
-    //        rngTrigger.GetComponent<RangeAttack>().damage = stats.AttackDamage;
-    //        yield return new WaitWhile(() => {return rngTrigger != null;});
-    //        if (target.activeSelf == false) 
-    //        {
-    //            movementController.isMove = true;
-    //        }
-    //        isAttack = false;
-    //    }
-    //}
+    // 기본 공격
+    public void Attack(float timer, float damage, bool atTrigger, Transform parent)
+    {
+        if (!isAttack)
+        {
+            StartCoroutine(RangeAttackCoroutine(timer, damage, atTrigger, parent));
+        }
+    }
+
+    protected IEnumerator RangeAttackCoroutine(float timer, float damage, bool atTrigger, Transform parent = null)
+    {
+        if (!isAttack)
+        {
+            isAttack = true;
+            movementController.IsNavMoveMode = false;
+
+            GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger,
+            parent.position, parent.rotation, parent);
+            RangeAttack triggerClass = rngTrigger.GetComponent<RangeAttack>();
+                        
+            triggerClass.timer = timer;
+            triggerClass.damage = damage;
+            triggerClass.isTriggerDmg = true;
+            triggerClass.isEndDmg = false;
+            yield return new WaitWhile(() => { return rngTrigger != null; });
+
+            movementController.IsNavMoveMode = true;            
+            isAttack = false;
+        }
+    }
 
     //protected IEnumerator RangeAttack()
     //{
