@@ -31,6 +31,14 @@
       "version": "1.0.2",
       "source": "builtin"
     },
+    "com.unity.formats.fbx@5.1.2": {
+      "name": "com.unity.formats.fbx",
+      "resolvedPath": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Library\\PackageCache\\com.unity.formats.fbx",
+      "fingerprint": "d3e62720eeb145b1ac3b9c577fb356f4ee1138cf",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "5.1.2",
+      "source": "registry"
+    },
     "com.unity.multiplayer.center@1.0.0": {
       "name": "com.unity.multiplayer.center",
       "resolvedPath": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Library\\PackageCache\\com.unity.multiplayer.center",
@@ -266,6 +274,14 @@
       "resolvedPath": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Library\\PackageCache\\com.unity.modules.hierarchycore",
       "version": "1.0.0",
       "source": "builtin"
+    },
+    "com.autodesk.fbx@5.1.1": {
+      "name": "com.autodesk.fbx",
+      "resolvedPath": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Library\\PackageCache\\com.autodesk.fbx",
+      "fingerprint": "5797ff6b31c7c66189bffe1adc9cbf0ad5a9cbbf",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "5.1.1",
+      "source": "registry"
     },
     "com.unity.ide.visualstudio@2.0.22": {
       "name": "com.unity.ide.visualstudio",

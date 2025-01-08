@@ -29,6 +29,11 @@ using UnityEngine;
     public static UnityEngine.Vector3 ChangeZ(UnityEngine.Vector3 vector, float newZ)
         => new Vector3(vector.x, vector.y, newZ);
 
+    protected void Start()
+    {
+        Physics.gravity = new Vector3(0, 0, 9.81f);
+    }
+
     //protected void Start()
     //{
     //    //Physics.gravity = new Vector3(0, 0, 9.81f);
