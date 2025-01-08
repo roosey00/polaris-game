@@ -32,7 +32,7 @@ public class HolySword : Item
         skill[0] = new LockObject<Action<GameObject>>(owner => {
             GameManager.Instance.PlayerTask.EnqueueTaskOnIdle(() => {
                 movementController.ForceMove(movementController.MousePointDirNorm, 9f, 0.5f);
-                attackController.Attack(0.3f, creature.Status.AttackDamage * 1.0f, true, owner.transform);
+                attackController.Attack(0.3f, creature.Status.AttackDamage * 1.0f, creature.Status.AttackRange, owner.transform);
             }, 0.5f);
         }, false);
         skill[1] = new LockObject<Action<GameObject>>(owner => {
@@ -45,7 +45,7 @@ public class HolySword : Item
                 movementController.ForceMove(movementController.MousePointDirNorm, 0f, 0.5f);
             }, 0.5f);
             GameManager.Instance.PlayerTask.EnqueueTaskOnIdle(() => {
-                attackController.Attack(0.3f, 25f, true, owner.transform);
+                attackController.Attack(0.3f, 25f, creature.Status.AttackRange, owner.transform);
             }, 0.1f);
         }, false);
         skill[3] = new LockObject<Action<GameObject>>(owner => {

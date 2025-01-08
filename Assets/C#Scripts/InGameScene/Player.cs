@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
 public class Player : Creature
 {
+    private string CharacterName = "Character";
+
     override protected void Awake()
     {
         base.Awake();
+        characterAnimator ??= transform.Find(CharacterName).GetComponent<Animator>();
         targetTag = "Enemy";
         equipment.Weapon = new HolySword(gameObject);
     }
@@ -21,19 +23,24 @@ public class Player : Creature
     override protected void Update()
     {
         base.Update();
-        
+        KeyControlUpdate();
+        AnimationValueUpdate();
+    }
+
+    protected void KeyControlUpdate()
+    {
         if (Input.GetMouseButton(1))
         {
-            if (movementController.IsNavMoveMode)
+            if (movementController.IsNavMove)
             {
                 movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
-                
+
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                 {
                     if (hit.collider.CompareTag(targetTag))
                     {
                         Debug.Log($"dest : {hit.transform.name}");
-                        attackScanner.Target = hit.transform;
+                        //attackScanner.Target = hit.transform;
                         movementController.MoveTo(hit.transform.position);
                         //nav.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
                     }
@@ -66,9 +73,7 @@ public class Player : Creature
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Rolling
-            taskQueue.EnqueueTask(() => movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
-            taskQueue.EnqueueTask(() => movementController.StopMoveInSec(0.01f), 0.01f);
+            Rolling();
             //movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f, ()=> {
             //    movementController.StopMoveInSec(0.01f);
             //}
@@ -87,5 +92,16 @@ public class Player : Creature
         //{
         //    status.Speed /= 3;
         //}
+    }
+
+    protected void AnimationValueUpdate()
+    {
+        characterAnimator.SetBool("isWalk", movementController.isMove);
+    }
+
+    protected void Rolling()
+    {
+        taskQueue.EnqueueTask(() => movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
+        taskQueue.EnqueueTask(() => movementController.StopMoveInSec(0.01f), 0.01f);
     }
 }

@@ -9,7 +9,7 @@ public class AttackController : MonoBehaviour
     //    get { return creature.status.AttackDamage; }
     //}
     //protected float AttackRate => creature.status.CalcuratedAttackSpeed;
-    public bool isAttack = false;
+    [ReadOnly] public bool isAttack = false;
 
     // component
     protected Enemy creature = null;                     // child
@@ -66,20 +66,20 @@ public class AttackController : MonoBehaviour
     //}
 
     // 기본 공격
-    public void Attack(float timer, float damage, bool atTrigger, Transform parent)
+    public void Attack(float timer, float damage, float range, Transform parent)
     {
         if (!isAttack)
         {
-            StartCoroutine(RangeAttackCoroutine(timer, damage, atTrigger, parent));
+            StartCoroutine(RangeAttackCoroutine(timer, damage, range, parent));
         }
     }
 
-    protected IEnumerator RangeAttackCoroutine(float timer, float damage, bool atTrigger, Transform parent = null)
+    protected IEnumerator RangeAttackCoroutine(float timer, float damage, float range, Transform parent = null)
     {
         if (!isAttack)
         {
             isAttack = true;
-            movementController.IsNavMoveMode = false;
+            movementController.IsNavMove = false;
 
             GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger,
             parent.position, parent.rotation, parent);
@@ -87,11 +87,12 @@ public class AttackController : MonoBehaviour
                         
             triggerClass.timer = timer;
             triggerClass.damage = damage;
+            triggerClass.Range = range;
             triggerClass.isTriggerDmg = true;
             triggerClass.isEndDmg = false;
             yield return new WaitWhile(() => { return rngTrigger != null; });
 
-            movementController.IsNavMoveMode = true;            
+            movementController.IsNavMove = true;            
             isAttack = false;
         }
     }

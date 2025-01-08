@@ -4,11 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using static UnityEngine.UI.CanvasScaler;
 
 public class RangeAttack : MonoBehaviour
 {
     private HashSet<GameObject> triggeredArray = new HashSet<GameObject>();
+
+    private BoxCollider2D _boxCollider2D = null;
+    protected BoxCollider2D boxCollider2D => _boxCollider2D ??= GetComponent<BoxCollider2D>();
+
+    private CircleCollider2D _circleCollider2D = null;
+    protected CircleCollider2D circleCollider2D => _circleCollider2D ??= GetComponent<CircleCollider2D>();
 
     public string targetLayerName = "Enemy";
 
@@ -21,8 +28,33 @@ public class RangeAttack : MonoBehaviour
     }
     ScanMode scanMode = ScanMode.SEMICIRCLE_MODE;
 
-    public float range = 10f;
-    public float degree = 60f;
+    [ReadOnly] private float range = 1f;
+    public float Range
+    {
+        set
+        {
+            range = value;
+            switch (scanMode)
+            {
+                case ScanMode.BOX_MODE:
+                    boxCollider2D.size= new Vector2(range, range);
+                    break;
+                case ScanMode.SEMICIRCLE_MODE:
+                    circleCollider2D.radius = range;
+                    break;
+                default:
+                    Debug.Log("Range Error Value");
+                    break;
+            }
+        }
+        get => range;
+    }
+    private float angleRange = 60f;
+    public float AngleRange
+    {
+        get => angleRange;
+        set => angleRange = (value % 360f + 360f) % 360f;
+    }
 
     public Vector3 boxSize = new Vector3(5f, 1f, 5f);
     public int rayCountPerSide = 5;
@@ -40,13 +72,16 @@ public class RangeAttack : MonoBehaviour
     {
         startFunc?.Invoke();
 
-        tickFuncObject?.Let(tick => StartCoroutine(TickFunction(triggeredArray, tick.Tick)));
+        tickFuncObject?.Let(tick => StartCoroutine(TickFunction(triggeredArray, tick.afterWaitTick)));
+
+        boxCollider2D.enabled = (scanMode == ScanMode.BOX_MODE);
+        circleCollider2D.enabled = (scanMode == ScanMode.SEMICIRCLE_MODE);
     }
 
     private void Update()
     {
         UpdateTimer();
-        ScanDetection();
+        //ScanDetection();
     }
 
     private void UpdateTimer()
@@ -72,7 +107,7 @@ public class RangeAttack : MonoBehaviour
                 gameObjects = OverlapCollider.OverlapBox(transform, boxSize, rayCountPerSide, LayerMask.GetMask(targetLayerName));
                 break;
             case ScanMode.SEMICIRCLE_MODE:
-                gameObjects = OverlapCollider.SemicircleRaycast(transform, range, degree, LayerMask.GetMask(targetLayerName));
+                gameObjects = OverlapCollider.SemicircleRaycast(transform, Range, AngleRange, LayerMask.GetMask(targetLayerName));
                 break;
             default:
                 break;
@@ -107,7 +142,35 @@ public class RangeAttack : MonoBehaviour
         //{
         //    triggeredArray.Remove(eachGameObject.GetComponent<GameObject>());            
         //}
+
+
         triggeredArray = new HashSet<GameObject>(gameObjects);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Vector3 center = transform.position; // 박스의 중심
+
+        Vector3 directionToCollider = (collision.transform.position - center).normalized;
+        float angle = Vector3.Angle(Vector3.ProjectOnPlane(transform.forward, Vector3.up), directionToCollider);
+
+        if (angle <= angleRange / 2)
+        {
+            if (isTriggerDmg)
+            {
+                DamagedTriggerFunc(collision.gameObject);
+            }
+            triggerFunc?.Invoke(collision.gameObject);
+
+            triggeredArray.Add(collision.gameObject);
+
+            Debug.Log($"Detected {collision.name} within the semicircle");
+        }        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        triggeredArray.Remove(collision.gameObject);
     }
 
     IEnumerator TickFunction(HashSet<GameObject> list, float tick)
@@ -119,7 +182,7 @@ public class RangeAttack : MonoBehaviour
                 tickFuncObject.obj?.Invoke(list);
             }
 
-            yield return new WaitForSeconds(tickFuncObject.Tick); // 한 프레임 대기 (비동기 처리)
+            yield return new WaitForSeconds(tickFuncObject.afterWaitTick); // 한 프레임 대기 (비동기 처리)
         }
     }
 

@@ -3,23 +3,24 @@ using UnityEngine;
 
  public class GameManager : Singleton<GameManager>
 {
-    // ��������
-    protected GameObject playerObj = null;
-    public GameObject PlayerObj => playerObj ??= GameObject.Find("Player");
+    [ReadOnly] protected Transform rootTransform => GameObject.Find("ForUseXYZ").transform;
 
-    protected Player playerClass = null;
-    public Player PlayerClass => playerClass ??= GameObject.Find("Player").GetComponent<Player>();
+    [ReadOnly] protected GameObject playerObj = null;
+    public GameObject PlayerObj => playerObj ??= rootTransform.Find("Player").gameObject;
 
-    protected TaskQueue playerTask = null;
-    public TaskQueue PlayerTask => playerTask ??= GameObject.Find("Player").GetComponent<TaskQueue>();
-    
-    protected MouseHit groundMouseHit = null;
-    public MouseHit GroundMouseHit => groundMouseHit ??= GameObject.Find("Ground").GetComponent<MouseHit>();
+    [ReadOnly] protected Player playerClass = null;
+    public Player PlayerClass => playerClass ??= playerObj.GetComponent<Player>();
 
-    protected ParticleManager particleManager = null;
-    public ParticleManager ParticleManager => particleManager ??= GameObject.Find("Particle Group").GetComponent<ParticleManager>();
+    [ReadOnly] protected TaskQueue playerTask = null;
+    public TaskQueue PlayerTask => playerTask ??= playerObj.GetComponent<TaskQueue>();
 
-    protected GameObject rangeTrigger = null;
+    [ReadOnly] protected MouseHit groundMouseHit = null;
+    public MouseHit GroundMouseHit => groundMouseHit ??= rootTransform.Find("Ground").GetComponent<MouseHit>();
+
+    [ReadOnly] protected ParticleManager particleManager = null;
+    public ParticleManager ParticleManager => particleManager ??= rootTransform.Find("Particle Group").GetComponent<ParticleManager>();
+
+    [ReadOnly] protected GameObject rangeTrigger = null;
     public GameObject RangeTrigger => rangeTrigger ??= Resources.Load<GameObject>("Prefab/Attack Trigger");
 
     public static UnityEngine.Vector3 ChangeX(UnityEngine.Vector3 vector, float newX)

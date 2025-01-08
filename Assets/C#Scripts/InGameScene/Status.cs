@@ -22,22 +22,23 @@ using UnityEngine;
 /// <summary>
 /// 아이템, 버프등으로 추가하기 위한 스탯
 /// </summary>
+[System.Serializable]
 public class Status
 {
     // 체력
-    protected float hp;
+    [SerializeField, ReadOnly] protected float hp;
     public float Hp
     {
         get { return Mathf.Max(0f, hp); }
         set { hp = value; }
     }
-    protected float hpRate;
+    [ReadOnly] protected float hpRate;
     public float HpRate
     {
         get { return hpRate; }
         set { hpRate = value; }
     }
-    public float CalcuratedMaxHp => Mathf.Max(0f, hp * hpRate);
+    [ReadOnly] public float CalcuratedMaxHp => Mathf.Max(0f, hp * hpRate);
 
     // 방어력
     protected float defense;

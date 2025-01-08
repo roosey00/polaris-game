@@ -65,7 +65,6 @@
     <Compile Include="Assets\C#Scripts\InGameScene\NoneMonoBehavior\LockObject.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\C#Scripts\Extensions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\InventoryManager.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\RangeAttack.cs" />
@@ -76,6 +75,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\Equipment.cs" />
+    <Compile Include="Assets\C#Scripts\Custom\Extensions.cs" />
+    <Compile Include="Assets\C#Scripts\Custom\ReadOnlyDrawer.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\AttackController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\C#Scripts\MainMenuStartManager.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Player.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Scanner.cs" />
+    <Compile Include="Assets\C#Scripts\Custom\ReadOnlyEditor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\InitializeBehaviour.cs" />
     <Compile Include="Assets\C#Scripts\DialogueManager.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Assets\C#Scripts\InGameScene\MouseHit.cs" />
     <Compile Include="Assets\C#Scripts\FireflyController.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\BuffManager.cs" />
+    <Compile Include="Assets\C#Scripts\Custom\ReadOnlyAttribute.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\NoneMonoBehavior\TickObject.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Item\ItemList\HolySowrd.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />

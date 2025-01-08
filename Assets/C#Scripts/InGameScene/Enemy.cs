@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class Enemy : Creature
 {   
-    public Animator animator;
 
     new protected void Awake()
     {
         base.Awake();
-        if (animator == null)
-        {
-            animator = gameObject.GetComponentInChildren<Animator>();
-        }
+        //animator ??= gameObject.GetComponentInChildren<Animator>();
         
         //nav. .slowRotate = true;
         
         target = GameManager.Instance.PlayerObj;
-        attackScanner.Target = GameManager.Instance.PlayerObj.transform;
+        //attackScanner.Target = GameManager.Instance.PlayerObj.transform;
     }
 
     private void Start()

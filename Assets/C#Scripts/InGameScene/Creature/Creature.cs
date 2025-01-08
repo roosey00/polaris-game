@@ -1,25 +1,27 @@
 using System;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    protected float currentHp;
+    [ReadOnly] protected float currentHp;
     public float CurrentHp
     {
         get { return currentHp; }
         set { currentHp = Math.Clamp(value, 0f, status.CalcuratedMaxHp); }
     }
 
-    protected float shield;
+    [ReadOnly] protected float shield;
     public float Shield
     {
         get { return shield; }
         set { shield = Math.Max(0f, value); }
     }
 
-    public float reduce;
+    [ReadOnly] private float reduce;
     public float Reduce
     {
         get { return reduce; }
@@ -29,7 +31,10 @@ public class Creature : MonoBehaviour
 
     public Equipment equipment;
 
-    private Status status;
+    [SerializeField, ReadOnly] protected Status status = new Status();
+    /// <summary>
+    /// 최대 체력을 설정하면, 현재 체력도 바뀐다.
+    /// </summary>
     public Status Status
     {
         set 
@@ -49,7 +54,9 @@ public class Creature : MonoBehaviour
     protected MovementController movementController = null;
     protected AttackController attackController = null;
     protected TaskQueue taskQueue = null;                     // child
-    protected Scanner attackScanner = null;                     // child
+    protected Animator characterAnimator = null;
+
+    //protected Scanner attackScanner = null;                     // child
 
     // Gameobject
     protected GameObject target = null;
@@ -58,7 +65,7 @@ public class Creature : MonoBehaviour
     {
         movementController ??= GetComponent<MovementController>();
         attackController ??= GetComponent<AttackController>();
-        attackScanner ??= transform.Find("AttackRangeScanner").GetComponent<Scanner>();
+        //attackScanner ??= transform.Find("AttackRangeScanner").GetComponent<Scanner>();
         taskQueue ??= GetComponent<TaskQueue>();
         equipment ??= new Equipment();
     }

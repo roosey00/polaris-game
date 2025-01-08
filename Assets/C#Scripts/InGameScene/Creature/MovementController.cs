@@ -7,10 +7,11 @@ using UnityEngine.AI;
 public class MovementController : MonoBehaviour
 {
     private NavMeshAgent nav;
-    public Vector3 destination = Vector3.zero;
+    [ReadOnly] public Vector3 destination = Vector3.zero;
 
     const float FAST_ROTATION_SPEED = 10000f;
-    public bool IsNavMoveMode
+    public bool isMove => nav.velocity != Vector3.zero || isForceMove;
+    public bool IsNavMove
     {
         get
         {
@@ -21,6 +22,8 @@ public class MovementController : MonoBehaviour
             nav.isStopped = !value;
         }
     }
+    private bool isForceMove = false;
+
 
     public Vector3 MousePointDirNorm => (GameManager.Instance.GroundMouseHit.MousePos - transform.position).normalized;
 
@@ -36,7 +39,7 @@ public class MovementController : MonoBehaviour
     /// <param name="destination">목적지</param>
     public void MoveTo(Vector3? destination = null)
     {
-        if (IsNavMoveMode)
+        if (IsNavMove)
         {
             this.destination = destination ?? this.destination;
 
@@ -55,7 +58,7 @@ public class MovementController : MonoBehaviour
     /// <param name="timer">이동할 시간</param>
     public void ForceMove(Vector3 dir, float speed, float timer)
     {
-        if (IsNavMoveMode)
+        if (IsNavMove)
         {
             StartCoroutine(ForceMoveCoroutine(dir, speed, timer));
         }
@@ -63,8 +66,9 @@ public class MovementController : MonoBehaviour
 
     protected IEnumerator ForceMoveCoroutine(Vector3 dir, float speed, float timer)
     {
-        IsNavMoveMode = false;
-        dir = GameManager.ChangeY(dir, 0);
+        IsNavMove = false;
+        isForceMove = true;
+        dir = GameManager.ChangeZ(dir, 0);
         transform.LookAt(transform.position + dir);
         // 루프 시작
         while (timer > 0)
@@ -79,13 +83,14 @@ public class MovementController : MonoBehaviour
             // 프레임 대기
             yield return new WaitForFixedUpdate(); // Time.deltaTime 주기로 갱신
         }
-        //nav.ResetPath();
-        IsNavMoveMode = true;
+        nav.ResetPath();
+        isForceMove = false;
+        IsNavMove = true;
     }
 
     public void StopMoveInSec(float timer)
     {
-        if (IsNavMoveMode)
+        if (IsNavMove)
         {
             StartCoroutine(StopMoveCoroutine(timer));
         }
@@ -93,9 +98,11 @@ public class MovementController : MonoBehaviour
 
     protected IEnumerator StopMoveCoroutine(float timer)
     {
-        IsNavMoveMode = false;
+        IsNavMove = false;
+        isForceMove = true;
         // 프레임 대기
         yield return new WaitForSeconds(timer); // Time.deltaTime 주기로 갱신
-        IsNavMoveMode = true;
+        isForceMove = false;
+        IsNavMove = true;
     }
 }

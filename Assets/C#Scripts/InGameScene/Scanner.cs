@@ -6,14 +6,14 @@ public class Scanner : MonoBehaviour
 {
     private Creature creature = null;
 
-    public Transform Target
+    [ReadOnly] public Transform Target
     {
         get => target;
         set => SetTarget(value);
     }
 
-    private Transform target = null;
-    private bool isScanned = false;
+    [ReadOnly] private Transform target = null;
+    [ReadOnly] private bool isScanned = false;
 
     public bool IsScanned => isScanned;
 
@@ -31,22 +31,22 @@ public class Scanner : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag(creature.targetTag))
+        if (collision.CompareTag(creature.targetTag))
         {
-            if (!objList.Contains(other.gameObject))
-                objList.Add(other.gameObject);
+            if (!objList.Contains(collision.gameObject))
+                objList.Add(collision.gameObject);
             UpdateScanState();
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.CompareTag(creature.targetTag))
+        if (collision.CompareTag(creature.targetTag))
         {
-            objList.Remove(other.gameObject);
-            UpdateScanState();
+            objList.Remove(collision.gameObject);
+            UpdateScanState();            
         }
     }
 
