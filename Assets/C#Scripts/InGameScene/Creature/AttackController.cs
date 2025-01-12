@@ -66,15 +66,16 @@ public class AttackController : MonoBehaviour
     //}
 
     // 기본 공격
-    public void Attack(float timer, float damage, float range, Transform parent)
+    public void Attack(float timer, float damage, float range, float angleRange = 360f, Transform parent = null, float damageTimer = 0f)
     {
         if (!isAttack)
         {
-            StartCoroutine(RangeAttackCoroutine(timer, damage, range, parent));
+            StartCoroutine(RangeAttackCoroutine(timer, damage, range, angleRange, parent, damageTimer));
         }
     }
 
-    protected IEnumerator RangeAttackCoroutine(float timer, float damage, float range, Transform parent = null)
+    protected IEnumerator RangeAttackCoroutine(float timer, float damage, float range, 
+        float angleRange = 360f, Transform parent = null, float damageTimer = 0f)
     {
         if (!isAttack)
         {
@@ -82,14 +83,14 @@ public class AttackController : MonoBehaviour
             movementController.IsNavMove = false;
 
             GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger,
-            parent.position, parent.rotation, parent);
+            (parent ?? transform).position, (parent ?? transform).rotation, (parent ?? GameManager.Instance.rootTransform));
             RangeAttack triggerClass = rngTrigger.GetComponent<RangeAttack>();
                         
-            triggerClass.timer = timer;
-            triggerClass.damage = damage;
+            triggerClass.Timer = timer;
+            triggerClass.Damage = damage;
             triggerClass.Range = range;
-            triggerClass.isTriggerDmg = true;
-            triggerClass.isEndDmg = false;
+            triggerClass.AngleRange = angleRange;
+            triggerClass.DamageTimer = damageTimer;
             yield return new WaitWhile(() => { return rngTrigger != null; });
 
             movementController.IsNavMove = true;            

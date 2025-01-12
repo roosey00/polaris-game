@@ -3,7 +3,7 @@ using UnityEngine;
 
  public class GameManager : Singleton<GameManager>
 {
-    [ReadOnly] protected Transform rootTransform => GameObject.Find("ForUseXYZ").transform;
+    public Transform rootTransform => GameObject.Find("ForUseXYZ").transform;
 
     [ReadOnly] protected GameObject playerObj = null;
     public GameObject PlayerObj => playerObj ??= rootTransform.Find("Player").gameObject;

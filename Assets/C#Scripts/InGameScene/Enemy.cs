@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : Creature
-{   
+{
+    public Item[] dropItem;
 
     new protected void Awake()
     {
         base.Awake();
-        //animator ??= gameObject.GetComponentInChildren<Animator>();
-        
-        //nav. .slowRotate = true;
-        
+        //nav. .slowRotate = true;        
         target = GameManager.Instance.PlayerObj;
-        //attackScanner.Target = GameManager.Instance.PlayerObj.transform;
     }
 
     private void Start()

@@ -32,13 +32,13 @@ public class Status
         get { return Mathf.Max(0f, hp); }
         set { hp = value; }
     }
-    [ReadOnly] protected float hpRate;
+    [SerializeField, ReadOnly] protected float hpRate;
     public float HpRate
     {
         get { return hpRate; }
         set { hpRate = value; }
     }
-    [ReadOnly] public float CalcuratedMaxHp => Mathf.Max(0f, hp * hpRate);
+    public float CalcuratedMaxHp => Mathf.Max(0f, hp * hpRate);
 
     // 방어력
     protected float defense;
@@ -48,20 +48,20 @@ public class Status
         set { defense = value; }
     }
     // 기본 공격
-    protected float attackDamage;
+    [SerializeField, ReadOnly] protected float attackDamage;
     public float AttackDamage
     {
         get { return Mathf.Max(0f, attackDamage); }
         set { attackDamage = value; }
     }
 
-    protected float attackSpeed;
+    [SerializeField, ReadOnly] protected float attackSpeed;
     public float AttackSpeed
     {
         get { return Mathf.Max(0f, attackSpeed); }
         set { attackSpeed = value; }
     }
-    protected float attackSpeedRate;
+    [SerializeField, ReadOnly] protected float attackSpeedRate;
     public float AttackSpeedRate
     {
         get { return Mathf.Max(0f, attackSpeedRate); }
@@ -69,13 +69,13 @@ public class Status
     }
     public float CalcuratedAttackSpeed => Mathf.Max(0f, AttackSpeed * AttackSpeedRate);
 
-    protected float attackRange;
+    [SerializeField, ReadOnly] protected float attackRange;
     public float AttackRange
     {
         get { return Mathf.Max(attackRange, 0f); }
         set { attackRange = value; }
     }
-    protected float attackRangeRate;
+    [SerializeField, ReadOnly] protected float attackRangeRate;
     public float AttackRangeRate
     {
         get { return Mathf.Max(attackRangeRate, 0f); }

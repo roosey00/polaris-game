@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+[AttributeUsage(AttributeTargets.Field)]
 public class ReadOnlyAttribute : PropertyAttribute
 {
     public readonly bool runtimeOnly;

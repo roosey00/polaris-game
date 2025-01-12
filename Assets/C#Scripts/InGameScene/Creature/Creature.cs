@@ -7,21 +7,21 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    [ReadOnly] protected float currentHp;
+    [SerializeField, ReadOnly] protected float currentHp;
     public float CurrentHp
     {
         get { return currentHp; }
         set { currentHp = Math.Clamp(value, 0f, status.CalcuratedMaxHp); }
     }
 
-    [ReadOnly] protected float shield;
+    [SerializeField, ReadOnly] protected float shield;
     public float Shield
     {
         get { return shield; }
         set { shield = Math.Max(0f, value); }
     }
 
-    [ReadOnly] private float reduce;
+    [SerializeField, ReadOnly] private float reduce;
     public float Reduce
     {
         get { return reduce; }

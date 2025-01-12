@@ -74,10 +74,6 @@ public class Player : Creature
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Rolling();
-            //movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f, ()=> {
-            //    movementController.StopMoveInSec(0.01f);
-            //}
-            //);
         }
         if (Input.GetKeyDown(KeyCode.F5))
         {
@@ -101,7 +97,7 @@ public class Player : Creature
 
     protected void Rolling()
     {
-        taskQueue.EnqueueTask(() => movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
+        taskQueue.EnqueueTaskOnIdle(() => movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
         taskQueue.EnqueueTask(() => movementController.StopMoveInSec(0.01f), 0.01f);
     }
 }

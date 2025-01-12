@@ -6,7 +6,7 @@ public class Scanner : MonoBehaviour
 {
     private Creature creature = null;
 
-    [ReadOnly] public Transform Target
+    public Transform Target
     {
         get => target;
         set => SetTarget(value);

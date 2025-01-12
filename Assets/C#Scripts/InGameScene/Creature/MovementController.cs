@@ -58,6 +58,11 @@ public class MovementController : MonoBehaviour
     /// <param name="timer">이동할 시간</param>
     public void ForceMove(Vector3 dir, float speed, float timer)
     {
+        if (speed == 0f)
+        {
+            StopMoveInSec(timer);
+            return;
+        }
         if (IsNavMove)
         {
             StartCoroutine(ForceMoveCoroutine(dir, speed, timer));
@@ -99,10 +104,9 @@ public class MovementController : MonoBehaviour
     protected IEnumerator StopMoveCoroutine(float timer)
     {
         IsNavMove = false;
-        isForceMove = true;
         // 프레임 대기
         yield return new WaitForSeconds(timer); // Time.deltaTime 주기로 갱신
-        isForceMove = false;
+        nav.ResetPath();
         IsNavMove = true;
     }
 }
