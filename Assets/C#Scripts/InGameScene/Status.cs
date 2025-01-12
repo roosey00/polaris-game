@@ -25,42 +25,72 @@ using UnityEngine;
 [System.Serializable]
 public class Status
 {
-    // 체력
-    [SerializeField, ReadOnly] protected float hp;
-    public float Hp
+    [Tooltip("최대 체력")]
+    [SerializeField, ReadOnly] protected float _maxHp;
+    public float MaxHp
     {
-        get { return Mathf.Max(0f, hp); }
-        set { hp = value; }
+        get { return Mathf.Max(0f, _maxHp); }
+        set { 
+            _maxHp = value;
+            CurrentHp += value;
+        }
     }
-    [SerializeField, ReadOnly] protected float hpRate;
+    [Tooltip("체력 비율")]
+    [SerializeField, ReadOnly] protected float _hpRate;
     public float HpRate
     {
-        get { return hpRate; }
-        set { hpRate = value; }
+        get { return _hpRate; }
+        set { _hpRate = value; }
     }
-    public float CalcuratedMaxHp => Mathf.Max(0f, hp * hpRate);
+    [Tooltip("현재 체력")]
+    [SerializeField, ReadOnly] protected float _currentHp;
+    public float CurrentHp
+    {
+        get { return _currentHp; }
+        set { _currentHp = Math.Clamp(value, 0f, CalcuratedMaxHp); }
+    }
+
+    [Tooltip("기본 공격 속도 비율")]
+    public float CalcuratedMaxHp => Mathf.Max(0f, _maxHp * _hpRate);
+
+    [Tooltip("보호막")]
+    [SerializeField, ReadOnly] protected float shield;
+    public float Shield
+    {
+        get { return shield; }
+        set { shield = Math.Max(0f, value); }
+    }
 
     // 방어력
-    protected float defense;
+    [Tooltip("방어력")]
+    [SerializeField, ReadOnly] protected float defense;
     public float Defense
     {
         get { return Mathf.Max(0f, defense); }
         set { defense = value; }
     }
-    // 기본 공격
+    [Tooltip("피해 감소량")]
+    [SerializeField, ReadOnly] private float reduce;
+    public float Reduce
+    {
+        get { return reduce; }
+        set { reduce = Math.Clamp(value, 0f, 1f); }
+    }
+    [Tooltip("기본 공격 피해량")]    
     [SerializeField, ReadOnly] protected float attackDamage;
     public float AttackDamage
     {
         get { return Mathf.Max(0f, attackDamage); }
         set { attackDamage = value; }
     }
-
+    [Tooltip("기본 공격 속도")]
     [SerializeField, ReadOnly] protected float attackSpeed;
     public float AttackSpeed
     {
         get { return Mathf.Max(0f, attackSpeed); }
         set { attackSpeed = value; }
     }
+    [Tooltip("기본 공격 속도 비율")]
     [SerializeField, ReadOnly] protected float attackSpeedRate;
     public float AttackSpeedRate
     {
@@ -144,8 +174,8 @@ public class Status
         float speedRate = 1f
     )
     {
-        this.hp = hp;
-        this.hpRate = hpRate;
+        this._maxHp = hp;
+        this._hpRate = hpRate;
         this.defense = defense;
         this.attackDamage = attackDamage;
         this.attackSpeed = attackSpeed;
@@ -163,8 +193,8 @@ public class Status
     // 복사 생성자
     public Status(Status other)
     {
-        this.hp = other.hp;
-        this.hpRate = other.hpRate;
+        this._maxHp = other._maxHp;
+        this._hpRate = other._hpRate;
         this.defense = other.defense;
         this.attackDamage = other.attackDamage;
         this.attackSpeed = other.attackSpeed;
@@ -180,8 +210,8 @@ public class Status
     }
 
     public static Status operator +(Status cs1, Status cs2) => new Status(
-cs1.hp + cs2.Hp,
-cs1.hpRate + cs2.HpRate,
+cs1._maxHp + cs2.MaxHp,
+cs1._hpRate + cs2.HpRate ,
 cs1.defense + cs2.Defense,
 cs1.attackDamage + cs2.AttackDamage,
 cs1.attackSpeed + cs2.AttackSpeed,
@@ -194,6 +224,40 @@ cs1.critRate + cs2.CritRate,
 cs1.critDamageRate + cs2.CritDamageRate,
 cs1.speed + cs2.Speed,
 cs1.speedRate + cs2.SpeedRate);
+
+    public static Status operator -(Status cs1, Status cs2) => new Status(
+cs1._maxHp - cs2.MaxHp,
+cs1._hpRate - cs2.HpRate,
+cs1.defense - cs2.Defense,
+cs1.attackDamage - cs2.AttackDamage,
+cs1.attackSpeed - cs2.AttackSpeed,
+cs1.attackSpeedRate - cs2.AttackSpeedRate,
+cs1.attackRange - cs2.AttackRange,
+cs1.attackRangeRate - cs2.AttackRangeRate,
+cs1.abillityPower - cs2.AbillityPower,
+cs1.abillityPowerRate - cs2.AbillityPowerRate,
+cs1.critRate - cs2.CritRate,
+cs1.critDamageRate - cs2.CritDamageRate,
+cs1.speed - cs2.Speed,
+cs1.speedRate - cs2.SpeedRate);
+
+    public static Status operator *(Status cs1, int num) => new Status(
+    cs1._maxHp * num,
+    cs1._hpRate * num,
+    cs1.defense * num,
+    cs1.attackDamage * num,
+    cs1.attackSpeed * num,
+    cs1.attackSpeedRate * num,
+    cs1.attackRange * num,
+    cs1.attackRangeRate * num,
+    cs1.abillityPower * num,
+    cs1.abillityPowerRate * num,
+    cs1.critRate * num,
+    cs1.critDamageRate * num,
+    cs1.speed * num,
+    cs1.speedRate * num
+);
+
 
     [System.Serializable]
     private class StatusJson

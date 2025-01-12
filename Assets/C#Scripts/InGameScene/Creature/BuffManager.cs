@@ -1,136 +1,83 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-/// <summary>
-/// 버프나 디버프 내용 구조체<br />
-/// 사용법 : <br />
-///         StatusEffect someBuff = new StatusEffect(<br />
-///            name: "겁나 짱샌 버프",<br />
-///            stats: new Stats(attackDamage: 9999, abillityPower: 9999), <br />
-///            cooldown: float.PositiveInfinity,<br />
-///            description: "아무도 날 막을 수 없어"<br />
-///            );<br />
-/// </summary>
-public struct Buff
+[Serializable]
+public class BuffManager
 {
-    private string name;
-    public string Name => name;
-
-    private string description;
-    public string Description => description;
-
-    private float cooldown;
-    public float Cooldown => cooldown;
-
-    private Status stats;
-    public Status Stats => stats;
-
-    private Action<GameObject> beginAction;
-    public Action<GameObject> BeginAction => beginAction;
-
-    private Func<GameObject, IEnumerator> tickCoroutine;
-    public Func<GameObject, IEnumerator> TickCoroutine => tickCoroutine;
-
-    private Action<GameObject> endAction;
-    public Action<GameObject> EndAction => endAction;
-
-    public Buff(
-        string name, 
-        Status stats,
-        float cooldown = float.PositiveInfinity, 
-        Action<GameObject> beginAction = null,
-        Func<GameObject, IEnumerator> tickAction = null,
-        Action<GameObject> endAction = null,
-        string description = "")
-    {
-        this.name = name;
-        this.stats = stats;
-        this.cooldown = cooldown;
-        this.beginAction = beginAction;
-        this.tickCoroutine = tickAction;
-        this.endAction = endAction;
-        this.description = description;
-    }
-
-    public Buff(
-    string name,
-    Buff Other)
-    {
-        this.name = name;
-        this.stats = Other.stats;
-        this.cooldown = Other.cooldown;
-        this.beginAction = Other.beginAction;
-        this.tickCoroutine = Other.tickCoroutine;
-        this.endAction = Other.endAction;
-        this.description = Other.description;
-    }
-
-    public IEnumerator removeCoroutine(GameObject gameObject)
-    {
-        beginAction?.Invoke(gameObject);
-        yield return new WaitForSeconds(cooldown);
-        endAction?.Invoke(gameObject);
-    }
-}
-
-public class BuffManager : MonoBehaviour
-{
-    protected Dictionary<string, Buff> statusEffectDict = new Dictionary<string, Buff>();
-    public Dictionary<string, Buff> StatusEffectDict => statusEffectDict;
+    protected Dictionary<string, Buff> BuffDict = new Dictionary<string, Buff>();
+    public Dictionary<string, Buff> StatusEffectDict => BuffDict;
 
     // components
-    Enemy creature = null;
+    private Creature creature = null;
 
-    protected void Awake()
+    protected void Awake(Creature creature)
     {
-        creature = GetComponent<Enemy>();
+        this.creature = creature;
     }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="name">이 이펙트에 이름</param>
-    /// <param name="Buff">name : 버프에 표시될 이름, null을 넣으면 이름을 똑같이 설정</param>
+    /// <param name="buff">name : 버프에 표시될 이름, null을 넣으면 이름을 똑같이 설정</param>
     /// <returns></returns>
-    public string BuffEffect(string name, Buff Buff)
+    public string AddBuff(Buff buff, int stack = 1)
     {
-        Buff = Buff.Name == null ? new Buff(name, Buff) : Buff;
+        buff.Name?.Let(name => Debug.LogError($"[AddBuff] {name}은 알 수 없는 버프입니다."));
 
-        if (statusEffectDict.ContainsKey(name))
+        if (BuffDict.ContainsKey(buff.Name))
         {
-            Debug.LogError(gameObject.name + "에게 " + name + "은(는) 이미 있는 버프입니다!");
+            if (buff.isMaxStack)
+            {
+                Debug.Log($"{creature.name}에게 {buff.Name}의 최대치는 {buff.MaxStack}입니다!");
+            }
+            else
+            {
+                buff.Stack += stack;
+            }
         }
         else
         {
-            statusEffectDict[name] = Buff;
-            creature.Status += Buff.Stats;       // 버프의 스탯을 더한다.
+            BuffDict[buff.Name] = buff;
 
-            StartCoroutine(Buff.removeCoroutine(gameObject));
-            Buff.TickCoroutine?.Invoke(gameObject)?.Let(StartCoroutine);
+            creature.StartCoroutine(buff.buffCoroutine(creature.gameObject));
+            buff.TickCoroutine?.Invoke(creature.gameObject)?.Let(creature.StartCoroutine);
         }
-        return name;
+        return buff.Name;
     }
 
-    public string RemoveBuff(string name, Buff Buff)
+    public Buff DecreaseBuff(string name, int stack = 1)
     {
-        if (Buff.Name == null)
+        if (BuffDict.ContainsKey(name))
         {
-            Buff = new Buff(name, Buff);
-        }
-        if (statusEffectDict.ContainsKey(name))
-        {
-            Debug.LogError(gameObject.name + "에게 " + name + "은(는) 이미 있는 버프입니다!");
+            BuffDict[name].Stack -= stack;
+            if (BuffDict[name].Stack <= 0)
+            {
+                RemoveBuff(name);
+            }
         }
         else
         {
-            statusEffectDict[name] = Buff;
-            creature.Status += Buff.Stats;       // 버프의 스탯을 더한다.
+            Debug.LogError($"{creature.name}에게 {name}은(는) 없는 버프입니다!");
         }
-        return name;
+        return BuffDict[name];
     }
 
+    public bool RemoveBuff(string name)
+    {
+        if (BuffDict.ContainsKey(name))
+        {
+            BuffDict[name].Stack -= BuffDict[name].Stack;
+            return BuffDict.Remove(name);
+        }
+        else
+        {
+            Debug.LogError($"{creature.name}에게 {name}은(는) 없는 버프입니다!");
+            return false;
+        }
+    }
 }

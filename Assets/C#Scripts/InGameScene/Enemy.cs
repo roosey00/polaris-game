@@ -23,7 +23,7 @@ public class Enemy : Creature
     {
         while (true)
         {
-            movementController.MoveTo(target.transform.position);
+            _movementController.MoveTo(target.transform.position);
             yield return new WaitForSeconds(delay);
         }
     }

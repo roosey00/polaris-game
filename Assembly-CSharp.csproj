@@ -65,6 +65,7 @@
     <Compile Include="Assets\C#Scripts\InGameScene\NoneMonoBehavior\LockObject.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\Creature\Buff.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\InventoryManager.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\RangeAttack.cs" />
@@ -77,7 +78,6 @@
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\Equipment.cs" />
     <Compile Include="Assets\C#Scripts\Custom\Extensions.cs" />
     <Compile Include="Assets\C#Scripts\Custom\ReadOnlyDrawer.cs" />
-    <Compile Include="Assets\C#Scripts\InGameScene\Creature\AttackController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -114,8 +114,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\Creature\BaseMovementController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\C#Scripts\InGameScene\Creature\MovementController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\GameManager.cs" />
@@ -124,6 +124,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\C#Scripts\Prior_AudioManager.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\Creature\BaseAttackController.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\MouseHit.cs" />
     <Compile Include="Assets\C#Scripts\FireflyController.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\BuffManager.cs" />

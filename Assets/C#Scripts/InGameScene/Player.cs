@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : Creature
 {
+    public Equipment equipment;
+
     private string CharacterName = "Character";
 
     override protected void Awake()
@@ -12,6 +14,7 @@ public class Player : Creature
         base.Awake();
         characterAnimator ??= transform.Find(CharacterName).GetComponent<Animator>();
         targetTag = "Enemy";
+        equipment ??= new Equipment(this);
         equipment.Weapon = new HolySword(gameObject);
     }
 
@@ -31,9 +34,9 @@ public class Player : Creature
     {
         if (Input.GetMouseButton(1))
         {
-            if (movementController.IsNavMove)
+            if (_movementController.IsNavMove)
             {
-                movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
+                _movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
                 {
@@ -41,12 +44,12 @@ public class Player : Creature
                     {
                         Debug.Log($"dest : {hit.transform.name}");
                         //attackScanner.Target = hit.transform;
-                        movementController.MoveTo(hit.transform.position);
+                        _movementController.MoveTo(hit.transform.position);
                         //nav.snapedFunc = () => { if (!isAttack) StartCoroutine(TargetAttack(gameObject)); };
                     }
                     else
                     {
-                        movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
+                        _movementController.MoveTo(GameManager.Instance.GroundMouseHit.MousePos);
                     }
                 }
             }
@@ -92,12 +95,12 @@ public class Player : Creature
 
     protected void AnimationValueUpdate()
     {
-        characterAnimator.SetBool("isWalk", movementController.isMove);
+        characterAnimator.SetBool("isWalk", _movementController.isMove);
     }
 
     protected void Rolling()
     {
-        taskQueue.EnqueueTaskOnIdle(() => movementController.ForceMove(movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
-        taskQueue.EnqueueTask(() => movementController.StopMoveInSec(0.01f), 0.01f);
+        taskQueue.EnqueueTaskOnIdle(() => _movementController.ForceMove(_movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
+        taskQueue.EnqueueTask(() => _movementController.StopMoveInSec(0.01f), 0.01f);
     }
 }

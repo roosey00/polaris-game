@@ -19,8 +19,8 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HpBarSlider.value = GameManager.Instance.PlayerClass.CurrentHp;
-        HpBarSlider.maxValue = GameManager.Instance.PlayerClass.Status.Hp;
+        HpBarSlider.value = GameManager.Instance.PlayerClass.Status.CurrentHp;
+        HpBarSlider.maxValue = GameManager.Instance.PlayerClass.Status.MaxHp;
         HpBarText.text = $"{HpBarSlider.value} / {HpBarSlider.maxValue}";
     }
 }

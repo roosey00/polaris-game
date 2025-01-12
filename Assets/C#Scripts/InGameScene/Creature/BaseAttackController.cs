@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
-public class AttackController : MonoBehaviour
+[Serializable]
+public class BaseAttackController
 {
+    private Creature creature;
+
     //protected float AttackDamage
     //{
     //    set { creature.status.AttackDamage = value; }
@@ -11,14 +15,13 @@ public class AttackController : MonoBehaviour
     //protected float AttackRate => creature.status.CalcuratedAttackSpeed;
     [ReadOnly] public bool isAttack = false;
 
-    // component
-    protected Enemy creature = null;                     // child
-    protected MovementController movementController = null;
+    // component              // child
+    protected BaseMovementController movementController = null;
 
-    public void Start()
+    public BaseAttackController(Creature creature)
     {
-        creature ??= GetComponent<Enemy>();
-        movementController ??= GetComponent<MovementController>();
+        this.creature = creature;
+        movementController = creature.MovementController;
     }
 
     //// 기본 공격
@@ -66,15 +69,15 @@ public class AttackController : MonoBehaviour
     //}
 
     // 기본 공격
-    public void Attack(float timer, float damage, float range, float angleRange = 360f, Transform parent = null, float damageTimer = 0f)
+    public void Attack(float timer, float damage, float range, string targetTag, float angleRange = 360f, Transform parent = null, float damageTimer = 0f)
     {
         if (!isAttack)
         {
-            StartCoroutine(RangeAttackCoroutine(timer, damage, range, angleRange, parent, damageTimer));
+            creature.StartCoroutine(RangeAttackCoroutine(timer, damage, range, targetTag, angleRange, parent, damageTimer));
         }
     }
 
-    protected IEnumerator RangeAttackCoroutine(float timer, float damage, float range, 
+    protected IEnumerator RangeAttackCoroutine(float timer, float damage, float range, string targetTag, 
         float angleRange = 360f, Transform parent = null, float damageTimer = 0f)
     {
         if (!isAttack)
@@ -82,8 +85,8 @@ public class AttackController : MonoBehaviour
             isAttack = true;
             movementController.IsNavMove = false;
 
-            GameObject rngTrigger = Instantiate(GameManager.Instance.RangeTrigger,
-            (parent ?? transform).position, (parent ?? transform).rotation, (parent ?? GameManager.Instance.rootTransform));
+            GameObject rngTrigger = UnityEngine.Object.Instantiate(GameManager.Instance.RangeTrigger,
+            (parent ?? creature.transform).position, (parent ?? creature.transform).rotation, (parent ?? GameManager.Instance.rootTransform));
             RangeAttack triggerClass = rngTrigger.GetComponent<RangeAttack>();
                         
             triggerClass.Timer = timer;
@@ -91,6 +94,7 @@ public class AttackController : MonoBehaviour
             triggerClass.Range = range;
             triggerClass.AngleRange = angleRange;
             triggerClass.DamageTimer = damageTimer;
+            triggerClass.targetTag = "Enemy";
             yield return new WaitWhile(() => { return rngTrigger != null; });
 
             movementController.IsNavMove = true;            

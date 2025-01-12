@@ -4,32 +4,34 @@ using System.Security.Permissions;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MovementController : MonoBehaviour
+[Serializable]
+public class BaseMovementController
 {
-    private NavMeshAgent nav;
+    protected NavMeshAgent navMesh;
+    protected Creature creature;
     [ReadOnly] public Vector3 destination = Vector3.zero;
 
     const float FAST_ROTATION_SPEED = 10000f;
-    public bool isMove => nav.velocity != Vector3.zero || isForceMove;
+    public bool isMove => navMesh.velocity != Vector3.zero || isForceMove;
     public bool IsNavMove
     {
         get
         {
-            return !nav.isStopped;
+            return !navMesh.isStopped;
         }
         set
         {
-            nav.isStopped = !value;
+            navMesh.isStopped = !value;
         }
     }
-    private bool isForceMove = false;
+    protected bool isForceMove = false;
 
+    public Vector3 MousePointDirNorm => (GameManager.Instance.GroundMouseHit.MousePos - creature.transform.position).normalized;
 
-    public Vector3 MousePointDirNorm => (GameManager.Instance.GroundMouseHit.MousePos - transform.position).normalized;
-
-    private void Awake()
+    public BaseMovementController(Creature creature)
     {
-        nav ??= GetComponent<NavMeshAgent>();
+        this.creature = creature;
+        this.navMesh = creature.GetComponent<NavMeshAgent>();
     }
 
     /// <summary>
@@ -45,7 +47,7 @@ public class MovementController : MonoBehaviour
 
             if (this.destination != null)
             {
-                nav.SetDestination(this.destination);
+                navMesh.SetDestination(this.destination);
             }
         }
     }
@@ -65,7 +67,7 @@ public class MovementController : MonoBehaviour
         }
         if (IsNavMove)
         {
-            StartCoroutine(ForceMoveCoroutine(dir, speed, timer));
+            creature.StartCoroutine(ForceMoveCoroutine(dir, speed, timer));
         }
     }
 
@@ -74,12 +76,12 @@ public class MovementController : MonoBehaviour
         IsNavMove = false;
         isForceMove = true;
         dir = GameManager.ChangeZ(dir, 0);
-        transform.LookAt(transform.position + dir);
+        creature.transform.LookAt(creature.transform.position + dir);
         // 루프 시작
         while (timer > 0)
         {
             // 이동
-            transform.position += dir.normalized * speed * Time.fixedDeltaTime;
+            creature.transform.position += dir.normalized * speed * Time.fixedDeltaTime;
             //transform.Translate(Vector3Modifier.ChangeY(dir, 0).normalized * speed * Time.fixedDeltaTime);
 
             // 타이머 감소
@@ -88,7 +90,7 @@ public class MovementController : MonoBehaviour
             // 프레임 대기
             yield return new WaitForFixedUpdate(); // Time.deltaTime 주기로 갱신
         }
-        nav.ResetPath();
+        navMesh.ResetPath();
         isForceMove = false;
         IsNavMove = true;
     }
@@ -97,7 +99,7 @@ public class MovementController : MonoBehaviour
     {
         if (IsNavMove)
         {
-            StartCoroutine(StopMoveCoroutine(timer));
+            creature.StartCoroutine(StopMoveCoroutine(timer));
         }
     }
 
@@ -106,7 +108,7 @@ public class MovementController : MonoBehaviour
         IsNavMove = false;
         // 프레임 대기
         yield return new WaitForSeconds(timer); // Time.deltaTime 주기로 갱신
-        nav.ResetPath();
+        navMesh.ResetPath();
         IsNavMove = true;
     }
 }
