@@ -50,7 +50,7 @@ public class RangeAttack : MonoBehaviour
 
     [SerializeField, ReadOnly] private float range = 1f;
 
-    [SerializeField, ReadOnly] private string targetTag = "Enemy";
+    [ReadOnly] public string targetTag = "Enemy";
 
     public float Range
     {
@@ -80,6 +80,7 @@ public class RangeAttack : MonoBehaviour
         set
         {
             angleRange = (value % 360f + 360f) % 360f;
+            angleRange = (angleRange == 0) ? 360f : angleRange;
         }
     }
 
@@ -175,67 +176,47 @@ public class RangeAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Vector3 center = transform.position; // 박스의 중심
-        Vector3 forwardDirection = transform.right; // 플레이어가 바라보는 방향 (2D에서 보통 transform.right 사용)
-
-        // 충돌체로 향하는 방향 계산
-        Vector3 directionToCollider = (collision.transform.position - center).normalized;
-
-        // 2D 평면에서 각도 계산 (z축은 무시)
-        float angleToCollider = Mathf.Atan2(directionToCollider.y, directionToCollider.x) * Mathf.Rad2Deg;
-        float forwardAngle = Mathf.Atan2(forwardDirection.y, forwardDirection.x) * Mathf.Rad2Deg;
-
-        // 두 각도의 차이 계산
-        float angleDifference = Mathf.DeltaAngle(forwardAngle, angleToCollider);
-
-        Debug.DrawLine(center, center + forwardDirection * 5f, Color.green); // 길이 5 유닛의 녹색 선
-        Debug.Log($"Detected: Angle to {collision.name} is {angleDifference}. angleRange is {angleRange}.");
-
-        // 탐색 각도 범위 내인지 확인
-        if (Mathf.Abs(angleDifference) <= angleRange / 2)
+        if (collision.CompareTag(targetTag))
         {
-            if (damageTimer == 0f)
+            Vector3 center = transform.position; // 박스의 중심
+            Vector3 forwardDirection = transform.right; // 플레이어가 바라보는 방향 (2D에서 보통 transform.right 사용)
+
+            // 충돌체로 향하는 방향 계산
+            Vector3 directionToCollider = (collision.transform.position - center).normalized;
+
+            // 2D 평면에서 각도 계산 (z축은 무시)
+            float angleToCollider = Mathf.Atan2(directionToCollider.y, directionToCollider.x) * Mathf.Rad2Deg;
+            float forwardAngle = Mathf.Atan2(forwardDirection.y, forwardDirection.x) * Mathf.Rad2Deg;
+
+            // 두 각도의 차이 계산
+            float angleDifference = Mathf.DeltaAngle(forwardAngle, angleToCollider);
+
+            Debug.DrawLine(center, center + forwardDirection * 5f, Color.green); // 길이 5 유닛의 녹색 선
+            Debug.Log($"Detected: Angle to {collision.name} is {angleDifference}. angleRange is {angleRange}.");
+
+            // 탐색 각도 범위 내인지 확인
+            if (Mathf.Abs(angleDifference) <= angleRange / 2)
             {
-                DamagedTriggerFunc(collision.gameObject);
+                if (damageTimer == 0f)
+                {
+                    DamagedTriggerFunc(collision.gameObject);
+                }
+                triggerFunc?.Invoke(collision.gameObject);
+
+                triggeredArray.Add(collision.gameObject);
+
+                Debug.Log($"Detected {collision.name} within the semicircle");
             }
-            triggerFunc?.Invoke(collision.gameObject);
-
-            triggeredArray.Add(collision.gameObject);
-
-            Debug.Log($"Detected {collision.name} within the semicircle");
         }
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Vector3 center = transform.position; // 박스의 중심
-        Vector3 forwardDirection = transform.right; // 플레이어가 바라보는 방향 (2D에서 보통 transform.right 사용)
-
-        // 충돌체로 향하는 방향 계산
-        Vector3 directionToCollider = (collision.transform.position - center).normalized;
-
-        // 2D 평면에서 각도 계산 (z축은 무시)
-        float angleToCollider = Mathf.Atan2(directionToCollider.y, directionToCollider.x) * Mathf.Rad2Deg;
-        float forwardAngle = Mathf.Atan2(forwardDirection.y, forwardDirection.x) * Mathf.Rad2Deg;
-
-        // 두 각도의 차이 계산
-        float angleDifference = Mathf.DeltaAngle(forwardAngle, angleToCollider);
-
-        Debug.DrawLine(center, center + forwardDirection * 5f, Color.green); // 길이 5 유닛의 녹색 선
-        Debug.Log($"Detected: Angle to {collision.name} is {angleDifference}. angleRange is {angleRange}.");
-
-        // 탐색 각도 범위 내인지 확인
-        if (Mathf.Abs(angleDifference) <= angleRange / 2)
-        {
-
-            Debug.Log($"Detected {collision.name} within the semicircle");
-        }
-    }
-
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        triggeredArray.Remove(collision.gameObject);
+        if (collision.CompareTag(targetTag))
+        {
+            triggeredArray.Remove(collision.gameObject);
+            Debug.Log($"{collision.name} out of semicircle");
+        }
     }
 
     IEnumerator TickFunction(HashSet<GameObject> list, float tick)

@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Equipment
 {
+    private Creature creature;
+
+    public Equipment(Creature creature)
+    {
+        this.creature = creature;
+    }
+
     private Item weapon = null;
     public Item Weapon 
     { 
         get { return weapon; }
-        set { weapon = value; } 
+        set { weapon = value;
+            
+        } 
     }
 
     private Item helmet = null;

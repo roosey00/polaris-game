@@ -16,7 +16,7 @@ public class HolySword : Item
     {
         shieldAction = () =>
         {
-            if (creature.CurrentHp + HealAmount >= creature.Status.Hp)
+            if (creature.Status.CurrentHp + HealAmount >= creature.Status.MaxHp)
             {
                 //if (ShiledAmount < ShiledMax)
                 //{
@@ -32,7 +32,7 @@ public class HolySword : Item
         skill[0] = new LockObject<Action<GameObject>>(owner => {
             GameManager.Instance.PlayerTask.EnqueueTaskOnIdle(() => {
                 movementController.ForceMove(movementController.MousePointDirNorm, 9f, 0.5f);
-                attackController.Attack(0.3f, creature.Status.AttackDamage * 1.0f, creature.Status.AttackRange,
+                attackController.Attack(0.3f, creature.Status.AttackDamage * 1.0f, creature.Status.AttackRange, "Enemy",
                     angleRange:180f, parent: owner.transform);
             }, 0.5f);
         }, false);
@@ -46,7 +46,7 @@ public class HolySword : Item
                 movementController.ForceMove(movementController.MousePointDirNorm, 0f, 0.5f);
             }, 0.5f);
             GameManager.Instance.PlayerTask.EnqueueTask(() => {
-                attackController.Attack(3f, creature.Status.AttackDamage * 3.0f, 5f,
+                attackController.Attack(3f, creature.Status.AttackDamage * 3.0f, 5f, "Enemy",
                     damageTimer:0.5f);
             }, 3f);
         }, false);

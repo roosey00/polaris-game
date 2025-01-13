@@ -674,8 +674,6 @@ GameObject:
   - component: {fileID: 447183525}
   - component: {fileID: 447183534}
   - component: {fileID: 447183528}
-  - component: {fileID: 447183531}
-  - component: {fileID: 447183530}
   - component: {fileID: 447183533}
   - component: {fileID: 447183535}
   m_Layer: 8
@@ -777,32 +775,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
---- !u!114 &447183530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447183523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f7949e8844c17409f954f4c0a51a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAttack: 0
---- !u!114 &447183531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447183523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a83b0d8a5eb91a94892a58fe4ad67cf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0, z: 0}
 --- !u!114 &447183533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,6 +799,10 @@ MonoBehaviour:
     attackSpeedRate: 0
     attackRange: 0
     attackRangeRate: 0
+  _movementController:
+    destination: {x: 0, y: 0, z: 0}
+  _attackController:
+    isAttack: 0
 --- !u!58 &447183534
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1288,9 +1264,7 @@ GameObject:
   - component: {fileID: 705966776}
   - component: {fileID: 705966772}
   - component: {fileID: 705966766}
-  - component: {fileID: 705966773}
   - component: {fileID: 705966774}
-  - component: {fileID: 705966775}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1340,6 +1314,10 @@ MonoBehaviour:
     attackSpeedRate: 0
     attackRange: 0
     attackRangeRate: 0
+  _movementController:
+    destination: {x: 0, y: 0, z: 0}
+  _attackController:
+    isAttack: 0
 --- !u!195 &705966772
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1362,19 +1340,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
---- !u!114 &705966773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705966764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a83b0d8a5eb91a94892a58fe4ad67cf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0, z: 0}
 --- !u!114 &705966774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,19 +1352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f0c17c65a06e2478c8be1b13127d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &705966775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705966764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f7949e8844c17409f954f4c0a51a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAttack: 0
 --- !u!58 &705966776
 CircleCollider2D:
   m_ObjectHideFlags: 0

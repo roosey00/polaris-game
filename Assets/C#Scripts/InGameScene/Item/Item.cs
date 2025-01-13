@@ -17,9 +17,11 @@ abstract public class Item
     protected GameObject Owner = null;
     protected Status OwnerStatus = null;
 
+    // Base
+    protected BaseMovementController movementController = null;
+    protected BaseAttackController attackController = null;
+
     // component
-    protected MovementController movementController = null;
-    protected AttackController attackController = null;
     protected Creature creature = null;
 
     // 스킬 함수들
@@ -28,9 +30,9 @@ abstract public class Item
 
     public Item(GameObject owner)
     {
-        movementController ??= owner.GetComponent<MovementController>();
-        attackController ??= owner.GetComponent<AttackController>();
         creature ??= owner.GetComponent<Creature>();
+        movementController = creature.MovementController;
+        attackController = creature.AttackController;
         Owner ??= owner;
     }
 
