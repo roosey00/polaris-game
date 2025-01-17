@@ -19,7 +19,11 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
+<<<<<<< Updated upstream
   m_Title: Game
+=======
+  m_Title: Console
+>>>>>>> Stashed changes
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 332}
   m_MaxSize: {x: 10000, y: 10000}
@@ -225,7 +229,11 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 71
+=======
+  controlID: 49
+>>>>>>> Stashed changes
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -1177,9 +1185,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
     m_SelectedIDs: 8c830000
     m_LastClickedID: 33676
     m_ExpandedIDs: 00000000128300001483000016830000188300001a8300001c8300001e83000020830000228300002483000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: c6c70000
+    m_LastClickedID: 51142
+    m_ExpandedIDs: 0000000054c7000056c7000058c700005ac700005cc700005ec7000060c7000062c7000064c7000066c7000000ca9a3bffffff7f
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1208,7 +1222,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 00000000128300001483000016830000188300001a8300001c8300001e830000208300002283000024830000
+=======
+    m_ExpandedIDs: 0000000054c7000056c7000058c700005ac700005cc700005ec7000060c7000062c7000064c7000066c70000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
