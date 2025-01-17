@@ -440,6 +440,7 @@
 "Assets/C#Scripts/InGameScene/Status.cs"
 "Assets/C#Scripts/InGameScene/TaskQueue.cs"
 "Assets/C#Scripts/InGameScene/UIManager.cs"
+"Assets/C#Scripts/InGameScene/UserStatus.cs"
 "Assets/C#Scripts/IntroManager.cs"
 "Assets/C#Scripts/MainMenuStartManager.cs"
 "Assets/C#Scripts/Prior_AudioManager.cs"
