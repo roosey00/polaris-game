@@ -65,6 +65,7 @@
     <Compile Include="Assets\C#Scripts\InGameScene\NoneMonoBehavior\LockObject.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\HealthBarSynchronizer.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\Buff.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\InventoryManager.cs" />
@@ -95,13 +96,12 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Item\Item.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Enemy.cs" />
-    <Compile Include="Assets\C#Scripts\InGameScene\HpBarSyncer.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\NoneMonoBehavior\OverlapCollider.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\UserStatus.cs" />
-    <Compile Include="Assets\C#Scripts\InGameScene\TaskQueue.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\abstract\ComponentInitalizeBehaviour.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\MouseIndicatorMove.cs" />
@@ -124,6 +124,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\BaseTaskQueue.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\C#Scripts\Prior_AudioManager.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\BaseAttackController.cs" />

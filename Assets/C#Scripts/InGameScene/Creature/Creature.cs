@@ -5,29 +5,30 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class Creature : MonoBehaviour
+public class Creature : ComponentInitalizeBehaviour
 {
-    
     public string targetTag;
 
-    [SerializeField, ReadOnly] protected Status _status = new Status();
+    [SerializeField, ReadOnly] protected Status _status = null;
     /// <summary>
     /// 최대 체력을 설정하면, 현재 체력도 바뀐다.
     /// </summary>
     public Status Status
     {
         set 
-        {            
+        {
+            if (value == null) return;
             _status = value;
             _status.CurrentHp = _status.MaxHp;
+            hpBarSynchronizer.UpdateHpBar();
         }
         get { return _status; }        
     }
 
     // 상황별 함수
-    public List<Action> attackFunc = null;
-    public List<Action> dmgedFunc = null;
-    public List<Action> tickFunc = null;
+    [ReadOnly] public List<Action> attackFunc = new List<Action>();
+    [ReadOnly] public List<Action> dmgedFunc = new List<Action>();
+    [ReadOnly] public List<Action> tickFunc = new List<Action>();
 
     // nonMonoBehaviour
     [SerializeField, ReadOnly] protected BaseMovementController _movementController = null;
@@ -42,26 +43,37 @@ public class Creature : MonoBehaviour
         get { return _attackController; }
         set { _attackController = value; }
     }
+    [SerializeField, ReadOnly] protected BaseTaskQueue _taskQueue = null;
+    public BaseTaskQueue TaskQueue
+    {
+        get { return _taskQueue; }
+        set { _taskQueue = value; }
+    }
 
     // component
-    protected TaskQueue taskQueue = null;                     // child
-    protected Animator characterAnimator = null;
-
-    //protected Scanner attackScanner = null;                     // child
+    [Tooltip("캐릭터 이름은 Character로 해야 됩니다.")]
+    [ReadOnly] public Animator characterAnimator = null;
+    [ReadOnly] public HealthBarSynchronizer hpBarSynchronizer = null;
 
     // Gameobject
-    protected GameObject target = null;
+    [SerializeField, ReadOnly] protected GameObject target = null;
 
-    virtual protected void Awake()
+    override protected void InitalizeComponent()
     {
         _movementController = new BaseMovementController(GetComponent<Creature>());
         _attackController = new BaseAttackController(this as Creature);
-        //attackScanner ??= transform.Find("AttackRangeScanner").GetComponent<Scanner>();
-        taskQueue ??= GetComponent<TaskQueue>();
+        _taskQueue = new BaseTaskQueue(this as Creature);        
+        hpBarSynchronizer ??= GameObject.Find("Canvas_UI").transform.Find("PlayerHealthBar").GetComponent<HealthBarSynchronizer>();
+    }
+
+    new protected void Reset()
+    {
+        base.Reset();
+        characterAnimator = transform.Find("Character")?.GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    virtual protected void Update()
+    protected void Update()
     {
         if (_status.CurrentHp <= 0f)
         {

@@ -50,4 +50,8 @@ public class ParticleManager : Singleton<ParticleManager>
         yield return new WaitForSeconds(obj.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
         Destroy(obj);
     }
+
+    protected override void InitalizeComponent()
+    {
+    }
 }

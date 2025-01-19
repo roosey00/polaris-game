@@ -6,17 +6,26 @@ public class Enemy : Creature
 {
     public Item[] dropItem;
 
-    new protected void Awake()
+    override protected void InitalizeComponent()
     {
-        base.Awake();
-        //nav. .slowRotate = true;        
-        target = GameManager.Instance.PlayerObj;
+        base.InitalizeComponent();
+        //nav. .slowRotate = true;
+        Status = Status.LoadFromJson("Enemy1", "Data/CreatureData");
+        hpBarSynchronizer = null;
     }
 
     private void Start()
     {
+        hpBarSynchronizer = Instantiate(GameManager.Instance.FollowHealthBar, GameManager.Instance.CanvasUI).GetComponent<HealthBarSynchronizer>();
+        hpBarSynchronizer.Owner = this;
+        target = GameManager.Instance.PlayerObj;
         StartCoroutine(TargetFollowCoroutine(1f));
-        Status = Status.LoadFromJson("Player", "Data/CreatureData");
+    }
+
+    new private void Update()
+    {
+        base.Update();
+        hpBarSynchronizer.UpdatePosition();
     }
 
     IEnumerator TargetFollowCoroutine(float delay)
@@ -26,5 +35,10 @@ public class Enemy : Creature
             _movementController.MoveTo(target.transform.position);
             yield return new WaitForSeconds(delay);
         }
+    }
+
+    private void OnDisable()
+    {
+        Destroy(hpBarSynchronizer.gameObject);
     }
 }

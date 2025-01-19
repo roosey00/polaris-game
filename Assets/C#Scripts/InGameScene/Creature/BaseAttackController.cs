@@ -13,7 +13,6 @@ public class BaseAttackController
     //    get { return creature.status.AttackDamage; }
     //}
     //protected float AttackRate => creature.status.CalcuratedAttackSpeed;
-    [ReadOnly] public bool isAttack = false;
 
     // component              // child
     protected BaseMovementController movementController = null;
@@ -24,6 +23,7 @@ public class BaseAttackController
         movementController = creature.MovementController;
     }
 
+    [ReadOnly] public bool isAttack = false;
     //// 기본 공격
     //public void PerformAttack(GameObject target)
     //{
@@ -86,7 +86,7 @@ public class BaseAttackController
             movementController.IsNavMove = false;
 
             GameObject rngTrigger = UnityEngine.Object.Instantiate(GameManager.Instance.RangeTrigger,
-            (parent ?? creature.transform).position, (parent ?? creature.transform).rotation, (parent ?? GameManager.Instance.rootTransform));
+            (parent ?? creature.transform).position, (parent ?? creature.transform).rotation, (parent ?? GameManager.Instance.RootTransform));
             RangeAttack triggerClass = rngTrigger.GetComponent<RangeAttack>();
                         
             triggerClass.Timer = timer;

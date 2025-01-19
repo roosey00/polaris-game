@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// MonoBehaviour 기반의 싱글톤 추상 클래스
+/// ComponentInitalizeBehaviour 기반의 싱글톤 추상 클래스
 /// </summary>
-public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class Singleton<T> : ComponentInitalizeBehaviour where T : MonoBehaviour
 {
     private static T instance;
     private static bool isShuttingDown = false;
@@ -63,8 +63,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     /// <summary>
     /// MonoBehaviour의 Awake 메서드를 오버라이드하여 싱글톤 인스턴스를 초기화
     /// </summary>
-    protected virtual void Awake()
+    new protected virtual void Awake()
     {
+        base.Awake();
         if (instance == null)
         {
             instance = this as T;

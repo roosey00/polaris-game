@@ -49,8 +49,7 @@ public class Status
         get { return _currentHp; }
         set { _currentHp = Math.Clamp(value, 0f, CalcuratedMaxHp); }
     }
-
-    [Tooltip("기본 공격 속도 비율")]
+    [Tooltip("계산된 최대 체력")]
     public float CalcuratedMaxHp => Mathf.Max(0f, _maxHp * _hpRate);
 
     [Tooltip("보호막")]

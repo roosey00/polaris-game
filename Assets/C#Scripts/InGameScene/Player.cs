@@ -5,25 +5,18 @@ using UnityEngine;
 
 public class Player : Creature
 {
-    public Equipment equipment;
+    [ReadOnly] public Equipment equipment;
 
-    private string CharacterName = "Character";
-
-    override protected void Awake()
+    override protected void InitalizeComponent()
     {
-        base.Awake();
-        characterAnimator ??= transform.Find(CharacterName).GetComponent<Animator>();
+        base.InitalizeComponent();
         targetTag = "Enemy";
         equipment ??= new Equipment(this);
         equipment.Weapon = new HolySword(gameObject);
-    }
-
-    private void Start()
-    {
         Status = Status.LoadFromJson("Player", "Data/CreatureData");
     }
 
-    override protected void Update()
+    new protected void Update()
     {
         base.Update();
         KeyControlUpdate();
@@ -100,7 +93,7 @@ public class Player : Creature
 
     protected void Rolling()
     {
-        taskQueue.EnqueueTaskOnIdle(() => _movementController.ForceMove(_movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
-        taskQueue.EnqueueTask(() => _movementController.StopMoveInSec(0.01f), 0.01f);
+        TaskQueue.EnqueueTaskOnIdle(() => _movementController.ForceMove(_movementController.MousePointDirNorm, 20f, 0.3f), 0.3f);
+        TaskQueue.EnqueueTask(() => _movementController.StopMoveInSec(0.01f), 0.01f);
     }
 }

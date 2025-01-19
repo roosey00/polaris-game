@@ -30,22 +30,22 @@ public class HolySword : Item
         };
 
         skill[0] = new LockObject<Action<GameObject>>(owner => {
-            GameManager.Instance.PlayerTask.EnqueueTaskOnIdle(() => {
+            GameManager.Instance.PlayerClass.TaskQueue.EnqueueTaskOnIdle(() => {
                 movementController.ForceMove(movementController.MousePointDirNorm, 9f, 0.5f);
                 attackController.Attack(0.3f, creature.Status.AttackDamage * 1.0f, creature.Status.AttackRange, "Enemy",
                     angleRange:180f, parent: owner.transform);
             }, 0.5f);
         }, false);
         skill[1] = new LockObject<Action<GameObject>>(owner => {
-            GameManager.Instance.PlayerTask.EnqueueTaskOnIdle(() => {
+            GameManager.Instance.PlayerClass.TaskQueue.EnqueueTaskOnIdle(() => {
                 movementController.ForceMove(movementController.MousePointDirNorm, 0f, 0.5f);
             }, 0.5f);
         }, false);
         skill[2] = new LockObject<Action<GameObject>>(owner => {
-            GameManager.Instance.PlayerTask.EnqueueTaskOnIdle(() => {
+            GameManager.Instance.PlayerClass.TaskQueue.EnqueueTaskOnIdle(() => {
                 movementController.ForceMove(movementController.MousePointDirNorm, 0f, 0.5f);
             }, 0.5f);
-            GameManager.Instance.PlayerTask.EnqueueTask(() => {
+            GameManager.Instance.PlayerClass.TaskQueue.EnqueueTask(() => {
                 attackController.Attack(3f, creature.Status.AttackDamage * 3.0f, 5f, "Enemy",
                     damageTimer:0.5f);
             }, 3f);
@@ -62,7 +62,7 @@ public class HolySword : Item
 
     public override void NormalAttack()
     {
-        GameManager.Instance.PlayerTask.EnqueueTaskOnIdle(() => {
+        GameManager.Instance.PlayerClass.TaskQueue.EnqueueTaskOnIdle(() => {
             movementController.ForceMove(movementController.MousePointDirNorm, 0f, 0.5f);
         }, 0.5f);
     }

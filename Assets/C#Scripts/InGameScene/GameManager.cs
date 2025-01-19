@@ -1,27 +1,31 @@
+using TMPro;
 using UnityEngine;
 
-
- public class GameManager : Singleton<GameManager>
+public class GameManager : Singleton<GameManager>
 {
-    public Transform rootTransform => GameObject.Find("ForUseXYZ").transform;
+    [SerializeField, ReadOnly] protected Transform _canvasUI = null;
+    public Transform CanvasUI => _canvasUI;
 
-    [ReadOnly] protected GameObject playerObj = null;
-    public GameObject PlayerObj => playerObj ??= rootTransform.Find("Player").gameObject;
+    [SerializeField, ReadOnly] protected Transform rootTransform = null;
+    public Transform RootTransform => rootTransform;
 
-    [ReadOnly] protected Player playerClass = null;
-    public Player PlayerClass => playerClass ??= playerObj.GetComponent<Player>();
+    [SerializeField, ReadOnly] protected GameObject playerObj = null;
+    public GameObject PlayerObj => playerObj;
 
-    [ReadOnly] protected TaskQueue playerTask = null;
-    public TaskQueue PlayerTask => playerTask ??= playerObj.GetComponent<TaskQueue>();
+    [SerializeField, ReadOnly] protected Player _playerClass = null;
+    public Player PlayerClass => _playerClass;
 
-    [ReadOnly] protected MouseHit groundMouseHit = null;
-    public MouseHit GroundMouseHit => groundMouseHit ??= rootTransform.Find("Ground").GetComponent<MouseHit>();
+    [SerializeField, ReadOnly] protected MouseHit groundMouseHit = null;
+    public MouseHit GroundMouseHit => groundMouseHit;
 
-    [ReadOnly] protected ParticleManager particleManager = null;
-    public ParticleManager ParticleManager => particleManager ??= rootTransform.Find("Particle Group").GetComponent<ParticleManager>();
+    [SerializeField, ReadOnly] protected ParticleManager particleManager = null;
+    public ParticleManager ParticleManager => particleManager;
 
-    [ReadOnly] protected GameObject rangeTrigger = null;
-    public GameObject RangeTrigger => rangeTrigger ??= Resources.Load<GameObject>("Prefab/Attack Trigger");
+    [SerializeField, ReadOnly(true)] protected GameObject _rangeTrigger = null;
+    public GameObject RangeTrigger => _rangeTrigger;
+
+    [SerializeField, ReadOnly(true)] protected GameObject _followHealthBar = null;
+    public GameObject FollowHealthBar => _followHealthBar;
 
     public static UnityEngine.Vector3 ChangeX(UnityEngine.Vector3 vector, float newX)
         => new Vector3(newX, vector.y, vector.z);
@@ -33,6 +37,18 @@ using UnityEngine;
     protected void Start()
     {
         Physics.gravity = new Vector3(0, 0, 9.81f);
+    }
+
+    override protected void InitalizeComponent()
+    {
+        _canvasUI = GameObject.Find("Canvas_UI").transform;
+        rootTransform = GameObject.Find("ForUseXYZ").transform;
+        playerObj = rootTransform.Find("Player").gameObject;
+        _playerClass = playerObj.GetComponent<Player>();
+        groundMouseHit = rootTransform.Find("Ground").GetComponent<MouseHit>();
+        particleManager = rootTransform.Find("Particle Group").GetComponent<ParticleManager>();
+        _rangeTrigger = Resources.Load<GameObject>("Prefab/Attack Trigger");
+        _followHealthBar = Resources.Load<GameObject>("Prefab/FollowHealthBar");
     }
 
     //protected void Start()

@@ -191,8 +191,8 @@ public class RangeAttack : MonoBehaviour
             // 두 각도의 차이 계산
             float angleDifference = Mathf.DeltaAngle(forwardAngle, angleToCollider);
 
-            Debug.DrawLine(center, center + forwardDirection * 5f, Color.green); // 길이 5 유닛의 녹색 선
-            Debug.Log($"Detected: Angle to {collision.name} is {angleDifference}. angleRange is {angleRange}.");
+            //Debug.DrawLine(center, center + forwardDirection * 5f, Color.green); // 길이 5 유닛의 녹색 선
+            //Debug.Log($"Detected: Angle to {collision.name} is {angleDifference}. angleRange is {angleRange}.");
 
             // 탐색 각도 범위 내인지 확인
             if (Mathf.Abs(angleDifference) <= angleRange / 2)
@@ -205,7 +205,7 @@ public class RangeAttack : MonoBehaviour
 
                 triggeredArray.Add(collision.gameObject);
 
-                Debug.Log($"Detected {collision.name} within the semicircle");
+                //Debug.Log($"Detected {collision.name} within the semicircle");
             }
         }
     }
@@ -215,7 +215,7 @@ public class RangeAttack : MonoBehaviour
         if (collision.CompareTag(targetTag))
         {
             triggeredArray.Remove(collision.gameObject);
-            Debug.Log($"{collision.name} out of semicircle");
+            //Debug.Log($"{collision.name} out of semicircle");
         }
     }
 
