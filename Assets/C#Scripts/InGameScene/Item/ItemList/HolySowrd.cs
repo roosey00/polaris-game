@@ -10,10 +10,12 @@ public class HolySword : Item
     readonly public float HealAmount;
 
     Action shieldAction;
+    Buff getShield;
 
     public HolySword(GameObject owner)
         : base(owner)
     {
+        getShield = new Buff(name: "성스러운 보호막", status:new Status { Shield = 1 }, maxStack:20 );
         shieldAction = () =>
         {
             if (creature.Status.CurrentHp + HealAmount >= creature.Status.MaxHp)
@@ -34,6 +36,7 @@ public class HolySword : Item
                 movementController.ForceMove(movementController.MousePointDirNorm, 9f, 0.5f);
                 attackController.Attack(0.3f, creature.Status.AttackDamage * 1.0f, creature.Status.AttackRange, "Enemy",
                     angleRange:180f, parent: owner.transform);
+                creature.Status.Shield += 1;
             }, 0.5f);
         }, false);
         skill[1] = new LockObject<Action<GameObject>>(owner => {
@@ -62,8 +65,9 @@ public class HolySword : Item
 
     public override void NormalAttack()
     {
-        GameManager.Instance.PlayerClass.TaskQueue.EnqueueTaskOnIdle(() => {
-            movementController.ForceMove(movementController.MousePointDirNorm, 0f, 0.5f);
+        GameManager.Instance.PlayerClass.TaskQueue.EnqueueTaskOnIdle(() => {            
+            attackController.Attack(0.3f, creature.Status.AttackDamage * 1.0f, creature.Status.AttackRange, "Enemy",
+                angleRange: 180f, parent: Owner.transform);
         }, 0.5f);
     }
 

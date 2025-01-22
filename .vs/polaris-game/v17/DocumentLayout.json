@@ -3,23 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|C:\\Users\\User\\Documents\\GitHub\\polaris-game\\assets\\c#scripts\\ingamescene\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|C:\\Users\\User\\Documents\\GitHub\\polaris-game\\assets\\c#scripts\\ingamescene\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\healthbarsynchronizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\healthbarsynchronizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\item\\itemlist\\holysowrd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\item\\itemlist\\holysowrd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\creature\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\creature\\creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\creature\\buff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\creature\\buff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\creature\\baseattackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\creature\\baseattackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|c:\\users\\user\\documents\\github\\polaris-game\\assets\\c#scripts\\ingamescene\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|C:\\Users\\User\\Documents\\GitHub\\polaris-game\\assets\\c#scripts\\ingamescene\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB34D026-7851-BE0D-142C-E64CB7116D50}|Assembly-CSharp.csproj|solutionrelative:assets\\c#scripts\\ingamescene\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,32 +46,19 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\GameManager.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\GameManager.cs",
-              "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\GameManager.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAawBsAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Buff.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Creature\\Buff.cs",
+              "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\Creature\\Buff.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Creature\\Buff.cs",
+              "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\Creature\\Buff.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAawGEAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T08:59:47.302Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Player.cs",
-              "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\Player.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Player.cs",
-              "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T08:17:49.279Z",
+              "WhenOpened": "2025-01-22T20:36:57.257Z",
               "EditorCaption": ""
             },
             {
@@ -64,26 +67,90 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Status.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Status.cs",
+              "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\Status.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Status.cs",
+              "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\Status.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T20:37:32.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HolySowrd.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Item\\ItemList\\HolySowrd.cs",
+              "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\Item\\ItemList\\HolySowrd.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Item\\ItemList\\HolySowrd.cs",
+              "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\Item\\ItemList\\HolySowrd.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T20:36:36.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "HealthBarSynchronizer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\HealthBarSynchronizer.cs",
+              "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\HealthBarSynchronizer.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\HealthBarSynchronizer.cs",
+              "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\HealthBarSynchronizer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T20:29:36.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\GameManager.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\GameManager.cs",
+              "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\GameManager.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAawBsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T08:59:47.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\Player.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Player.cs",
+              "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T08:17:49.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\Enemy.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Enemy.cs",
               "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T08:16:47.739Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Creature.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Creature\\Creature.cs",
               "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\Creature\\Creature.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Creature\\Creature.cs",
               "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\Creature\\Creature.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAawCEAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAASSNyJWguwBYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T08:07:46.731Z",
               "EditorCaption": ""
@@ -96,13 +163,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "BaseAttackController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Creature\\BaseAttackController.cs",
               "RelativeDocumentMoniker": "Assets\\C#Scripts\\InGameScene\\Creature\\BaseAttackController.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\polaris-game\\Assets\\C#Scripts\\InGameScene\\Creature\\BaseAttackController.cs",
               "RelativeToolTip": "Assets\\C#Scripts\\InGameScene\\Creature\\BaseAttackController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFAAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAAEwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T08:09:58.508Z",
               "EditorCaption": ""

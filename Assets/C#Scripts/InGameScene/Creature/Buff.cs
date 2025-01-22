@@ -56,9 +56,9 @@ public class Buff
     public Action<GameObject> EndAction => _endAction;
 
     public Buff(
-        Creature owner,
         string name,
-        Status stats,
+        Status status,
+        Creature owner = null,
         int maxStack = 1,
         float cooldown = float.PositiveInfinity,
         Action<GameObject> beginAction = null,
@@ -68,7 +68,7 @@ public class Buff
     {
         _owner = owner;
         _name = name;
-        _status = stats;
+        _status = status;
         _cooldown = cooldown;
         _stack = 1;
         _maxStack = maxStack;

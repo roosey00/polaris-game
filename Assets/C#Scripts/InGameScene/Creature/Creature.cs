@@ -113,6 +113,8 @@ public class Creature : ComponentInitalizeBehaviour
         float finalDamge = reducedDamage - _status.Shield;
         _status.CurrentHp -= finalDamge;
 
+        hpBarSynchronizer.UpdateHpBar();
+
         if (dmgedFunc != null)
         {
             foreach (var func in dmgedFunc)

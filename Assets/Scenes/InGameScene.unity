@@ -2166,6 +2166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: {fileID: 705966778}
   HpBarSlider: {fileID: 1182316546}
+  HpBarBackgroundImage: {fileID: 1513913810}
   HpBarText: {fileID: 9763218}
   GapFromCenter: {x: 0, y: 100, z: 0}
 --- !u!1 &1380879199
