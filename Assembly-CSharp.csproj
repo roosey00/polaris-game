@@ -94,12 +94,14 @@
     <Compile Include="Assets\C#Scripts\DialogueManager.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\abstract\SingleTon.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\TriggerHandler.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Item\Item.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Enemy.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\NoneMonoBehavior\OverlapCollider.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\UserStatus.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\DestroyTimer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\abstract\ComponentInitalizeBehaviour.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />

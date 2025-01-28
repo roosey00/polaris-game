@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using static UnityEngine.UI.CanvasScaler;
@@ -17,7 +16,7 @@ public class RangeAttack : MonoBehaviour
     protected CircleCollider2D _circleCollider2D = null;
     protected CircleCollider2D circleCollider2D => _circleCollider2D ??= GetComponent<CircleCollider2D>();
 
-    //[SerializeField, ReadOnly] private string targetLayerName = "Enemy";
+    [SerializeField, ReadOnly] private string targetLayerName = "Enemy";
 
     [SerializeField, ReadOnly] protected float timer = 5f;
     public float Timer
@@ -105,6 +104,7 @@ public class RangeAttack : MonoBehaviour
     private void Update()
     {
         UpdateTimer();
+        // 회전 등의 3d요소를 제거하기 위한 고정
         transform.position = GameManager.ChangeZ(transform.position, 0f);
         transform.rotation = Quaternion.Euler(Vector3.zero);
         //ScanDetection();

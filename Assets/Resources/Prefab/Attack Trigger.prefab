@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 267222246398536545}
   - component: {fileID: 3014018771429768631}
   - component: {fileID: 504361472218130873}
+  - component: {fileID: 4213186907685948329}
   - component: {fileID: 6726935046921773587}
   m_Layer: 0
   m_Name: Attack Trigger
@@ -162,7 +163,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 13d5df5aa4c3a2242bd936bd1901cc5c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -172,6 +173,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4213186907685948329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747476756818145493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d8c9bbaff57f6449863bad3683ac9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6726935046921773587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,10 +197,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4090206d59744113aa64e6e1f4d571d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayerName: Enemy
   timer: 5
   damage: 90
+  damageTimer: 5
+  DamageTime: 0
   scanMode: 1
   range: 1
+  targetTag: Enemy
   angleRange: 60
-  isEndDmg: 0
-  isTriggerDmg: 0

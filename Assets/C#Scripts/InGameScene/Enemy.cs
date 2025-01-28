@@ -39,6 +39,6 @@ public class Enemy : Creature
 
     private void OnDisable()
     {
-        Destroy(hpBarSynchronizer.gameObject);
+        hpBarSynchronizer.gameObject?.Let(hpBar => Destroy(hpBar));
     }
 }
