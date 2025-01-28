@@ -31,7 +31,7 @@ public class HealthBarSynchronizer : ComponentInitalizeBehaviour
 
     public void UpdateHpBar()
     {
-        Debug.Log(Owner.name);
+        //Debug.Log(Owner.name);
         HpBarSlider.value = Owner.Status.CurrentHp;
         HpBarSlider.maxValue = Owner.Status.MaxHp + Owner.Status.Shield;
         HpBarBackgroundImage.color = (Owner.Status.Shield > 0) ? Color.white : Color.black;

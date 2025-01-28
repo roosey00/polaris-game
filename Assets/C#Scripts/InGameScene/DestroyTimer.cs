@@ -5,13 +5,22 @@ using UnityEngine.PlayerLoop;
 
 public class DestroyTimer : MonoBehaviour
 {
-    [SerializeField, ReadOnly] protected float _duration;
-    public float Duration => _duration;    
+    [SerializeField, ReadOnly(true)] protected float _duration = -1f;
+    public float Duration => _duration;
+    [SerializeField, ReadOnly] protected bool isPause = false;
+
     public event Action OnTimeElapsed;
 
-    public void StartTimer(float duration)
+    public void Constructor(float duration)
     {
-        _duration = Mathf.Max(0, duration);        
+        if (_duration < 0f)
+        {
+            _duration = duration;
+        }
+    }
+
+    public void Start()
+    {
         StartCoroutine(TimerCoroutine());
     }
 
@@ -19,7 +28,10 @@ public class DestroyTimer : MonoBehaviour
     {
         while (_duration > 0f)
         {
-            _duration -= Time.deltaTime;
+            if (!isPause)
+            {
+                _duration -= Time.deltaTime;
+            }
             yield return null;
         }
 
