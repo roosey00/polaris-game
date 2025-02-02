@@ -20,7 +20,7 @@ public class Creature : ComponentInitalizeBehaviour
             if (value == null) return;
             _status = value;
             _status.CurrentHp = _status.MaxHp;
-            hpBarSynchronizer.UpdateHpBar();
+            _hpBarSynchronizer?.UpdateHpBar();
         }
         get { return _status; }        
     }
@@ -53,25 +53,34 @@ public class Creature : ComponentInitalizeBehaviour
     // component
     [Tooltip("캐릭터 이름은 Character로 해야 됩니다.")]
     [ReadOnly] public Animator characterAnimator = null;
-    [ReadOnly] public HealthBarSynchronizer hpBarSynchronizer = null;
+    [SerializeField, ReadOnly] private HealthBarSynchronizer _hpBarSynchronizer = null;
+    public HealthBarSynchronizer HpBarSynchronizer
+    {
+        get => _hpBarSynchronizer;
+        set
+        {
+            if (value == null) return;
+            _hpBarSynchronizer = value;
+            _hpBarSynchronizer.UpdateHpBar();
+        }
+    }
+
 
     // Gameobject
-    [SerializeField, ReadOnly] protected GameObject target = null;
+    [SerializeField, ReadOnly] protected GameObject target = null;    
 
     override protected void InitalizeComponent()
     {
         _movementController = new BaseMovementController(GetComponent<Creature>());
         _attackController = new BaseAttackController(this as Creature);
-        _taskQueue = new BaseTaskQueue(this as Creature);        
-        hpBarSynchronizer ??= GameObject.Find("Canvas_UI").transform.Find("PlayerHealthBar").GetComponent<HealthBarSynchronizer>();
+        _taskQueue = new BaseTaskQueue(this as Creature);                
     }
 
-    new protected void Reset()
+    new protected void Awake()
     {
         base.Reset();
-        characterAnimator = transform.Find("Character")?.GetComponent<Animator>();
+        _hpBarSynchronizer = null;
     }
-
     // Update is called once per frame
     protected void Update()
     {
@@ -113,7 +122,11 @@ public class Creature : ComponentInitalizeBehaviour
         float finalDamge = reducedDamage - _status.Shield;
         _status.CurrentHp -= finalDamge;
 
-        hpBarSynchronizer.UpdateHpBar();
+        var damageText = Instantiate(GameManager.Instance.DamageText,
+    GameManager.Instance.CanvasUI).GetComponent<DamageText>();
+        damageText.damage = finalDamge;
+
+        _hpBarSynchronizer.UpdateHpBar();
 
         if (dmgedFunc != null)
         {

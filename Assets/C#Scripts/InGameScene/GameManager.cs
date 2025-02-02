@@ -27,6 +27,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField, ReadOnly(true)] protected GameObject _followHealthBar = null;
     public GameObject FollowHealthBar => _followHealthBar;
 
+    [SerializeField, ReadOnly(true)] protected GameObject _damageText = null;
+    public GameObject DamageText => _damageText;
+
     public static UnityEngine.Vector3 ChangeX(UnityEngine.Vector3 vector, float newX)
         => new Vector3(newX, vector.y, vector.z);
     public static UnityEngine.Vector3 ChangeY(UnityEngine.Vector3 vector, float newY)
@@ -49,6 +52,7 @@ public class GameManager : Singleton<GameManager>
         particleManager = rootTransform.Find("Particle Group").GetComponent<ParticleManager>();
         _rangeTrigger = Resources.Load<GameObject>("Prefab/Attack Trigger");
         _followHealthBar = Resources.Load<GameObject>("Prefab/FollowHealthBar");
+        _damageText = Resources.Load<GameObject>("Prefab/DamageText");
     }
 
     //protected void Start()

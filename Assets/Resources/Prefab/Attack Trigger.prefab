@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 267222246398536545}
   - component: {fileID: 3014018771429768631}
   - component: {fileID: 504361472218130873}
-  - component: {fileID: 4213186907685948329}
-  - component: {fileID: 6726935046921773587}
+  - component: {fileID: -5777785014443557621}
   m_Layer: 0
   m_Name: Attack Trigger
   m_TagString: Untagged
@@ -173,19 +172,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4213186907685948329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747476756818145493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23d8c9bbaff57f6449863bad3683ac9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6726935046921773587
+--- !u!114 &-5777785014443557621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,11 +184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4090206d59744113aa64e6e1f4d571d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseDestroyTimer:
+    _remainingTime: 0
+    isPause: 0
   targetLayerName: Enemy
-  timer: 5
   damage: 90
-  damageTimer: 5
-  DamageTime: 0
+  damageStartTime: 0
+  _damageInterval: 5
   scanMode: 1
   range: 1
   targetTag: Enemy

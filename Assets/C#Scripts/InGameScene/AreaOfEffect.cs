@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using static UnityEngine.UI.CanvasScaler;
 
-public class RangeAttack : MonoBehaviour
+public class AreaOfEffect : MonoBehaviour
 {
     protected HashSet<GameObject> triggeredArray = new HashSet<GameObject>();
 
@@ -16,29 +16,30 @@ public class RangeAttack : MonoBehaviour
     protected CircleCollider2D _circleCollider2D = null;
     protected CircleCollider2D circleCollider2D => _circleCollider2D ??= GetComponent<CircleCollider2D>();
 
+    [SerializeField, ReadOnly] protected BaseDestroyTimer _baseDestroyTimer = null;
+    public BaseDestroyTimer BaseDestroyTimer
+    {
+        get { return _baseDestroyTimer; }
+        set { _baseDestroyTimer = value; }
+    }
+
     [SerializeField, ReadOnly] private string targetLayerName = "Enemy";
 
-    [SerializeField, ReadOnly] protected float timer = 5f;
-    public float Timer
-    {
-        get => timer;
-        set => timer = MathF.Max(value, 0f);
-    }
     [SerializeField, ReadOnly] protected float damage = 90f;
     public float Damage
     {
         get => damage;
         set => damage = MathF.Max(value, 0f);
     }
-    [SerializeField, ReadOnly] protected float damageTimer = 5f;
-    [SerializeField, ReadOnly] protected float DamageTime = 0f;
-    public float DamageTimer
+    [SerializeField, ReadOnly] protected float damageStartTime = 0f;
+    [SerializeField, ReadOnly] protected float _damageInterval = 5f;
+    public float DamageInterval
     {
-        get => damageTimer;
+        get => _damageInterval;
         set 
-        {
-            damageTimer = MathF.Max(value, 0f);
-            DamageTime = Timer - DamageTimer;
+        {            
+            _damageInterval = MathF.Max(value, 0f);
+            damageStartTime = _baseDestroyTimer.RemainingTime - _damageInterval;
         }
     }
     enum ScanMode 
@@ -54,7 +55,7 @@ public class RangeAttack : MonoBehaviour
     public float Range
     {
         set
-        {
+        {            
             range = value;
             transform.localScale = new Vector3(range, range, 1);
             //switch (scanMode)
@@ -87,7 +88,7 @@ public class RangeAttack : MonoBehaviour
     //public int rayCountPerSide = 5;
 
     public Action startFunc = null;
-    public TickObject<Action<HashSet<GameObject>>> tickFuncObject = null;
+    public TickObject<Action<HashSet<GameObject>>> intervalFuncObject = null;
     public Action<HashSet<GameObject>> endFunc = null;
     public Action<GameObject> triggerFunc = null;
     // Start is called before the first frame update
@@ -95,7 +96,12 @@ public class RangeAttack : MonoBehaviour
     {
         startFunc?.Invoke();
 
-        tickFuncObject?.Let(tick => StartCoroutine(TickFunction(triggeredArray, tick.afterWaitTick)));
+        intervalFuncObject?.Let(interval => StartCoroutine(TickFunction(triggeredArray, interval.afterWaitTick)));
+
+        if (_baseDestroyTimer == null)
+        {
+            Destroy(this);
+        }
 
         boxCollider2D.enabled = (scanMode == ScanMode.BOX_MODE);
         circleCollider2D.enabled = (scanMode == ScanMode.SEMICIRCLE_MODE);
@@ -112,17 +118,13 @@ public class RangeAttack : MonoBehaviour
 
     private void UpdateTimer()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0f)
+        if (DamageInterval > 0 &&
+            _baseDestroyTimer.RemainingTime <= damageStartTime - _damageInterval)
         {
-            if (DamageTimer > 0 && timer <= DamageTime)
-            {
-                DamagedFunc();
-                DamageTime -= DamageTimer;
-            }
-            endFunc?.Invoke(triggeredArray);
-            Destroy(gameObject);
+            DamagedFunc();
+            damageStartTime -= DamageInterval;
         }
+        endFunc?.Invoke(triggeredArray);
     }
 
     //private void ScanDetection()
@@ -197,7 +199,7 @@ public class RangeAttack : MonoBehaviour
             // 탐색 각도 범위 내인지 확인
             if (Mathf.Abs(angleDifference) <= angleRange / 2)
             {
-                if (damageTimer == 0f)
+                if (_damageInterval == 0f)
                 {
                     DamagedTriggerFunc(collision.gameObject);
                 }
@@ -225,10 +227,10 @@ public class RangeAttack : MonoBehaviour
         {
             if (list.Count > 0) // 조건 추가: 리스트에 항목이 있을 때만 작업 수행
             {
-                tickFuncObject.obj?.Invoke(list);
+                intervalFuncObject.obj?.Invoke(list);
             }
 
-            yield return new WaitForSeconds(tickFuncObject.afterWaitTick); // 한 프레임 대기 (비동기 처리)
+            yield return new WaitForSeconds(intervalFuncObject.afterWaitTick); // 한 프레임 대기 (비동기 처리)
         }
     }
 

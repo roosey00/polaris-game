@@ -69,7 +69,6 @@
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\Buff.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\InventoryManager.cs" />
-    <Compile Include="Assets\C#Scripts\InGameScene\RangeAttack.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -101,7 +100,6 @@
     <Compile Include="Assets\C#Scripts\InGameScene\UserStatus.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
-    <Compile Include="Assets\C#Scripts\InGameScene\DestroyTimer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\abstract\ComponentInitalizeBehaviour.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -109,11 +107,13 @@
     <Compile Include="Assets\C#Scripts\InGameScene\MouseIndicatorMove.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Status.cs" />
     <Compile Include="Assets\C#Scripts\AudioManager.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\DamageText.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\CameraFollowOutline.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\UIManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\BaseDestroyTimer.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\Creature.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
@@ -131,6 +131,7 @@
     <Compile Include="Assets\C#Scripts\Prior_AudioManager.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\BaseAttackController.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\MouseHit.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\AreaOfEffect.cs" />
     <Compile Include="Assets\C#Scripts\FireflyController.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\Creature\BuffManager.cs" />
     <Compile Include="Assets\C#Scripts\Custom\ReadOnlyAttribute.cs" />

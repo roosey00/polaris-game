@@ -11,21 +11,23 @@ public class Enemy : Creature
         base.InitalizeComponent();
         //nav. .slowRotate = true;
         Status = Status.LoadFromJson("Enemy1", "Data/CreatureData");
-        hpBarSynchronizer = null;
+        HpBarSynchronizer = null;
     }
 
     private void Start()
     {
-        hpBarSynchronizer = Instantiate(GameManager.Instance.FollowHealthBar, GameManager.Instance.CanvasUI).GetComponent<HealthBarSynchronizer>();
-        hpBarSynchronizer.Owner = this;
+        HpBarSynchronizer = Instantiate(GameManager.Instance.FollowHealthBar,
+            GameManager.Instance.CanvasUI).GetComponent<HealthBarSynchronizer>();
+        HpBarSynchronizer.Owner = this;
+        HpBarSynchronizer.UpdateHpBar();
         target = GameManager.Instance.PlayerObj;
-        StartCoroutine(TargetFollowCoroutine(1f));
+        StartCoroutine(TargetFollowCoroutine(1f));        
     }
 
     new private void Update()
     {
         base.Update();
-        hpBarSynchronizer.UpdatePosition();
+        HpBarSynchronizer.UpdatePosition();
     }
 
     IEnumerator TargetFollowCoroutine(float delay)
@@ -39,9 +41,9 @@ public class Enemy : Creature
 
     private void OnDisable()
     {
-        if (hpBarSynchronizer != null)
+        if (HpBarSynchronizer != null)
         {
-            Destroy(hpBarSynchronizer.gameObject);
+            Destroy(HpBarSynchronizer.gameObject);
         }
         //hpBarSynchronizer?.gameObject.Let(hpBar => Destroy(hpBar));
     }

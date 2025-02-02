@@ -69,15 +69,15 @@ public class BaseAttackController
     //}
 
     // 기본 공격
-    public void Attack(float timer, float damage, float range, string targetTag, float angleRange = 360f, Transform parent = null, float damageTimer = 0f)
+    public void Attack(float remainingTime, float damage, float range, string targetTag, float angleRange = 360f, Transform parent = null, float damageTimer = 0f)
     {
         if (!isAttack)
         {
-            creature.StartCoroutine(RangeAttackCoroutine(timer, damage, range, targetTag, angleRange, parent, damageTimer));
+            creature.StartCoroutine(RangeAttackCoroutine(remainingTime, damage, range, targetTag, angleRange, parent, damageTimer));
         }
     }
 
-    protected IEnumerator RangeAttackCoroutine(float timer, float damage, float range, string targetTag, 
+    protected IEnumerator RangeAttackCoroutine(float remainingTime, float damage, float range, string targetTag, 
         float angleRange = 360f, Transform parent = null, float damageTimer = 0f)
     {
         if (!isAttack)
@@ -87,14 +87,14 @@ public class BaseAttackController
 
             GameObject rngTrigger = UnityEngine.Object.Instantiate(GameManager.Instance.RangeTrigger,
             (parent ?? creature.transform).position, (parent ?? creature.transform).rotation, (parent ?? GameManager.Instance.RootTransform));
-            RangeAttack triggerClass = rngTrigger.GetComponent<RangeAttack>();
+            AreaOfEffect AOEClass = rngTrigger.GetComponent<AreaOfEffect>();
                         
-            triggerClass.Timer = timer;
-            triggerClass.Damage = damage;
-            triggerClass.Range = range;
-            triggerClass.AngleRange = angleRange;
-            triggerClass.DamageTimer = damageTimer;
-            triggerClass.targetTag = "Enemy";
+            AOEClass.BaseDestroyTimer = new BaseDestroyTimer(AOEClass, remainingTime);
+            AOEClass.Damage = damage;
+            AOEClass.Range = range;
+            AOEClass.AngleRange = angleRange;
+            AOEClass.DamageInterval = damageTimer;
+            AOEClass.targetTag = "Enemy";
             yield return new WaitWhile(() => { return rngTrigger != null; });
 
             movementController.IsNavMove = true;            

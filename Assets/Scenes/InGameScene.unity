@@ -714,9 +714,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: 
   _status:
-    _maxHp: 5
+    _maxHp: 500
     _hpRate: 1
-    _currentHp: 5
+    _currentHp: 500
     shield: 0
     defense: 0
     reduce: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
   _taskQueue:
     isProcessing: 0
   characterAnimator: {fileID: 0}
-  hpBarSynchronizer: {fileID: 0}
+  _hpBarSynchronizer: {fileID: 0}
   target: {fileID: 0}
 --- !u!58 &447183534
 CircleCollider2D:
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   _taskQueue:
     isProcessing: 0
   characterAnimator: {fileID: 625158574}
-  hpBarSynchronizer: {fileID: 1182316547}
+  _hpBarSynchronizer: {fileID: 0}
   target: {fileID: 0}
 --- !u!1 &845546061
 GameObject:
@@ -1982,6 +1982,7 @@ MonoBehaviour:
   particleManager: {fileID: 1850522709}
   _rangeTrigger: {fileID: 1747476756818145493, guid: 62c590ec44dfc483cb81b735bc823d11, type: 3}
   _followHealthBar: {fileID: 5752667437161886462, guid: 733df3c8ae963bc459439510699664c4, type: 3}
+  _damageText: {fileID: 132827105210474794, guid: cf676914f8d35b44d9332f79ca10461c, type: 3}
 --- !u!1 &1168552228
 GameObject:
   m_ObjectHideFlags: 0
