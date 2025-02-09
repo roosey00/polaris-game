@@ -4,6 +4,7 @@ using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public class Creature : ComponentInitalizeBehaviour
 {
@@ -123,7 +124,7 @@ public class Creature : ComponentInitalizeBehaviour
         _status.CurrentHp -= finalDamge;
 
         var damageText = Instantiate(GameManager.Instance.DamageText,
-    GameManager.Instance.CanvasUI).GetComponent<DamageText>();
+    Camera.main.WorldToScreenPoint(transform.position), Quaternion.identity, GameManager.Instance.CanvasUI).GetComponent<DamageText>();
         damageText.damage = finalDamge;
 
         _hpBarSynchronizer.UpdateHpBar();

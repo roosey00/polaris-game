@@ -420,6 +420,7 @@
 "Assets/C#Scripts/InGameScene/BaseDestroyTimer.cs"
 "Assets/C#Scripts/InGameScene/BaseTaskQueue.cs"
 "Assets/C#Scripts/InGameScene/CameraFollowOutline.cs"
+"Assets/C#Scripts/InGameScene/CircularSectorMeshRenderer.cs"
 "Assets/C#Scripts/InGameScene/Creature/BaseAttackController.cs"
 "Assets/C#Scripts/InGameScene/Creature/BaseMovementController.cs"
 "Assets/C#Scripts/InGameScene/Creature/Buff.cs"

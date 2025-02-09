@@ -18,7 +18,7 @@ public class DamageText : MonoBehaviour
     {
         var textMeshProUGUI = GetComponent<TextMeshProUGUI>();
         textMeshProUGUI.text = $"-{damage}";
-        _baseDestroyTimer = new BaseDestroyTimer(this, destroyTime);
+        _baseDestroyTimer = new BaseDestroyTimer(this, destroyTime);        
     }
 
     private void Update()

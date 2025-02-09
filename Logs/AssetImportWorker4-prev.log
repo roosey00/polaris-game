@@ -1,0 +1,889 @@
+Using pre-set license
+Built from '6000.0/staging' branch; Version is '6000.0.24f1 (11fa355cd605) revision 1178165'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 16232 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.24f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+C:/Users/User/Documents/GitHub/polaris-game
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+51337
+-job-worker-count
+9
+-background-job-worker-count
+8
+-asset-garbage-collectors
+1
+Successfully changed project path to: C:/Users/User/Documents/GitHub/polaris-game
+C:/Users/User/Documents/GitHub/polaris-game
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [17236]  Target information:
+
+Player connection [17236]  * "[IP] 192.168.200.193 [Port] 0 [Flags] 2 [Guid] 2272520771 [EditorId] 2272520771 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-O7LU3S5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [17236] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [17236] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 9
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 1.74 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.24f1 (11fa355cd605)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/User/Documents/GitHub/polaris-game/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4070 (ID=0x2786)
+    Vendor:   NVIDIA
+    VRAM:     12012 MB
+    Driver:   32.0.15.6636
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56924
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.24f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.002400 seconds.
+- Loaded All Assemblies, in  0.422 seconds
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 199 ms
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.504 seconds
+Domain Reload Profiling: 926ms
+	BeginReloadAssembly (170ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (45ms)
+	LoadAllAssembliesAndSetupDomain (155ms)
+		LoadAssemblies (171ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (148ms)
+			TypeCache.Refresh (147ms)
+				TypeCache.ScanAssembly (131ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (505ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (478ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (255ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (8ms)
+			ProcessInitializeOnLoadAttributes (126ms)
+			ProcessInitializeOnLoadMethodAttributes (59ms)
+			AfterProcessingInitializeOnLoad (26ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.735 seconds
+Refreshing native plugins compatible for Editor in 0.96 ms, found 4 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.593 seconds
+Domain Reload Profiling: 1326ms
+	BeginReloadAssembly (337ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (16ms)
+	LoadAllAssembliesAndSetupDomain (350ms)
+		LoadAssemblies (277ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (142ms)
+			TypeCache.Refresh (106ms)
+				TypeCache.ScanAssembly (94ms)
+			BuildScriptInfoCaches (29ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (593ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (469ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (63ms)
+			ProcessInitializeOnLoadAttributes (370ms)
+			ProcessInitializeOnLoadMethodAttributes (17ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (3ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.76 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 23 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3660 unused Assets / (0.7 MB). Loaded Objects now: 4275.
+Memory consumption went from 118.4 MB to 117.6 MB.
+Total: 5.713600 ms (FindLiveObjects: 0.264400 ms CreateObjectMapping: 0.114400 ms MarkObjects: 4.518800 ms  DeleteObjects: 0.814800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 17130.642598 seconds.
+  path: Assets/Resources/Material
+  artifactKey: Guid(a65334d1bcfda434d8d3968ad684b756) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Material using Guid(a65334d1bcfda434d8d3968ad684b756) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '84f4cb7dff0bae12b5035bb7a0e577f9') in 0.004411 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.732178 seconds.
+  path: Assets/Resources/Material/Skill.mat
+  artifactKey: Guid(f32cd17a131383440a2dc63b8890c8c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Material/Skill.mat using Guid(f32cd17a131383440a2dc63b8890c8c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '71f0c15850593e9beabbeb2c338f8756') in 0.0618579 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.643377 seconds.
+  path: Assets/Resources/Material/SkillMaterial.mat
+  artifactKey: Guid(f32cd17a131383440a2dc63b8890c8c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Material/SkillMaterial.mat using Guid(f32cd17a131383440a2dc63b8890c8c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f8a543d9c602429eeafaf76c7cde7271') in 0.0227221 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.330141 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/ShieldHandle_AO.png
+  artifactKey: Guid(d88fd1ea3467726419fa020b1273fcc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/ShieldHandle_AO.png using Guid(d88fd1ea3467726419fa020b1273fcc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '732d45b5df058a8d9aad87971537fe56') in 0.0189778 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_normal.jpg
+  artifactKey: Guid(8878a782f4334ecbbcf683b3ac780966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_normal.jpg using Guid(8878a782f4334ecbbcf683b3ac780966) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4868aa7e3dbbccbba06e8ea9c9f4ca2b') in 0.016717 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff2_2_6_S06_AO.png
+  artifactKey: Guid(d4178de5a7a9c7f4691bd4ef9b81eaaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff2_2_6_S06_AO.png using Guid(d4178de5a7a9c7f4691bd4ef9b81eaaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b4072e46de1f0b1908a169623d3af713') in 0.0417128 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.896300 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff2_2_6_S06_Metallic.png
+  artifactKey: Guid(833745c8a52790a428bfaf248c648b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff2_2_6_S06_Metallic.png using Guid(833745c8a52790a428bfaf248c648b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3ad86eaee47187b2040ca452fb11d27b') in 0.019885 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006879 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff4_1_1_S01_AO.png
+  artifactKey: Guid(edaccfa00be25e84a9cfbec25238923a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff4_1_1_S01_AO.png using Guid(edaccfa00be25e84a9cfbec25238923a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd0c7b3bba523ecc32f71fd03febc864f') in 0.0200766 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018613 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff4_1_1_S01_Metallic.png
+  artifactKey: Guid(567ddd496bc63bb4c83153f56a9955c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff4_1_1_S01_Metallic.png using Guid(567ddd496bc63bb4c83153f56a9955c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5f180aea92e62b3de07500e00c1db2bb') in 0.0157008 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.476039 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff5_1_1_S01_AO.png
+  artifactKey: Guid(3e08ba1ce04225946b02d993d4ac3811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Staves/Textures_Staves/Staff5_1_1_S01_AO.png using Guid(3e08ba1ce04225946b02d993d4ac3811) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6e8a79da33c7c25412633ee800aa71d1') in 0.0180874 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.346405 seconds.
+  path: Assets/item/weapon2/Art/Textures/Swords/Sword1Green.png
+  artifactKey: Guid(b63451e89a5fd394eabe4b6bd9ab9755) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Swords/Sword1Green.png using Guid(b63451e89a5fd394eabe4b6bd9ab9755) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8e6f679ba3cda956797d6711969ef4cc') in 0.0119503 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023700 seconds.
+  path: Assets/item/weapon2/Art/Textures/Swords/Sword1Orange.png
+  artifactKey: Guid(cac6dfeef06b0514b9083050ee82d860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Swords/Sword1Orange.png using Guid(cac6dfeef06b0514b9083050ee82d860) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '324e1240868f2237f726648bc5d8d361') in 0.0137307 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.288407 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword2_3_3_AO.png
+  artifactKey: Guid(2371d812d61785747b96d68805bc1404) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword2_3_3_AO.png using Guid(2371d812d61785747b96d68805bc1404) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e7b795224b3d981cdd27140643807879') in 0.0192947 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007313 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword2_3_3_Emissive.png
+  artifactKey: Guid(c7b6e94b60b68ed4f8fe9760a01e54af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword2_3_3_Emissive.png using Guid(c7b6e94b60b68ed4f8fe9760a01e54af) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c95d6d1d91b8d783bc73358c5e56eeee') in 0.0148655 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.025506 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword2_3_3_Normal.png
+  artifactKey: Guid(e1d416657d6eb48439fd998192954af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword2_3_3_Normal.png using Guid(e1d416657d6eb48439fd998192954af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d8d93fc13e0cff04e3dbdabb9b2a3e8') in 0.0262469 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.223510 seconds.
+  path: Assets/item/weapon2/Art/Textures/Swords/Sword2Red.png
+  artifactKey: Guid(aea8ef9e96daae04aa9d3b0f94a54239) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Swords/Sword2Red.png using Guid(aea8ef9e96daae04aa9d3b0f94a54239) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f1f3a32bf96cc558a8126f16b097c967') in 0.0125791 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003831 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword3_1_3_AO.png
+  artifactKey: Guid(bb3ab1735be3c1e4e847f35f3f76ceb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword3_1_3_AO.png using Guid(bb3ab1735be3c1e4e847f35f3f76ceb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3977983752c475793ff3c294e73ff7be') in 0.0210618 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.024570 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword3_1_3_BaseColor.png
+  artifactKey: Guid(03a10b09a5097ee44aafd7eff7a7bb17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword3_1_3_BaseColor.png using Guid(03a10b09a5097ee44aafd7eff7a7bb17) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '81ab3ffb6c15424bd831095b6ddef89c') in 0.0164645 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002699 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword3_1_3_Normal.png
+  artifactKey: Guid(95d8d0706589c9346826371836f26236) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword3_1_3_Normal.png using Guid(95d8d0706589c9346826371836f26236) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b455751cf61d79d09c425fe44a13c66f') in 0.0232555 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.246102 seconds.
+  path: Assets/item/weapon2/Art/Textures/Swords/Sword3Green.png
+  artifactKey: Guid(7eaf1f51fd3c4a8498d730ce29fa0531) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Swords/Sword3Green.png using Guid(7eaf1f51fd3c4a8498d730ce29fa0531) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6924c2d4d51bc415e4db041e384fb7b1') in 0.0150448 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018104 seconds.
+  path: Assets/item/weapon2/Art/Textures/Swords/Sword3Red.png
+  artifactKey: Guid(d14b0f2f2db56384a85570a4db72b987) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Swords/Sword3Red.png using Guid(d14b0f2f2db56384a85570a4db72b987) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7e2a09878708ce1702d422d1b332826b') in 0.0114002 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010289 seconds.
+  path: Assets/item/weapon2/Art/Textures/Swords/Sword3Yellow.png
+  artifactKey: Guid(3b88139414b18ae48b0bc1ed7ab67f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Swords/Sword3Yellow.png using Guid(3b88139414b18ae48b0bc1ed7ab67f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e86200defde9f7679bee87a466746662') in 0.0104019 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.040389 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword5_3_3_BaseColor.png
+  artifactKey: Guid(c367c3775a39f364d9a575e8565579a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword5_3_3_BaseColor.png using Guid(c367c3775a39f364d9a575e8565579a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '325d837a2544c4f422540804e61760b0') in 0.0168386 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.226152 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword5_3_3_Metallic.png
+  artifactKey: Guid(e624177566dd4784e89cb6c0312f9f66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Textures_Swords/Sword5_3_3_Metallic.png using Guid(e624177566dd4784e89cb6c0312f9f66) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fe01d0b0f79cf94ecab36f5a4c0963f9') in 0.0175911 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007620 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text Image 1.png
+  artifactKey: Guid(4ccf43d26c4748c792174516f4a8fcef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text Image 1.png using Guid(4ccf43d26c4748c792174516f4a8fcef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b5c8092625f94c8e5756a7223167ef05') in 0.0121097 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.018440 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/ShieldHandle2_BaseColor.png
+  artifactKey: Guid(00a8424a54043d54dbd2faff473a5725) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/ShieldHandle2_BaseColor.png using Guid(00a8424a54043d54dbd2faff473a5725) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '166e83434aea2aa3f9d32671a09a08d0') in 0.0199843 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.074856 seconds.
+  path: Assets/item/weapon2/Art/Textures/Bows/Bows2Blue.png
+  artifactKey: Guid(7bb5b9012ab0cf34f9a417429d863ba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Bows/Bows2Blue.png using Guid(7bb5b9012ab0cf34f9a417429d863ba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '294181f272afbca0657e4168c21c2c2c') in 0.0135003 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Textures/Brushed Metal 3.jpg
+  artifactKey: Guid(f88677df267a41d6be1e7a6133e7d227) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Textures/Brushed Metal 3.jpg using Guid(f88677df267a41d6be1e7a6133e7d227) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5eeda4ef4ed95c0703c55416682049c2') in 0.0143718 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010943 seconds.
+  path: Assets/item/weapon2/Art/Textures/Axes/Axes1Violet.png
+  artifactKey: Guid(e6933b6a10401c24798db82ae3af5446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Axes/Axes1Violet.png using Guid(e6933b6a10401c24798db82ae3af5446) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '63dd82a9781d7d4299088f16f4faa067') in 0.0269306 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/item/weapon2/Art/Textures/Axes/Axes3Blue.png
+  artifactKey: Guid(86736381ddb80c340b40f13d63c4458d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Axes/Axes3Blue.png using Guid(86736381ddb80c340b40f13d63c4458d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '44633e94aa197ef24fe6a6c565233caa') in 0.013323 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/item/weapon2/Art/Textures/Axes/Axes1Blue.png
+  artifactKey: Guid(8882a1474475b3c4386cdbf7c89931b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Axes/Axes1Blue.png using Guid(8882a1474475b3c4386cdbf7c89931b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9ba8f11349c3f289df628a03454692a1') in 0.0343883 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.877994 seconds.
+  path: Assets/Pixel Art - Swords and Staffs/Pack 3/No Overlap/1px.png
+  artifactKey: Guid(70bea6396fdb7dd4b8736c696cbd465f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Art - Swords and Staffs/Pack 3/No Overlap/1px.png using Guid(70bea6396fdb7dd4b8736c696cbd465f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8920a36b73d3278372b0ccf6b4fe9b6b') in 0.0130246 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.531 seconds
+Refreshing native plugins compatible for Editor in 0.76 ms, found 4 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.717 seconds
+Domain Reload Profiling: 1249ms
+	BeginReloadAssembly (166ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (46ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (23ms)
+	LoadAllAssembliesAndSetupDomain (307ms)
+		LoadAssemblies (276ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (117ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (99ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (718ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (560ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (85ms)
+			ProcessInitializeOnLoadAttributes (435ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
+Refreshing native plugins compatible for Editor in 1.27 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3658 unused Assets / (0.8 MB). Loaded Objects now: 4323.
+Memory consumption went from 113.4 MB to 112.6 MB.
+Total: 5.282000 ms (FindLiveObjects: 0.303700 ms CreateObjectMapping: 0.175600 ms MarkObjects: 4.056300 ms  DeleteObjects: 0.744600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 30.271751 seconds.
+  path: Assets/Resources/Prefab/Attack Trigger.prefab
+  artifactKey: Guid(62c590ec44dfc483cb81b735bc823d11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefab/Attack Trigger.prefab using Guid(62c590ec44dfc483cb81b735bc823d11) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0bc545c484de62d4b4d62881e3d8796e') in 0.0194077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.438 seconds
+Refreshing native plugins compatible for Editor in 0.90 ms, found 4 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.584 seconds
+Domain Reload Profiling: 1022ms
+	BeginReloadAssembly (137ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (36ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (18ms)
+	LoadAllAssembliesAndSetupDomain (253ms)
+		LoadAssemblies (220ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (102ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (88ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (584ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (450ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (61ms)
+			ProcessInitializeOnLoadAttributes (358ms)
+			ProcessInitializeOnLoadMethodAttributes (14ms)
+			AfterProcessingInitializeOnLoad (4ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
+Refreshing native plugins compatible for Editor in 0.72 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3658 unused Assets / (0.8 MB). Loaded Objects now: 4323.
+Memory consumption went from 113.4 MB to 112.5 MB.
+Total: 4.171300 ms (FindLiveObjects: 0.242500 ms CreateObjectMapping: 0.114300 ms MarkObjects: 3.214900 ms  DeleteObjects: 0.598900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 169.228559 seconds.
+  path: Assets/Resources/Prefab/Attack Trigger.prefab
+  artifactKey: Guid(62c590ec44dfc483cb81b735bc823d11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefab/Attack Trigger.prefab using Guid(62c590ec44dfc483cb81b735bc823d11) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c62c96573c27b95051e982a9b030af25') in 0.0199874 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.081922 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword1_1_3.prefab
+  artifactKey: Guid(7d01f9f5cda21e548b98e6d01cb6c83c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword1_1_3.prefab using Guid(7d01f9f5cda21e548b98e6d01cb6c83c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9bfdb536f7a69b160d60c6af36bb1e00') in 0.0012655 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003428 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword2_3_3.prefab
+  artifactKey: Guid(547123ea5367cd34cb9bbbca9ebe1864) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword2_3_3.prefab using Guid(547123ea5367cd34cb9bbbca9ebe1864) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a6e4bfb17c1ff9c4e782097194ca5c5d') in 0.0010062 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003282 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword3_1_3.prefab
+  artifactKey: Guid(51166cbcc1bd0a04597986b62277bc94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword3_1_3.prefab using Guid(51166cbcc1bd0a04597986b62277bc94) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '02920b3c694c9f86bfdd5465ce9047c3') in 0.0010231 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002499 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword5_3_2.prefab
+  artifactKey: Guid(f188613c9ba98294fa1d4ac1806d1c36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/_PrefabsSwords/Sword5_3_2.prefab using Guid(f188613c9ba98294fa1d4ac1806d1c36) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3cdae05cd86c7282bf1a1d034fceff07') in 0.0010874 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.404747 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Swords/Meshes_Swords/Sword2_3.fbx
+  artifactKey: Guid(2c4c08653e0419c4bb3bddef9eff0ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Swords/Meshes_Swords/Sword2_3.fbx using Guid(2c4c08653e0419c4bb3bddef9eff0ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4ab1c4821bb0b848c541b21a38415dae') in 0.0595489 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 84.596584 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Daggers/Material_Daggers/Dagger1_3_5.mat
+  artifactKey: Guid(f0c1217170e8fd243a48a6ed648c71d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Daggers/Material_Daggers/Dagger1_3_5.mat using Guid(f0c1217170e8fd243a48a6ed648c71d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '42c74515757ea700fe2012ba83ed2dcf') in 0.012603 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.767516 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/Shield3_1_1_Metallic.png
+  artifactKey: Guid(c49a72822c30e114dbfc708b5dee9246) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/Shield3_1_1_Metallic.png using Guid(c49a72822c30e114dbfc708b5dee9246) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '35a53ad3109c2b947f114d668687e912') in 0.0228415 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.159467 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/Shield3_1_1_AO.png
+  artifactKey: Guid(39571ed5515bfed4d8fab437ef5c74e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/Shield3_1_1_AO.png using Guid(39571ed5515bfed4d8fab437ef5c74e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0bd2b4450dd0a7074cff34f096d2a575') in 0.0208816 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.028483 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/Shield2_1_2_Metallic.png
+  artifactKey: Guid(73cf39b4de94ccc4d9a9731cd19a60d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/Shield2_1_2_Metallic.png using Guid(73cf39b4de94ccc4d9a9731cd19a60d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '40671a206be4a1d93bb6e1aae3139716') in 0.0164042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018705 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/Shield2_1_2_AO.png
+  artifactKey: Guid(fe71d92e1b9b92a4f9f52ee8d041def5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Shields/Textures_Shields/Shield2_1_2_AO.png using Guid(fe71d92e1b9b92a4f9f52ee8d041def5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '10e1ba610fcef36f505059a4d6c8c278') in 0.0168002 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.943102 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Hammers/Textures_Hammers/Hammer1_1_3_Metallic.png
+  artifactKey: Guid(072ba1d1d7addc04aa536452ec3de2a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Hammers/Textures_Hammers/Hammer1_1_3_Metallic.png using Guid(072ba1d1d7addc04aa536452ec3de2a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e5ec0b1f395736db04e86604a10f6280') in 0.0232539 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/UI/HealthBar.png
+  artifactKey: Guid(c73bec8747c75134a87affe923ee34e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/UI/HealthBar.png using Guid(c73bec8747c75134a87affe923ee34e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '27010a278821bf0bb7e71a0ce05b566a') in 0.0172225 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.020230 seconds.
+  path: Assets/Pixel Art - Swords and Staffs/Pack 2/2px/32.png
+  artifactKey: Guid(22c54137fb0c64f4aa1502878cc71515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Art - Swords and Staffs/Pack 2/2px/32.png using Guid(22c54137fb0c64f4aa1502878cc71515) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '757d573126e5ae2a4d4f9cfc562f6a51') in 0.0110808 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000097 seconds.
+  path: Assets/Pixel Art - Swords and Staffs/Pack 3/1px/32.png
+  artifactKey: Guid(d9efca313c9e479498844bf7c28d86dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Art - Swords and Staffs/Pack 3/1px/32.png using Guid(d9efca313c9e479498844bf7c28d86dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '34cfb77ed71e6935195b3fee2b3a963c') in 0.0133721 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.138352 seconds.
+  path: Assets/Pixel Art - Swords and Staffs/Pack 1/No Overlap/1px.png
+  artifactKey: Guid(0397877610e44cb4e9110c6afb9b1a09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Art - Swords and Staffs/Pack 1/No Overlap/1px.png using Guid(0397877610e44cb4e9110c6afb9b1a09) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ccf5c538e7cfe19c3026f3d4f5fcd1c8') in 0.0092095 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Pixel Art - Swords and Staffs/Pack 3/1px All.png
+  artifactKey: Guid(8336c25db2f06314cb2be260cde6da49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Art - Swords and Staffs/Pack 3/1px All.png using Guid(8336c25db2f06314cb2be260cde6da49) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4a58eb7fac03b8170fceb75fe8b7e379') in 0.0118547 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.016518 seconds.
+  path: Assets/Pixel Art - Swords and Staffs/Pack 1/1px All.png
+  artifactKey: Guid(6e6174b1f9d48cc4fbd86c46ec0bf15b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Art - Swords and Staffs/Pack 1/1px All.png using Guid(6e6174b1f9d48cc4fbd86c46ec0bf15b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '33639b26e86889774da62e2a26d6f853') in 0.0132929 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003071 seconds.
+  path: Assets/Pixel Art - Swords and Staffs/Pack 5/1px All.png
+  artifactKey: Guid(c34acae8597b9e8439de21e547a364b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Art - Swords and Staffs/Pack 5/1px All.png using Guid(c34acae8597b9e8439de21e547a364b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '86805747e32df464d36aa25d902f20e9') in 0.0123072 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.332755 seconds.
+  path: Assets/Pixel Art - Swords and Staffs/Pack 5/2px All.png
+  artifactKey: Guid(071f5965d4c70d44c9cc9c2aaf4d7fda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Pixel Art - Swords and Staffs/Pack 5/2px All.png using Guid(071f5965d4c70d44c9cc9c2aaf4d7fda) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '54aee3abd12b16c156c9dd065de9fa5e') in 0.0115078 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.279385 seconds.
+  path: Assets/Resources/Prefab/Attack Trigger.prefab
+  artifactKey: Guid(62c590ec44dfc483cb81b735bc823d11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefab/Attack Trigger.prefab using Guid(62c590ec44dfc483cb81b735bc823d11) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2b2926fcbe6c263edb971ab9284b3a2e') in 0.0029953 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 117.283746 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e12bce6141e051ac6d91e3087505de94') in 0.0164341 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.836913 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '893ad86b5e6ed2108157b1ee379bf757') in 0.0275323 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.210309 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '888b5c4c490c9ad6c5f7af2c676673e7') in 0.0391955 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.127121 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b28787ef348a8212aecaff9aaafaefa7') in 0.0337776 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.766450 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e7dda224253fc1a7554a00328d3e08e5') in 0.0224479 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.884128 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4cf950d1d0b48c2223f86a97cc5177de') in 0.0330467 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 108.671868 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a00612c5145fb58da27c7690380d58a1') in 0.0062176 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.780051 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ea501ef420965ed5ad823f33aaf162e7') in 0.0066641 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.069437 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '736d5b7cb217ab6b5a3f38a40ab8f018') in 0.0064052 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.644379 seconds.
+  path: Assets/Resources/Sprite/skill Indicator.png
+  artifactKey: Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Sprite/skill Indicator.png using Guid(13d5df5aa4c3a2242bd936bd1901cc5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd71ab8fb2cc01ffa296feba234f84b82') in 0.0170667 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.262234 seconds.
+  path: Assets/C#Scripts/InGameScene/GameManager.cs
+  artifactKey: Guid(a7ed92fb3cc6996438043f7fd568586c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/C#Scripts/InGameScene/GameManager.cs using Guid(a7ed92fb3cc6996438043f7fd568586c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '71bdfa5ab1f5922922252c72a6ba03d9') in 0.0006115 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.930827 seconds.
+  path: Assets/C#Scripts/InGameScene/HealthBarSynchronizer.cs
+  artifactKey: Guid(a02204873c5a02c438c3739256cad51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/C#Scripts/InGameScene/HealthBarSynchronizer.cs using Guid(a02204873c5a02c438c3739256cad51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'af2db828512f7af23e4b8fd3fadc8619') in 0.0005178 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.518219 seconds.
+  path: Assets/C#Scripts/InGameScene/BaseTaskQueue.cs
+  artifactKey: Guid(0c0572b7a32ac1744a6cbca56be78cca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/C#Scripts/InGameScene/BaseTaskQueue.cs using Guid(0c0572b7a32ac1744a6cbca56be78cca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1f254fa4231b71bffa414b06bec601c2') in 0.0004873 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.898804 seconds.
+  path: Assets/C#Scripts/InGameScene/BaseDestroyTimer.cs
+  artifactKey: Guid(23d8c9bbaff57f6449863bad3683ac9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/C#Scripts/InGameScene/BaseDestroyTimer.cs using Guid(23d8c9bbaff57f6449863bad3683ac9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '10626dcb9d9e8268361909d2c7d9e9bf') in 0.0004843 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.862868 seconds.
+  path: Assets/C#Scripts/InGameScene/CircularSectorMeshRenderer.cs
+  artifactKey: Guid(97b80b450a2cf3e409d5fc94e875c08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/C#Scripts/InGameScene/CircularSectorMeshRenderer.cs using Guid(97b80b450a2cf3e409d5fc94e875c08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7c82df5fd6313cce36f8ad6cdb186df6') in 0.0004412 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.595424 seconds.
+  path: Assets/C#Scripts/InGameScene/Enemy.cs
+  artifactKey: Guid(7da98d5f36a54d34e827dc0066088616) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/C#Scripts/InGameScene/Enemy.cs using Guid(7da98d5f36a54d34e827dc0066088616) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '84f18989970bf33affb644e22106d71a') in 0.0005278 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.309624 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Soft Mask.mat
+  artifactKey: Guid(42df1c7856584b6b8db9a509b6b10074) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans SDF - Soft Mask.mat using Guid(42df1c7856584b6b8db9a509b6b10074) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '859483a02570a6a0f8e22a174d29aa5c') in 0.0255163 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.463720 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Axes/BasicAxes/Textures_BasicAxes/BasicAxe2_1_BaseColor.png
+  artifactKey: Guid(cfb3a7fa47168a34193536e47fc49820) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Axes/BasicAxes/Textures_BasicAxes/BasicAxe2_1_BaseColor.png using Guid(cfb3a7fa47168a34193536e47fc49820) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3efb426b25e63bdbf0e3c60832c88363') in 0.0190657 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000589 seconds.
+  path: Assets/item/weapon1/Weapons/Stylized/Axes/BasicAxes/Textures_BasicAxes/BasicAxe2_1_Normal.png
+  artifactKey: Guid(da4640748e8033b46bd65e1cec7a2037) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon1/Weapons/Stylized/Axes/BasicAxes/Textures_BasicAxes/BasicAxe2_1_Normal.png using Guid(da4640748e8033b46bd65e1cec7a2037) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '47c1254c01dbcb20096fd2091e76fb03') in 0.0243983 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/item/weapon2/Art/Textures/Bows/Bows1Orange.png
+  artifactKey: Guid(9f93be90f14eef14a8f71722a77140d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Bows/Bows1Orange.png using Guid(9f93be90f14eef14a8f71722a77140d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '57be60661ec6a5894337650ec5dbb9c5') in 0.0140229 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/item/weapon2/Art/Textures/Bows/Bows1Violet.png
+  artifactKey: Guid(3a6217e31a473e14e969c5b310eac51d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/item/weapon2/Art/Textures/Bows/Bows1Violet.png using Guid(3a6217e31a473e14e969c5b310eac51d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2d0677dc96136c064e6794d78f53fde6') in 0.0152908 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

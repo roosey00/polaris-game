@@ -109,6 +109,7 @@
     <Compile Include="Assets\C#Scripts\AudioManager.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\DamageText.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\CameraFollowOutline.cs" />
+    <Compile Include="Assets\C#Scripts\InGameScene\CircularSectorMeshRenderer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\C#Scripts\InGameScene\UIManager.cs" />
